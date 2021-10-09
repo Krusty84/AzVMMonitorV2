@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_converter" kind="class" prot="package">
+    <compoundname>AzVMMonitorCostsPerVMDisk::Converter</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_converter_1a3fdff8592be7d4e80ef70fac25136389" prot="public" static="yes" mutable="no">
+        <type>readonly JsonSerializerSettings</type>
+        <definition>readonly JsonSerializerSettings AzVMMonitorCostsPerVMDisk.Converter.Settings</definition>
+        <argsstring></argsstring>
+        <name>Settings</name>
+        <initializer>= new JsonSerializerSettings
+        {
+            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
+            DateParseHandling = DateParseHandling.None,
+            Converters =
+            {
+                <ref refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_row_converter_1abcaa7858d154b7c7a5cc00fceb8e013c" kindref="member">RowConverter.Singleton</ref>,
+                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
+            },
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="214" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="214" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="213" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="212" bodyend="224"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_converter_1a3fdff8592be7d4e80ef70fac25136389" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Converter</scope><name>Settings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

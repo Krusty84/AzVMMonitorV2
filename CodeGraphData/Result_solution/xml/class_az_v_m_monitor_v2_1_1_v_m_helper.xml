@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_v2_1_1_v_m_helper" kind="class" prot="public">
+    <compoundname>AzVMMonitorV2::VMHelper</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6fdda0bdba80a16df473a20269e936cb" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMName</definition>
+        <argsstring></argsstring>
+        <name>VMName</name>
+        <briefdescription>
+<para>Gets or sets the VMName. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="13" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="13" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6969aca7e8a5a72f7842e80288d4f3e1" compoundref="_v_m_helper_8cs" startline="93" endline="97">AzVMMonitorV2.VMHelper.ToString</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a60795f88038ac2d437c4c8b3b87b71dc" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMState</definition>
+        <argsstring></argsstring>
+        <name>VMState</name>
+        <briefdescription>
+<para>Gets or sets the VMState. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="18" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1af7e6e8bea9e408e0705e158f87364ec8" compoundref="_main_window_8xaml_8cs" startline="306" endline="339">AzVMMonitorV2.MainWindow.ListOfVM_PreviewMouseLeftButtonDown</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a06bde43f6a718b1f3a738183b9a36c7d" compoundref="_main_window_8xaml_8cs" startline="346" endline="371">AzVMMonitorV2.MainWindow.ListOfVM_PreviewMouseLeftButtonUp</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a871e6fedea80e8519c2fb141937516d9" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMKey</definition>
+        <argsstring></argsstring>
+        <name>VMKey</name>
+        <briefdescription>
+<para>Gets or sets the VMKey. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="23" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="23" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1af583e402540621c8543bfd19e18c515f" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMSize</definition>
+        <argsstring></argsstring>
+        <name>VMSize</name>
+        <briefdescription>
+<para>Gets or sets the VMSize. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="28" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="28" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a42d8f4e46cfd24aa36275c000273c576" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMUpTime</definition>
+        <argsstring></argsstring>
+        <name>VMUpTime</name>
+        <briefdescription>
+<para>Gets or sets the VMUpTime. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="33" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a12e7bb61e7402c651d3cf6a2304df994" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMPublicIP</definition>
+        <argsstring></argsstring>
+        <name>VMPublicIP</name>
+        <briefdescription>
+<para>Gets or sets the VMPublicIP. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="38" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="38" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a17fdbd2f134a6d6446a56f024de59a26" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMGroupName</definition>
+        <argsstring></argsstring>
+        <name>VMGroupName</name>
+        <briefdescription>
+<para>Gets or sets the VMGroupName. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="43" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="43" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a70ad48c043044269637a0b3993dd8202" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>int</type>
+        <definition>int AzVMMonitorV2.VMHelper.VMDiskCount</definition>
+        <argsstring></argsstring>
+        <name>VMDiskCount</name>
+        <briefdescription>
+<para>Gets or sets the VMDiskCount. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="48" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="48" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1adf7b294ac3000fecb798dc110f585721" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMDiskFirst</definition>
+        <argsstring></argsstring>
+        <name>VMDiskFirst</name>
+        <briefdescription>
+<para>Gets or sets the VMDiskFirst. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="53" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="53" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1ae0f95456ca5e047893fa3f72dc13b223" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.VMHelper.VMNetwork</definition>
+        <argsstring></argsstring>
+        <name>VMNetwork</name>
+        <briefdescription>
+<para>Gets or sets the VMNetwork. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="58" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="58" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1af56483c66a012803ccee41fd42085f09" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>IVirtualMachine</type>
+        <definition>IVirtualMachine AzVMMonitorV2.VMHelper.VMCurrent</definition>
+        <argsstring></argsstring>
+        <name>VMCurrent</name>
+        <briefdescription>
+<para>Gets or sets the VMCurrent. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="63" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AzVMMonitorV2.VMHelper.VMHelper</definition>
+        <argsstring>(IVirtualMachine SelectedVM)</argsstring>
+        <name>VMHelper</name>
+        <param>
+          <type>IVirtualMachine</type>
+          <declname>SelectedVM</declname>
+        </param>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_az_v_m_monitor_v2_1_1_v_m_helper" kindref="compound">VMHelper</ref> class. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>SelectedVM</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The SelectedVMIVirtualMachine.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="69" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="69" bodyend="87"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6969aca7e8a5a72f7842e80288d4f3e1" compoundref="_v_m_helper_8cs" startline="93" endline="97">AzVMMonitorV2.VMHelper.ToString</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1af56483c66a012803ccee41fd42085f09" compoundref="_v_m_helper_8cs" startline="63">AzVMMonitorV2.VMHelper.VMCurrent</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a70ad48c043044269637a0b3993dd8202" compoundref="_v_m_helper_8cs" startline="48">AzVMMonitorV2.VMHelper.VMDiskCount</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1adf7b294ac3000fecb798dc110f585721" compoundref="_v_m_helper_8cs" startline="53">AzVMMonitorV2.VMHelper.VMDiskFirst</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a17fdbd2f134a6d6446a56f024de59a26" compoundref="_v_m_helper_8cs" startline="43">AzVMMonitorV2.VMHelper.VMGroupName</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a871e6fedea80e8519c2fb141937516d9" compoundref="_v_m_helper_8cs" startline="23">AzVMMonitorV2.VMHelper.VMKey</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6fdda0bdba80a16df473a20269e936cb" compoundref="_v_m_helper_8cs" startline="13">AzVMMonitorV2.VMHelper.VMName</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1ae0f95456ca5e047893fa3f72dc13b223" compoundref="_v_m_helper_8cs" startline="58">AzVMMonitorV2.VMHelper.VMNetwork</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a12e7bb61e7402c651d3cf6a2304df994" compoundref="_v_m_helper_8cs" startline="38">AzVMMonitorV2.VMHelper.VMPublicIP</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1af583e402540621c8543bfd19e18c515f" compoundref="_v_m_helper_8cs" startline="28">AzVMMonitorV2.VMHelper.VMSize</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a60795f88038ac2d437c4c8b3b87b71dc" compoundref="_v_m_helper_8cs" startline="18">AzVMMonitorV2.VMHelper.VMState</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6969aca7e8a5a72f7842e80288d4f3e1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override string</type>
+        <definition>override string AzVMMonitorV2.VMHelper.ToString</definition>
+        <argsstring>()</argsstring>
+        <name>ToString</name>
+        <briefdescription>
+<para>The ToString. </para>        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The string.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="93" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="93" bodyend="97"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6fdda0bdba80a16df473a20269e936cb" compoundref="_v_m_helper_8cs" startline="13">AzVMMonitorV2.VMHelper.VMName</references>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" compoundref="_v_m_helper_8cs" startline="69" endline="87">AzVMMonitorV2.VMHelper.VMHelper</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Defines the <ref refid="class_az_v_m_monitor_v2_1_1_v_m_helper" kindref="compound">VMHelper</ref>. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" line="9" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/VMHelper.cs" bodystart="8" bodyend="98"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6969aca7e8a5a72f7842e80288d4f3e1" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>ToString</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1af56483c66a012803ccee41fd42085f09" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMCurrent</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a70ad48c043044269637a0b3993dd8202" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMDiskCount</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1adf7b294ac3000fecb798dc110f585721" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMDiskFirst</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a17fdbd2f134a6d6446a56f024de59a26" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMGroupName</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMHelper</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a871e6fedea80e8519c2fb141937516d9" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMKey</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6fdda0bdba80a16df473a20269e936cb" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMName</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1ae0f95456ca5e047893fa3f72dc13b223" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMNetwork</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a12e7bb61e7402c651d3cf6a2304df994" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMPublicIP</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1af583e402540621c8543bfd19e18c515f" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMSize</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a60795f88038ac2d437c4c8b3b87b71dc" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMState</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a42d8f4e46cfd24aa36275c000273c576" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::VMHelper</scope><name>VMUpTime</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

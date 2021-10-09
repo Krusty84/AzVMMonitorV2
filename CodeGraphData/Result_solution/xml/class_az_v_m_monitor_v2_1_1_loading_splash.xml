@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_v2_1_1_loading_splash" kind="class" prot="public">
+    <compoundname>AzVMMonitorV2::LoadingSplash</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_loading_splash_1a160991960f26833c87d3b61b7bcc1da3" prot="private" static="no" mutable="no">
+        <type>SplashScreen</type>
+        <definition>SplashScreen AzVMMonitorV2.LoadingSplash.Splash</definition>
+        <argsstring></argsstring>
+        <name>Splash</name>
+        <initializer>= new SplashScreen(&quot;CloudSplash.gif&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" line="14" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_loading_splash_1a03c8c8cc5205300d98095bcd34bb7721" prot="private" static="no" mutable="no">
+        <type><ref refid="class_az_v_m_monitor_v2_1_1_main_window" kindref="compound">MainWindow</ref></type>
+        <definition>MainWindow AzVMMonitorV2.LoadingSplash.MainWindow</definition>
+        <argsstring></argsstring>
+        <name>MainWindow</name>
+        <initializer>= new <ref refid="class_az_v_m_monitor_v2_1_1_main_window" kindref="compound">MainWindow</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" line="16" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_loading_splash_1a44e3a19959335b84ff781f9c84666632" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.LoadingSplash.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" line="18" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" bodystart="18" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="40">
+        <label>AzVMMonitorV2.MainWindow</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_main_window"/>
+        <childnode refid="41" relation="public-inheritance">
+        </childnode>
+        <childnode refid="42" relation="usage">
+          <edgelabel>SelectedVM</edgelabel>
+        </childnode>
+      </node>
+      <node id="41">
+        <label>Window</label>
+      </node>
+      <node id="39">
+        <label>AzVMMonitorV2.LoadingSplash</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_loading_splash"/>
+        <childnode refid="40" relation="usage">
+          <edgelabel>MainWindow</edgelabel>
+        </childnode>
+      </node>
+      <node id="42">
+        <label>AzVMMonitorV2.VMHelper</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_v_m_helper"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" line="13" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/LoadingSplash.cs" bodystart="12" bodyend="32"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_v2_1_1_loading_splash_1a03c8c8cc5205300d98095bcd34bb7721" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::LoadingSplash</scope><name>MainWindow</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_loading_splash_1a160991960f26833c87d3b61b7bcc1da3" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::LoadingSplash</scope><name>Splash</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_loading_splash_1a44e3a19959335b84ff781f9c84666632" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::LoadingSplash</scope><name>Start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,412 @@
+﻿<Window
+    x:Class="AzVMMonitorV2.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AzVMMonitorV2"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="MainWindowUI"
+    Title="AzVMMonitor"
+    Width="917"
+    Height="703"
+    Loaded="Window_Loaded"
+    ResizeMode="CanMinimize"
+    StateChanged="MainWindowUI_StateChanged"
+    mc:Ignorable="d">
+    <Grid Width="911" HorizontalAlignment="Left">
+
+        <ListView
+            x:Name="ListOfVM"
+            Height="309"
+            Margin="10,10,174,0"
+            VerticalAlignment="Top"
+            PreviewMouseLeftButtonDown="ListOfVM_PreviewMouseLeftButtonDown"
+            PreviewMouseLeftButtonUp="ListOfVM_PreviewMouseLeftButtonUp">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding VMName}"
+                        Header="Virtual Machine" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding VMState}"
+                        Header="State" />
+                    <GridViewColumn
+                        Width="200"
+                        DisplayMemberBinding="{Binding VMGroupName}"
+                        Header="Resource Group" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button
+            x:Name="ButtonStartVM"
+            Width="76"
+            Height="52"
+            Margin="809,66,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FF0BE650"
+            BorderBrush="#FF0BE650"
+            Click="ButtonStartVM_Click"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="Start VM">
+            <materialDesign:PackIcon
+                Width="32"
+                Height="32"
+                Foreground="Black"
+                Kind="Play" />
+        </Button>
+        <Button
+            x:Name="ButtonRestartVM"
+            Width="76"
+            Height="52"
+            Margin="809,149,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFF8FF67"
+            BorderBrush="#FFF8FF67"
+            Click="ButtonRestartVM_Click"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="Restart VM">
+            <materialDesign:PackIcon
+                Width="30"
+                Height="30"
+                Foreground="Black"
+                Kind="Refresh" />
+        </Button>
+        <Button
+            x:Name="ButtonStopVM"
+            Width="76"
+            Height="52"
+            Margin="809,232,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Background="#FFF0150A"
+            BorderBrush="#FFF0150A"
+            Click="ButtonStopVM_Click"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="Stop VM">
+            <materialDesign:PackIcon
+                Width="30"
+                Height="30"
+                Foreground="Black"
+                Kind="Stop" />
+        </Button>
+
+        <TabControl
+            x:Name="TabTechicalData"
+            Height="273"
+            Margin="10,362,10,69"
+            Style="{StaticResource MaterialDesignTabControl}">
+            <TabItem Header="Techincal Data" PreviewMouseLeftButtonUp="TabItemTechData_PreviewMouseLeftButtonUp">
+                <StackPanel Margin="0,0,0,-34" Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="350" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="5,0,39,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="VM Name" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="5,0,39,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="VM Size" />
+
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Margin="5,0,39,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="VM Was Created" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Margin="5,0,39,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="VM State" />
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="0"
+                            Margin="5,0,39,0"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="VM Public IP" />
+
+                        <!--    -->
+
+                        <TextBox
+                            x:Name="LabelVMName"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <TextBox
+                            x:Name="LabelVMSize"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <TextBox
+                            x:Name="LabelVMWasCreated"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <TextBox
+                            x:Name="LabelVMState"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True"
+                            MouseEnter="LabelVMState_MouseEnter">
+                            <TextBox.ToolTip>
+                                <ToolTip x:Name="LabelVMStateToolTip" Placement="MousePoint" />
+                            </TextBox.ToolTip>
+                        </TextBox>
+
+                        <TextBox
+                            x:Name="LabelVMPublicIP"
+                            Grid.Row="5"
+                            Grid.Column="1"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <Button
+                            x:Name="ButtonOpenRDP"
+                            Grid.Row="5"
+                            Grid.Column="3"
+                            Width="76"
+                            Height="30"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Click="ButtonOpenRDP_Click"
+                            Content="{materialDesign:PackIcon Connection}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Connect via RDP" />
+
+                        <Button
+                            x:Name="ButtonOpenAzurePortal"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Width="76"
+                            Height="30"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Click="ButtonOpenAzurePortal_Click"
+                            Content="{materialDesign:PackIcon Web}"
+                            Style="{StaticResource MaterialDesignRaisedLightButton}"
+                            ToolTip="Open Azure Web Portal" />
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem
+                x:Name="TabFinanceData"
+                Header="Finance Data"
+                PreviewMouseLeftButtonUp="TabItemFinData_PreviewMouseLeftButtonUpAsync">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="150" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Margin="5,6,4,5"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="COST per VM" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Margin="5,6,0,5"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="COST per Disk" />
+
+                        <TextBlock
+                            Grid.Row="4"
+                            Grid.Column="0"
+                            Margin="5,6,0,5"
+                            VerticalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="COST per Net" />
+
+                        <TextBox
+                            x:Name="LabelCOSTPerVM"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="0,3,0,2"
+                            VerticalAlignment="Center"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <TextBox
+                            x:Name="LabelCOSTPerVMDisk"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Margin="0,3,0,2"
+                            VerticalAlignment="Center"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <TextBox
+                            x:Name="LabelCOSTPerVMNetwork"
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Margin="0,3,0,2"
+                            VerticalAlignment="Center"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="True" />
+
+                        <TextBlock
+                            Grid.Row="5"
+                            Grid.Column="2"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Actual VM COST (Total)" />
+
+                        <TextBox
+                            x:Name="LabelCOSTVMTotal"
+                            Grid.Row="5"
+                            Grid.Column="3"
+                            VerticalAlignment="Center"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            Background="#FFC5ECB6"
+                            IsReadOnly="True" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Account COST (Total)" />
+
+                        <TextBox
+                            x:Name="LabelCOSTTotal"
+                            Grid.Row="1"
+                            Grid.Column="4"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            Background="#FFF37B75"
+                            IsReadOnly="True" />
+
+                        <TextBlock
+                            x:Name="COSTDetailsHyperLink"
+                            Grid.Row="2"
+                            Grid.Column="4"
+                            Width="194"
+                            HorizontalAlignment="Right"
+                            Cursor="Hand"
+                            FontStyle="Italic"
+                            MouseDown="TextBlock_MouseDown"
+                            Text="Click here to get a more COST Data"
+                            TextDecorations="Underline" />
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+        <Button
+            x:Name="ButtonReloadData"
+            Width="52"
+            Height="24"
+            Margin="839,310,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Click="ButtonReloadData_Click"
+            Content="{materialDesign:PackIcon CloudDownloadOutline}"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="Reload Data" />
+
+        <TextBlock
+            x:Name="LabelWarningError"
+            Grid.Column="0"
+            Height="26"
+            Margin="24,635,104,13"
+            VerticalAlignment="Center"
+            FontWeight="Bold"
+            Foreground="#FFF01414"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Something Wrong:" />
+
+        <TextBlock
+            x:Name="LabelLastUpdate"
+            Grid.Column="0"
+            Height="26"
+            Margin="681,325,20,272"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Last Update:" />
+
+        <StackPanel
+            x:Name="ProgressDataLoadPanel"
+            Width="727"
+            Height="296"
+            Margin="10,66,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Opacity="0.8">
+
+            <ProgressBar
+                Width="130"
+                Height="130"
+                Margin="320,77,0,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                IsIndeterminate="True"
+                RenderTransformOrigin="0.475,0.473"
+                Style="{StaticResource MaterialDesignCircularProgressBar}"
+                Value="0" />
+        </StackPanel>
+    </Grid>
+</Window>

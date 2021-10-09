@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::CostDataTotal</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1acdf8f7517bf623ec8c641896f6927cb7" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.CostDataTotal.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="449" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="449" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a6bf050003c18232e948e0a7c47d21f8f" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.CostDataTotal.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="452" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="452" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a7f424e6e18e1fc4f693c3aa7f672e176" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.CostDataTotal.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="455" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="455" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a47f3d41bace3d749e41fe8dfeb2cbc0a" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostTotalData.CostDataTotal.Location</definition>
+        <argsstring></argsstring>
+        <name>Location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="458" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="458" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a6d5accd500119a43bbfba651022c22cc" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostTotalData.CostDataTotal.Sku</definition>
+        <argsstring></argsstring>
+        <name>Sku</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="461" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="461" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a7c99ff2e9edd86923651af8e980b6129" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostTotalData.CostDataTotal.ETag</definition>
+        <argsstring></argsstring>
+        <name>ETag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="464" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="464" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1ad5c8d2cb131d7d39ea7c0af56d87ada4" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="class_az_v_m_monitor_cost_total_data_1_1_properties" kindref="compound">Properties</ref></type>
+        <definition>Properties AzVMMonitorCostTotalData.CostDataTotal.Properties</definition>
+        <argsstring></argsstring>
+        <name>Properties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="467" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="467" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a9b1559de28b79e530d7842633ce4f404" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total" kindref="compound">CostDataTotal</ref></type>
+        <definition>static CostDataTotal AzVMMonitorCostTotalData.CostDataTotal.FromJson</definition>
+        <argsstring>(string json)</argsstring>
+        <name>FromJson</name>
+        <param>
+          <type>string</type>
+          <declname>json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="502" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="447" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="446" bodyend="468"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a7c99ff2e9edd86923651af8e980b6129" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>ETag</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a9b1559de28b79e530d7842633ce4f404" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>FromJson</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1acdf8f7517bf623ec8c641896f6927cb7" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>Id</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a47f3d41bace3d749e41fe8dfeb2cbc0a" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>Location</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a6bf050003c18232e948e0a7c47d21f8f" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>Name</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1ad5c8d2cb131d7d39ea7c0af56d87ada4" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>Properties</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a6d5accd500119a43bbfba651022c22cc" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>Sku</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a7f424e6e18e1fc4f693c3aa7f672e176" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostDataTotal</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

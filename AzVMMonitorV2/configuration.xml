@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AzVMMonitor>
+  <clientID_appID>bla-bla-bla-bla</clientID_appID>
+  <clietnSecret_appSecret>bla-bla-bla-bla</clietnSecret_appSecret>
+  <clientTenantId>bla-bla-bla-bla</clientTenantId>
+  <azureSubscriptionID>bla-bla-bla-bla</azureSubscriptionID>
+  <currency>USD</currency>
+  <!-- BillingMonthToDate, MonthToDate, TheLastBillingMonth, TheLastMonth, WeekToDate-->
+  <typeTimeFrame>TheLastBillingMonth</typeTimeFrame>
+</AzVMMonitor>

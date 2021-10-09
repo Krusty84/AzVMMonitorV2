@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aec93297b13af8040c17f448d93c6dc2e" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="281" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="281" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1af17a16eb8d46d2b089b161e487f57a9e" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="284" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="284" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1ae237eda50ff520f7e01f49fdbbfdfedd" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="287" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="287" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aee88244ea5525fbf654869a22d44ffb5" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.Location</definition>
+        <argsstring></argsstring>
+        <name>Location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="290" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="290" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aedc42f3583ff97a08b6d7da88be8efa3" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.Sku</definition>
+        <argsstring></argsstring>
+        <name>Sku</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="293" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="293" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1ae371e7b14e1a0e8daeb7c9d958fad97d" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.ETag</definition>
+        <argsstring></argsstring>
+        <name>ETag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="296" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="296" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1a6cb0c91fdf04e01bf48553f81f42a7d7" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties" kindref="compound">Properties</ref></type>
+        <definition>Properties AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.Properties</definition>
+        <argsstring></argsstring>
+        <name>Properties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="299" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="299" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aa57b4e1f3a599d1ba8aa4d0f3a3ecdb1" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network" kindref="compound">CostDataPerVmNetwork</ref></type>
+        <definition>static CostDataPerVmNetwork AzVMMonitorCostsPerVMNetwork.CostDataPerVmNetwork.FromJson</definition>
+        <argsstring>(string json)</argsstring>
+        <name>FromJson</name>
+        <param>
+          <type>string</type>
+          <declname>json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="336" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="279" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="278" bodyend="300"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1ae371e7b14e1a0e8daeb7c9d958fad97d" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>ETag</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aa57b4e1f3a599d1ba8aa4d0f3a3ecdb1" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>FromJson</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aec93297b13af8040c17f448d93c6dc2e" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>Id</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aee88244ea5525fbf654869a22d44ffb5" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>Location</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1af17a16eb8d46d2b089b161e487f57a9e" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>Name</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1a6cb0c91fdf04e01bf48553f81f42a7d7" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>Properties</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aedc42f3583ff97a08b6d7da88be8efa3" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>Sku</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1ae237eda50ff520f7e01f49fdbbfdfedd" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a05ad1cd17237c99c878426b8ea60733a" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.Id</definition>
+        <argsstring></argsstring>
+        <name>Id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="149" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1aa8a6054f753cc978d58b8a4f072d191a" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.Name</definition>
+        <argsstring></argsstring>
+        <name>Name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="152" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a58fc97728ad0fe80d883f461537abe53" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.Type</definition>
+        <argsstring></argsstring>
+        <name>Type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="155" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="155" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a0c87a402068df6e98e19e93085ae5ef5" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.Location</definition>
+        <argsstring></argsstring>
+        <name>Location</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="158" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="158" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a81ca932d167ad8680f30d07beceb09ee" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.Sku</definition>
+        <argsstring></argsstring>
+        <name>Sku</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="161" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="161" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a597f732e2f654a025103c931312ff461" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.ETag</definition>
+        <argsstring></argsstring>
+        <name>ETag</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="164" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a78a08741ac527b37433d385974bc23af" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_properties" kindref="compound">Properties</ref></type>
+        <definition>Properties AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.Properties</definition>
+        <argsstring></argsstring>
+        <name>Properties</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="167" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="167" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a787c1a01d4173fbbeb5c275f6b63e4ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk" kindref="compound">CostDataPerVmDisk</ref></type>
+        <definition>static CostDataPerVmDisk AzVMMonitorCostsPerVMDisk.CostDataPerVmDisk.FromJson</definition>
+        <argsstring>(string json)</argsstring>
+        <name>FromJson</name>
+        <param>
+          <type>string</type>
+          <declname>json</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="204" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="147" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="146" bodyend="168"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a597f732e2f654a025103c931312ff461" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>ETag</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a787c1a01d4173fbbeb5c275f6b63e4ae" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>FromJson</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a05ad1cd17237c99c878426b8ea60733a" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>Id</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a0c87a402068df6e98e19e93085ae5ef5" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>Location</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1aa8a6054f753cc978d58b8a4f072d191a" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>Name</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a78a08741ac527b37433d385974bc23af" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>Properties</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a81ca932d167ad8680f30d07beceb09ee" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>Sku</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a58fc97728ad0fe80d883f461537abe53" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</scope><name>Type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

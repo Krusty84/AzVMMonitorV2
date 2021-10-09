@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_az_v_m_monitor_cost_total_data" kind="namespace">
+    <compoundname>AzVMMonitorCostTotalData</compoundname>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query" prot="public">AzVMMonitorCostTotalData::CostManagementQuery</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total" prot="public">AzVMMonitorCostTotalData::CostDataTotal</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_properties" prot="public">AzVMMonitorCostTotalData::Properties</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_column" prot="public">AzVMMonitorCostTotalData::Column</innerclass>
+    <innerclass refid="struct_az_v_m_monitor_cost_total_data_1_1_row" prot="public">AzVMMonitorCostTotalData::Row</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_serialize" prot="public">AzVMMonitorCostTotalData::Serialize</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_converter" prot="package">AzVMMonitorCostTotalData::Converter</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter" prot="package">AzVMMonitorCostTotalData::RowConverter</innerclass>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper" prot="public">AzVMMonitorCostTotalData::AzBillingRESTHelper</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="407" column="1"/>
+  </compounddef>
+</doxygen>

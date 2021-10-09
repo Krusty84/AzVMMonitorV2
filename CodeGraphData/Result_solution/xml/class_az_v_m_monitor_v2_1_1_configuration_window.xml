@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_v2_1_1_configuration_window" kind="class" prot="public">
+    <compoundname>AzVMMonitorV2::ConfigurationWindow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Window</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_configuration_window_1af1a1d0d168d4c5d6ea9e9d35918c6afd" prot="private" static="no" mutable="no">
+        <type>XDocument</type>
+        <definition>XDocument AzVMMonitorV2.ConfigurationWindow.xmlConfigFile</definition>
+        <argsstring></argsstring>
+        <name>xmlConfigFile</name>
+        <initializer>= XDocument.Load(&quot;configuration.xml&quot;)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" line="24" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_configuration_window_1ab460225b56a27bb2b607ee1d2cadaf8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AzVMMonitorV2.ConfigurationWindow.ConfigurationWindow</definition>
+        <argsstring>()</argsstring>
+        <name>ConfigurationWindow</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" line="25" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" bodystart="25" bodyend="42"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_configuration_window_1ad30ce6ffe26976ddb03c34abb4c0a41a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.ConfigurationWindow.Window_Loaded</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>Window_Loaded</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" line="44" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" bodystart="44" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_configuration_window_1a156b5b2981d712a6c5c272bee58bcd04" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.ConfigurationWindow.btn_saveConfiguration_Click</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>btn_saveConfiguration_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" line="49" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" bodystart="49" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interaction logic for ConfigurationWindow.xaml </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="17">
+        <label>Window</label>
+      </node>
+      <node id="16">
+        <label>AzVMMonitorV2.ConfigurationWindow</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_configuration_window"/>
+        <childnode refid="17" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="19">
+        <label>Window</label>
+      </node>
+      <node id="18">
+        <label>AzVMMonitorV2.ConfigurationWindow</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_configuration_window"/>
+        <childnode refid="19" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" line="23" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/ConfigurationWindow.xaml.cs" bodystart="22" bodyend="59"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1a156b5b2981d712a6c5c272bee58bcd04" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::ConfigurationWindow</scope><name>btn_saveConfiguration_Click</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1ab460225b56a27bb2b607ee1d2cadaf8d" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::ConfigurationWindow</scope><name>ConfigurationWindow</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1ad30ce6ffe26976ddb03c34abb4c0a41a" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::ConfigurationWindow</scope><name>Window_Loaded</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1af1a1d0d168d4c5d6ea9e9d35918c6afd" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::ConfigurationWindow</scope><name>xmlConfigFile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

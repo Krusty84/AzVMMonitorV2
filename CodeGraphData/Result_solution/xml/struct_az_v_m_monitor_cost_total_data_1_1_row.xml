@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_az_v_m_monitor_cost_total_data_1_1_row" kind="struct" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::Row</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_az_v_m_monitor_cost_total_data_1_1_row_1abed895bd28dfac20be5e400b4233e6f4" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AzVMMonitorCostTotalData.Row.Double</definition>
+        <argsstring></argsstring>
+        <name>Double</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="493" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="493" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_az_v_m_monitor_cost_total_data_1_1_row_1a9c8fb2768725bfdbee72b96dfe47f8c1" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.Row.String</definition>
+        <argsstring></argsstring>
+        <name>String</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="494" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="494" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="struct_az_v_m_monitor_cost_total_data_1_1_row_1abdae9e3ea48b6bc4bbf6df3a59ae1c27" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>implicit</type>
+        <definition>static implicit AzVMMonitorCostTotalData.Row.operator Row</definition>
+        <argsstring>(double Double)</argsstring>
+        <name>operator Row</name>
+        <param>
+          <type>double</type>
+          <declname>Double</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="496" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_az_v_m_monitor_cost_total_data_1_1_row_1a94ef9491d56b4ab2b7f615341df86d4a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>implicit</type>
+        <definition>static implicit AzVMMonitorCostTotalData.Row.operator Row</definition>
+        <argsstring>(string String)</argsstring>
+        <name>operator Row</name>
+        <param>
+          <type>string</type>
+          <declname>String</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="497" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="492" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="491" bodyend="498"/>
+    <listofallmembers>
+      <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1abed895bd28dfac20be5e400b4233e6f4" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Row</scope><name>Double</name></member>
+      <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1abdae9e3ea48b6bc4bbf6df3a59ae1c27" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Row</scope><name>operator Row</name></member>
+      <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1a94ef9491d56b4ab2b7f615341df86d4a" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Row</scope><name>operator Row</name></member>
+      <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1a9c8fb2768725bfdbee72b96dfe47f8c1" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Row</scope><name>String</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

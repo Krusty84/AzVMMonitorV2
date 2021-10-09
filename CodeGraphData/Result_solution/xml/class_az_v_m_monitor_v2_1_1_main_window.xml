@@ -1,0 +1,835 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_v2_1_1_main_window" kind="class" prot="public">
+    <compoundname>AzVMMonitorV2::MainWindow</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">Window</basecompoundref>
+      <sectiondef kind="package-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1afd2017a90a9cd88ffd41cdbc43a34c87" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.ClientId_appID</definition>
+        <argsstring></argsstring>
+        <name>ClientId_appID</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+<para>Defines the ClientId_appID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="31" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="31" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" compoundref="_main_window_8xaml_8cs" startline="235" endline="264">AzVMMonitorV2.MainWindow.MainWindow</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1af0ffc97090440bfaf8890654c27bd9cb" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.ClientSecret_appSecret</definition>
+        <argsstring></argsstring>
+        <name>ClientSecret_appSecret</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+<para>Defines the ClientSecret_appSecret. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="36" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="36" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" compoundref="_main_window_8xaml_8cs" startline="235" endline="264">AzVMMonitorV2.MainWindow.MainWindow</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1aa9192b09750d45886b18894801513bb4" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.ClientTenantId</definition>
+        <argsstring></argsstring>
+        <name>ClientTenantId</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+<para>Defines the ClientTenantId. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="41" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="41" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" compoundref="_main_window_8xaml_8cs" startline="235" endline="264">AzVMMonitorV2.MainWindow.MainWindow</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a2fe9940bfdb818033c6dd31733eb97fa" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.AzureSubscriptionID</definition>
+        <argsstring></argsstring>
+        <name>AzureSubscriptionID</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+<para>Defines the AzureSubscriptionID. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="46" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="46" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" compoundref="_main_window_8xaml_8cs" startline="235" endline="264">AzVMMonitorV2.MainWindow.MainWindow</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" compoundref="_main_window_8xaml_8cs" startline="453" endline="547">AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a55cbaaa55c73c57bae0be0341ff029cd" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.TypeCurrency</definition>
+        <argsstring></argsstring>
+        <name>TypeCurrency</name>
+        <initializer>= &quot;&quot;</initializer>
+        <briefdescription>
+<para>Defines the TypeCurrency. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="51" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="51" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" compoundref="_main_window_8xaml_8cs" startline="235" endline="264">AzVMMonitorV2.MainWindow.MainWindow</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" compoundref="_main_window_8xaml_8cs" startline="453" endline="547">AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1aa0cdb7fa88ce88b76424afa102a65feb" prot="package" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AzVMMonitorV2.MainWindow.CostVM</definition>
+        <argsstring></argsstring>
+        <name>CostVM</name>
+        <briefdescription>
+<para>Defines the CostVM, CostDisks, CostNET.. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="56" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" compoundref="_main_window_8xaml_8cs" startline="453" endline="547">AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1af5c848a888e7869dea59c1b6d19171d1" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.vMPublcIP</definition>
+        <argsstring></argsstring>
+        <name>vMPublcIP</name>
+        <initializer>= null</initializer>
+        <briefdescription>
+<para>Defines the vMPublcIP. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="61" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1adbfdad0caceb8479ffd8bb25b18141a0" prot="package" static="no" mutable="no">
+        <type><ref refid="class_az_v_m_monitor_v2_1_1_v_m_helper" kindref="compound">VMHelper</ref></type>
+        <definition>VMHelper AzVMMonitorV2.MainWindow.SelectedVM</definition>
+        <argsstring></argsstring>
+        <name>SelectedVM</name>
+        <briefdescription>
+<para>Defines the SelectedVM. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="66" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="66" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1af7e6e8bea9e408e0705e158f87364ec8" compoundref="_main_window_8xaml_8cs" startline="306" endline="339">AzVMMonitorV2.MainWindow.ListOfVM_PreviewMouseLeftButtonDown</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a06bde43f6a718b1f3a738183b9a36c7d" compoundref="_main_window_8xaml_8cs" startline="346" endline="371">AzVMMonitorV2.MainWindow.ListOfVM_PreviewMouseLeftButtonUp</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a30f58cd2cc724ddf690e8334861925dd" prot="package" static="no" mutable="no">
+        <type>IAzure</type>
+        <definition>IAzure AzVMMonitorV2.MainWindow.AzureCred</definition>
+        <argsstring></argsstring>
+        <name>AzureCred</name>
+        <briefdescription>
+<para>Defines the AzureCred. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="71" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="71" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a548736385e9e49eb671abc976839e643" prot="package" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorV2.MainWindow.AzureTokenRESTAPI</definition>
+        <argsstring></argsstring>
+        <name>AzureTokenRESTAPI</name>
+        <briefdescription>
+<para>Defines the AzureTokenRESTAPI. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="76" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="76" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" compoundref="_main_window_8xaml_8cs" startline="453" endline="547">AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a96be2b2f5c647dfcc2de091989384f51" prot="package" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_az_v_m_monitor_v2_1_1_v_m_helper" kindref="compound">VMHelper</ref> &gt;</type>
+        <definition>List&lt;VMHelper&gt; AzVMMonitorV2.MainWindow.itemsVM</definition>
+        <argsstring></argsstring>
+        <name>itemsVM</name>
+        <initializer>= new List&lt;<ref refid="class_az_v_m_monitor_v2_1_1_v_m_helper" kindref="compound">VMHelper</ref>&gt;()</initializer>
+        <briefdescription>
+<para>Defines the itemsVM. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="81" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="81" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" compoundref="_main_window_8xaml_8cs" startline="275" endline="299">AzVMMonitorV2.MainWindow.Window_Loaded</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a354223b0c06482066adce2455cb1c29f" prot="package" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool AzVMMonitorV2.MainWindow.isOkay</definition>
+        <argsstring></argsstring>
+        <name>isOkay</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+<para>Defines the isOkay. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="86" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="86" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" compoundref="_main_window_8xaml_8cs" startline="275" endline="299">AzVMMonitorV2.MainWindow.Window_Loaded</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a6ced2f15d91b3261f62789cdfbae9faf" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AzVMMonitorV2.MainWindow.CostDisks</definition>
+        <argsstring></argsstring>
+        <name>CostDisks</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="56" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" compoundref="_main_window_8xaml_8cs" startline="453" endline="547">AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_main_window_1a355388e2890d5c78c1e4d937187c5ced" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AzVMMonitorV2.MainWindow.CostNET</definition>
+        <argsstring></argsstring>
+        <name>CostNET</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="56" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="56" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" compoundref="_main_window_8xaml_8cs" startline="453" endline="547">AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a8bdbd269a07212451fb917e87ae72a57" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>IAzure</type>
+        <definition>IAzure AzVMMonitorV2.MainWindow.LogInAzure</definition>
+        <argsstring>(string clientId, string clientSecret, string clientTenantId)</argsstring>
+        <name>LogInAzure</name>
+        <param>
+          <type>string</type>
+          <declname>clientId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>clientSecret</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>clientTenantId</declname>
+        </param>
+        <briefdescription>
+<para>The LogInAzure. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>clientId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clientIdstring.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clientSecret</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clientSecretstring.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>clientTenantId</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The clientTenantIdstring.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The IAzure.</para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="95" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="95" bodyend="107"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.Window_Loaded</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>Window_Loaded</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The RefreshVMData. </para>        </briefdescription>
+        <detaileddescription>
+<para>The Window_Loaded. </para><para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eRoutedEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="275" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="275" bodyend="299"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1add8e2c9da7011962d7a861f775a44e08" compoundref="_main_window_8xaml_8cs" startline="136" endline="160">AzVMMonitorV2.MainWindow.ConnectionToAzureTrouble</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a354223b0c06482066adce2455cb1c29f" compoundref="_main_window_8xaml_8cs" startline="86">AzVMMonitorV2.MainWindow.isOkay</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a96be2b2f5c647dfcc2de091989384f51" compoundref="_main_window_8xaml_8cs" startline="81">AzVMMonitorV2.MainWindow.itemsVM</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" compoundref="_main_window_8xaml_8cs" startline="112" endline="131">AzVMMonitorV2.MainWindow.RefreshVMData</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1af7e6e8bea9e408e0705e158f87364ec8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.ListOfVM_PreviewMouseLeftButtonDown</definition>
+        <argsstring>(object sender, MouseButtonEventArgs e)</argsstring>
+        <name>ListOfVM_PreviewMouseLeftButtonDown</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>MouseButtonEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The ListOfVM_PreviewMouseLeftButtonDown. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eMouseButtonEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="306" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="306" bodyend="339"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1adbfdad0caceb8479ffd8bb25b18141a0" compoundref="_main_window_8xaml_8cs" startline="66">AzVMMonitorV2.MainWindow.SelectedVM</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a60795f88038ac2d437c4c8b3b87b71dc" compoundref="_v_m_helper_8cs" startline="18">AzVMMonitorV2.VMHelper.VMState</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a06bde43f6a718b1f3a738183b9a36c7d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.ListOfVM_PreviewMouseLeftButtonUp</definition>
+        <argsstring>(object sender, MouseButtonEventArgs e)</argsstring>
+        <name>ListOfVM_PreviewMouseLeftButtonUp</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>MouseButtonEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The ListOfVM_PreviewMouseLeftButtonUp. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eMouseButtonEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="346" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="346" bodyend="371"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1adbfdad0caceb8479ffd8bb25b18141a0" compoundref="_main_window_8xaml_8cs" startline="66">AzVMMonitorV2.MainWindow.SelectedVM</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a60795f88038ac2d437c4c8b3b87b71dc" compoundref="_v_m_helper_8cs" startline="18">AzVMMonitorV2.VMHelper.VMState</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1ad97465fd50b883f4704767a63fc5cc8f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.btn_StartVM_Click</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>btn_StartVM_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The btn_StartVM_Click. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eRoutedEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="378" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="378" bodyend="387"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a6a2137e2a0fe552ecb8605de9d06cb75" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.btn_RestartVM_Click</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>btn_RestartVM_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The btn_RestartVM_Click. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eRoutedEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="394" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="394" bodyend="401"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a0ac900d402c855affefcefb0a611b374" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.btn_StopVM_Click</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>btn_StopVM_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The btn_StopVM_Click. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eRoutedEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="408" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="408" bodyend="416"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" compoundref="_main_window_8xaml_8cs" startline="165" endline="230">AzVMMonitorV2.MainWindow.RefreshVMData_legacy</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a026e8ba44e25c28e8711aa4baf5c2d77" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.btn_openRDP_Click</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>btn_openRDP_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The btn_openRDP_Click. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eRoutedEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="423" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="423" bodyend="426"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a5911d1f6c5ebec0e0f299de1f1f38fb4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUp</definition>
+        <argsstring>(object sender, MouseButtonEventArgs e)</argsstring>
+        <name>TabItem_PreviewMouseLeftButtonUp</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>MouseButtonEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The TabItem_PreviewMouseLeftButtonUp. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eMouseButtonEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="433" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="433" bodyend="435"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1afed146dd99ebc0176cbb0c072e357b9d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.Hyperlink_RequestNavigate_1</definition>
+        <argsstring>(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)</argsstring>
+        <name>Hyperlink_RequestNavigate_1</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>System.Windows.Navigation.RequestNavigateEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The Hyperlink_RequestNavigate_1. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eSystem.Windows.Navigation.RequestNavigateEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="442" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="442" bodyend="446"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async void</type>
+        <definition>async void AzVMMonitorV2.MainWindow.TabItem_PreviewMouseLeftButtonUpAsync</definition>
+        <argsstring>(object sender, MouseButtonEventArgs e)</argsstring>
+        <name>TabItem_PreviewMouseLeftButtonUpAsync</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>MouseButtonEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The TabItem_PreviewMouseLeftButtonUpAsync. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eMouseButtonEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="453" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="453" bodyend="547"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a2fe9940bfdb818033c6dd31733eb97fa" compoundref="_main_window_8xaml_8cs" startline="46">AzVMMonitorV2.MainWindow.AzureSubscriptionID</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a548736385e9e49eb671abc976839e643" compoundref="_main_window_8xaml_8cs" startline="76">AzVMMonitorV2.MainWindow.AzureTokenRESTAPI</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a6ced2f15d91b3261f62789cdfbae9faf" compoundref="_main_window_8xaml_8cs" startline="56">AzVMMonitorV2.MainWindow.CostDisks</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a355388e2890d5c78c1e4d937187c5ced" compoundref="_main_window_8xaml_8cs" startline="56">AzVMMonitorV2.MainWindow.CostNET</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1aa0cdb7fa88ce88b76424afa102a65feb" compoundref="_main_window_8xaml_8cs" startline="56">AzVMMonitorV2.MainWindow.CostVM</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a55cbaaa55c73c57bae0be0341ff029cd" compoundref="_main_window_8xaml_8cs" startline="51">AzVMMonitorV2.MainWindow.TypeCurrency</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a536dd25b4529dfa6da5922d3f7d54a2e" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.btn_openConfiguration_Click</definition>
+        <argsstring>(object sender, RoutedEventArgs e)</argsstring>
+        <name>btn_openConfiguration_Click</name>
+        <param>
+          <type>object</type>
+          <declname>sender</declname>
+        </param>
+        <param>
+          <type>RoutedEventArgs</type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>The btn_openConfiguration_Click. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>sender</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The senderobject.</para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The eRoutedEventArgs.</para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="554" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="554" bodyend="558"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.RefreshVMData</definition>
+        <argsstring>()</argsstring>
+        <name>RefreshVMData</name>
+        <briefdescription>
+<para>The RefreshVMData. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="112" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="112" bodyend="131"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a30f58cd2cc724ddf690e8334861925dd" compoundref="_main_window_8xaml_8cs" startline="71">AzVMMonitorV2.MainWindow.AzureCred</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a548736385e9e49eb671abc976839e643" compoundref="_main_window_8xaml_8cs" startline="76">AzVMMonitorV2.MainWindow.AzureTokenRESTAPI</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1afd2017a90a9cd88ffd41cdbc43a34c87" compoundref="_main_window_8xaml_8cs" startline="31">AzVMMonitorV2.MainWindow.ClientId_appID</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1af0ffc97090440bfaf8890654c27bd9cb" compoundref="_main_window_8xaml_8cs" startline="36">AzVMMonitorV2.MainWindow.ClientSecret_appSecret</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1aa9192b09750d45886b18894801513bb4" compoundref="_main_window_8xaml_8cs" startline="41">AzVMMonitorV2.MainWindow.ClientTenantId</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a354223b0c06482066adce2455cb1c29f" compoundref="_main_window_8xaml_8cs" startline="86">AzVMMonitorV2.MainWindow.isOkay</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a8bdbd269a07212451fb917e87ae72a57" compoundref="_main_window_8xaml_8cs" startline="95" endline="107">AzVMMonitorV2.MainWindow.LogInAzure</references>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" compoundref="_main_window_8xaml_8cs" startline="275" endline="299">AzVMMonitorV2.MainWindow.Window_Loaded</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1add8e2c9da7011962d7a861f775a44e08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.ConnectionToAzureTrouble</definition>
+        <argsstring>()</argsstring>
+        <name>ConnectionToAzureTrouble</name>
+        <briefdescription>
+<para>The ConnectionToAzureTrouble. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="136" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="136" bodyend="160"/>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" compoundref="_main_window_8xaml_8cs" startline="275" endline="299">AzVMMonitorV2.MainWindow.Window_Loaded</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void AzVMMonitorV2.MainWindow.RefreshVMData_legacy</definition>
+        <argsstring>()</argsstring>
+        <name>RefreshVMData_legacy</name>
+        <briefdescription>
+<para>The RefreshVMData_legacy. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="165" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="165" bodyend="230"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a30f58cd2cc724ddf690e8334861925dd" compoundref="_main_window_8xaml_8cs" startline="71">AzVMMonitorV2.MainWindow.AzureCred</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a548736385e9e49eb671abc976839e643" compoundref="_main_window_8xaml_8cs" startline="76">AzVMMonitorV2.MainWindow.AzureTokenRESTAPI</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1afd2017a90a9cd88ffd41cdbc43a34c87" compoundref="_main_window_8xaml_8cs" startline="31">AzVMMonitorV2.MainWindow.ClientId_appID</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1af0ffc97090440bfaf8890654c27bd9cb" compoundref="_main_window_8xaml_8cs" startline="36">AzVMMonitorV2.MainWindow.ClientSecret_appSecret</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1aa9192b09750d45886b18894801513bb4" compoundref="_main_window_8xaml_8cs" startline="41">AzVMMonitorV2.MainWindow.ClientTenantId</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a8bdbd269a07212451fb917e87ae72a57" compoundref="_main_window_8xaml_8cs" startline="95" endline="107">AzVMMonitorV2.MainWindow.LogInAzure</references>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a6a2137e2a0fe552ecb8605de9d06cb75" compoundref="_main_window_8xaml_8cs" startline="394" endline="401">AzVMMonitorV2.MainWindow.btn_RestartVM_Click</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1ad97465fd50b883f4704767a63fc5cc8f" compoundref="_main_window_8xaml_8cs" startline="378" endline="387">AzVMMonitorV2.MainWindow.btn_StartVM_Click</referencedby>
+        <referencedby refid="class_az_v_m_monitor_v2_1_1_main_window_1a0ac900d402c855affefcefb0a611b374" compoundref="_main_window_8xaml_8cs" startline="408" endline="416">AzVMMonitorV2.MainWindow.btn_StopVM_Click</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>AzVMMonitorV2.MainWindow.MainWindow</definition>
+        <argsstring>()</argsstring>
+        <name>MainWindow</name>
+        <briefdescription>
+<para>Initializes a new instance of the <ref refid="class_az_v_m_monitor_v2_1_1_main_window" kindref="compound">MainWindow</ref> class. </para>        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="235" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="235" bodyend="264"/>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a2fe9940bfdb818033c6dd31733eb97fa" compoundref="_main_window_8xaml_8cs" startline="46">AzVMMonitorV2.MainWindow.AzureSubscriptionID</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1afd2017a90a9cd88ffd41cdbc43a34c87" compoundref="_main_window_8xaml_8cs" startline="31">AzVMMonitorV2.MainWindow.ClientId_appID</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1af0ffc97090440bfaf8890654c27bd9cb" compoundref="_main_window_8xaml_8cs" startline="36">AzVMMonitorV2.MainWindow.ClientSecret_appSecret</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1aa9192b09750d45886b18894801513bb4" compoundref="_main_window_8xaml_8cs" startline="41">AzVMMonitorV2.MainWindow.ClientTenantId</references>
+        <references refid="class_az_v_m_monitor_v2_1_1_main_window_1a55cbaaa55c73c57bae0be0341ff029cd" compoundref="_main_window_8xaml_8cs" startline="51">AzVMMonitorV2.MainWindow.TypeCurrency</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interaction logic for MainWindow.xaml. </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="43">
+        <label>AzVMMonitorV2.MainWindow</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_main_window"/>
+        <childnode refid="44" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="44">
+        <label>Window</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="45">
+        <label>AzVMMonitorV2.MainWindow</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_main_window"/>
+        <childnode refid="46" relation="public-inheritance">
+        </childnode>
+        <childnode refid="47" relation="usage">
+          <edgelabel>SelectedVM</edgelabel>
+        </childnode>
+      </node>
+      <node id="46">
+        <label>Window</label>
+      </node>
+      <node id="47">
+        <label>AzVMMonitorV2.VMHelper</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_v_m_helper"/>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" line="27" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/MainWindow.xaml.cs" bodystart="26" bodyend="559"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a30f58cd2cc724ddf690e8334861925dd" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>AzureCred</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a2fe9940bfdb818033c6dd31733eb97fa" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>AzureSubscriptionID</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a548736385e9e49eb671abc976839e643" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>AzureTokenRESTAPI</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a536dd25b4529dfa6da5922d3f7d54a2e" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>btn_openConfiguration_Click</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a026e8ba44e25c28e8711aa4baf5c2d77" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>btn_openRDP_Click</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a6a2137e2a0fe552ecb8605de9d06cb75" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>btn_RestartVM_Click</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1ad97465fd50b883f4704767a63fc5cc8f" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>btn_StartVM_Click</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a0ac900d402c855affefcefb0a611b374" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>btn_StopVM_Click</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1afd2017a90a9cd88ffd41cdbc43a34c87" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>ClientId_appID</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1af0ffc97090440bfaf8890654c27bd9cb" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>ClientSecret_appSecret</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1aa9192b09750d45886b18894801513bb4" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>ClientTenantId</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1add8e2c9da7011962d7a861f775a44e08" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>ConnectionToAzureTrouble</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a6ced2f15d91b3261f62789cdfbae9faf" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>CostDisks</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a355388e2890d5c78c1e4d937187c5ced" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>CostNET</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1aa0cdb7fa88ce88b76424afa102a65feb" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>CostVM</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1afed146dd99ebc0176cbb0c072e357b9d" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>Hyperlink_RequestNavigate_1</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a354223b0c06482066adce2455cb1c29f" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>isOkay</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a96be2b2f5c647dfcc2de091989384f51" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>itemsVM</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1af7e6e8bea9e408e0705e158f87364ec8" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>ListOfVM_PreviewMouseLeftButtonDown</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a06bde43f6a718b1f3a738183b9a36c7d" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>ListOfVM_PreviewMouseLeftButtonUp</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a8bdbd269a07212451fb917e87ae72a57" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>LogInAzure</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>MainWindow</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>RefreshVMData</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>RefreshVMData_legacy</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1adbfdad0caceb8479ffd8bb25b18141a0" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>SelectedVM</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a5911d1f6c5ebec0e0f299de1f1f38fb4" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>TabItem_PreviewMouseLeftButtonUp</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>TabItem_PreviewMouseLeftButtonUpAsync</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a55cbaaa55c73c57bae0be0341ff029cd" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>TypeCurrency</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1af5c848a888e7869dea59c1b6d19171d1" prot="package" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>vMPublcIP</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::MainWindow</scope><name>Window_Loaded</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

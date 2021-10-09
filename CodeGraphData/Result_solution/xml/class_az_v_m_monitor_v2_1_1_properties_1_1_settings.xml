@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_v2_1_1_properties_1_1_settings" kind="class" prot="package">
+    <compoundname>AzVMMonitorV2::Properties::Settings</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ApplicationSettingsBase</basecompoundref>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_v2_1_1_properties_1_1_settings_1a5f153d094d5e5080970a2abd038abafb" prot="private" static="yes" mutable="no">
+        <type><ref refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings" kindref="compound">Settings</ref></type>
+        <definition>Settings AzVMMonitorV2.Properties.Settings.defaultInstance</definition>
+        <argsstring></argsstring>
+        <name>defaultInstance</name>
+        <initializer>= ((<ref refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings" kindref="compound">Settings</ref>)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new <ref refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings" kindref="compound">Settings</ref>())))</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties/Settings.Designer.cs" line="19" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties/Settings.Designer.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_v2_1_1_properties_1_1_settings_1a37aef46e18320e713f81eeb968cdd768" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="no">
+        <type><ref refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings" kindref="compound">Settings</ref></type>
+        <definition>Settings AzVMMonitorV2.Properties.Settings.Default</definition>
+        <argsstring></argsstring>
+        <name>Default</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties/Settings.Designer.cs" line="21" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties/Settings.Designer.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="91">
+        <label>AzVMMonitorV2.Properties.Settings</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings"/>
+        <childnode refid="92" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="92">
+        <label>global::SystemConfiguration::ApplicationSettingsBase</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="93">
+        <label>AzVMMonitorV2.Properties.Settings</label>
+        <link refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings"/>
+        <childnode refid="94" relation="public-inheritance">
+        </childnode>
+        <childnode refid="93" relation="usage">
+          <edgelabel>defaultInstance</edgelabel>
+        </childnode>
+      </node>
+      <node id="94">
+        <label>global::SystemConfiguration::ApplicationSettingsBase</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties/Settings.Designer.cs" line="17" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties/Settings.Designer.cs" bodystart="16" bodyend="28"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings_1a37aef46e18320e713f81eeb968cdd768" prot="public" virt="non-virtual"><scope>AzVMMonitorV2::Properties::Settings</scope><name>Default</name></member>
+      <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings_1a5f153d094d5e5080970a2abd038abafb" prot="private" virt="non-virtual"><scope>AzVMMonitorV2::Properties::Settings</scope><name>defaultInstance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

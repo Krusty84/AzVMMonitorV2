@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::CostManagementQuery</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a9052d4d630e5d02bd58cfa7fc0a28d95" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.CostManagementQuery.requestByTagPayload</definition>
+        <argsstring></argsstring>
+        <name>requestByTagPayload</name>
+        <initializer>= &quot;{\&quot;type\&quot;:\&quot;Usage\&quot;,\&quot;timeframe\&quot;:\&quot;MonthToDate\&quot;,\&quot;dataset\&quot;:{\&quot;granularity\&quot;:\&quot;Daily\&quot;,\&quot;filter\&quot;:{\&quot;tags\&quot;:{\&quot;name\&quot;:\&quot;ms-resource-usage\&quot;,\&quot;operator\&quot;:\&quot;In\&quot;,\&quot;values\&quot;:[\&quot;azure-cloud-shell\&quot;]}}}}&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="436" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="436" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa1438161010b4a54a23c222622262f84" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="725" endline="752">AzVMMonitorCostTotalData.AzBillingRESTHelper.getBilling1</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1aa1f5d8654c4ac89c1f47de5ae387621a" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.CostManagementQuery.requestByDimensionPayload</definition>
+        <argsstring></argsstring>
+        <name>requestByDimensionPayload</name>
+        <initializer>= &quot;{\&quot;type\&quot;:\&quot;Usage\&quot;,\&quot;timeframe\&quot;:\&quot;MonthToDate\&quot;,\&quot;dataset\&quot;:{\&quot;granularity\&quot;:\&quot;Daily\&quot;,\&quot;filter\&quot;:{\&quot;dimensions\&quot;:{\&quot;name\&quot;:\&quot;ResourceLocation\&quot;,\&quot;operator\&quot;:\&quot;In\&quot;,\&quot;values\&quot;:[\&quot;East US\&quot;,\&quot;West Europe\&quot;]}}}}&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="437" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="437" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a1909534ed9c2d986964a7c34cd812548" prot="public" static="yes" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.CostManagementQuery.requestCostManagementTotal</definition>
+        <argsstring></argsstring>
+        <name>requestCostManagementTotal</name>
+        <initializer>= &quot;{\&quot;type\&quot;:\&quot;ActualCost\&quot;,\&quot;dataSet\&quot;:{\&quot;granularity\&quot;:\&quot;None\&quot;,\&quot;aggregation\&quot;:{\&quot;totalCost\&quot;:{\&quot;name\&quot;:\&quot;Cost\&quot;,\&quot;function\&quot;:\&quot;Sum\&quot;},\&quot;totalCostUSD\&quot;:{\&quot;name\&quot;:\&quot;CostUSD\&quot;,\&quot;function\&quot;:\&quot;Sum\&quot;}},\&quot;grouping\&quot;:[{\&quot;type\&quot;:\&quot;Dimension\&quot;,\&quot;name\&quot;:\&quot;BillingPeriod\&quot;}]}}&quot;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="440" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="440" bodyend="-1"/>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a769a6242195c19437025bade756c1225" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="606" endline="627">AzVMMonitorCostTotalData.AzBillingRESTHelper.GetTotalCost</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="435" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="434" bodyend="442"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1aa1f5d8654c4ac89c1f47de5ae387621a" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostManagementQuery</scope><name>requestByDimensionPayload</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a9052d4d630e5d02bd58cfa7fc0a28d95" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostManagementQuery</scope><name>requestByTagPayload</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a1909534ed9c2d986964a7c34cd812548" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::CostManagementQuery</scope><name>requestCostManagementTotal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

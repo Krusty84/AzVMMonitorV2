@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row" kind="struct" prot="public">
+    <compoundname>AzVMMonitorCostsPerVMDisk::Row</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a159c01fe7740962a08522e8b83540237" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double AzVMMonitorCostsPerVMDisk.Row.Double</definition>
+        <argsstring></argsstring>
+        <name>Double</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="193" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="193" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a97fb57f034e29b937cbc80c6133c3f0f" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string AzVMMonitorCostsPerVMDisk.Row.String</definition>
+        <argsstring></argsstring>
+        <name>String</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="194" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="194" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a75118e6f6da207aafbb427184c0faa62" prot="public" static="no" mutable="no">
+        <type>string[]</type>
+        <definition>string [] AzVMMonitorCostsPerVMDisk.Row.StringArray</definition>
+        <argsstring></argsstring>
+        <name>StringArray</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="195" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="195" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a78d64e9c027de0d9fed0071b1ed955e7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>implicit</type>
+        <definition>static implicit AzVMMonitorCostsPerVMDisk.Row.operator Row</definition>
+        <argsstring>(double Double)</argsstring>
+        <name>operator Row</name>
+        <param>
+          <type>double</type>
+          <declname>Double</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="197" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a6e1b1ea46e02d8d55d349b6934cbab61" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>implicit</type>
+        <definition>static implicit AzVMMonitorCostsPerVMDisk.Row.operator Row</definition>
+        <argsstring>(string String)</argsstring>
+        <name>operator Row</name>
+        <param>
+          <type>string</type>
+          <declname>String</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="198" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1af5bf7ec3b567f3e9b38bb020356e5bdf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>implicit</type>
+        <definition>static implicit AzVMMonitorCostsPerVMDisk.Row.operator Row</definition>
+        <argsstring>(string[] StringArray)</argsstring>
+        <name>operator Row</name>
+        <param>
+          <type>string[]</type>
+          <declname>StringArray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="199" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="192" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="191" bodyend="200"/>
+    <listofallmembers>
+      <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a159c01fe7740962a08522e8b83540237" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Row</scope><name>Double</name></member>
+      <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a78d64e9c027de0d9fed0071b1ed955e7" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Row</scope><name>operator Row</name></member>
+      <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a6e1b1ea46e02d8d55d349b6934cbab61" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Row</scope><name>operator Row</name></member>
+      <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1af5bf7ec3b567f3e9b38bb020356e5bdf" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Row</scope><name>operator Row</name></member>
+      <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a97fb57f034e29b937cbc80c6133c3f0f" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Row</scope><name>String</name></member>
+      <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a75118e6f6da207aafbb427184c0faa62" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMDisk::Row</scope><name>StringArray</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

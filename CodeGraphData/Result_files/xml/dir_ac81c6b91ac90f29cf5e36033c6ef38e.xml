@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_ac81c6b91ac90f29cf5e36033c6ef38e" kind="dir">
+    <compoundname>C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2</compoundname>
+    <innerfile refid="_app_8xaml_8cs">App.xaml.cs</innerfile>
+    <innerfile refid="_az_billing_r_e_s_t_helper_8cs">AzBillingRESTHelper.cs</innerfile>
+    <innerfile refid="_configuration_window_8xaml_8cs">ConfigurationWindow.xaml.cs</innerfile>
+    <innerfile refid="_loading_splash_8cs">LoadingSplash.cs</innerfile>
+    <innerfile refid="_main_window_8xaml_8cs">MainWindow.xaml.cs</innerfile>
+    <innerfile refid="_v_m_helper_8cs">VMHelper.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,286 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::AzBillingRESTHelper</compoundname>
+    <innerclass refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details" prot="public">AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</innerclass>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae7315a7dac4dd944e063fd77d9a1fc44" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string AzVMMonitorCostTotalData.AzBillingRESTHelper.GetAuthorizationToken</definition>
+        <argsstring>(string clientId, string clientSecret, string clientTenantId)</argsstring>
+        <name>GetAuthorizationToken</name>
+        <param>
+          <type>string</type>
+          <declname>clientId</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>clientSecret</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>clientTenantId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="580" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="580" bodyend="602"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a769a6242195c19437025bade756c1225" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task AzVMMonitorCostTotalData.AzBillingRESTHelper.GetTotalCost</definition>
+        <argsstring>(string AccessToken, string SubscriptionID)</argsstring>
+        <name>GetTotalCost</name>
+        <param>
+          <type>string</type>
+          <declname>AccessToken</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>SubscriptionID</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="606" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="606" bodyend="627"/>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="788" endline="802">AzVMMonitorCostTotalData.AzBillingRESTHelper.PostRequestAsync</references>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a1909534ed9c2d986964a7c34cd812548" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="440">AzVMMonitorCostTotalData.CostManagementQuery.requestCostManagementTotal</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa4dfa34b1232a9e28503618774590e6a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task AzVMMonitorCostTotalData.AzBillingRESTHelper.GetCostByVM</definition>
+        <argsstring>(string AccessToken, string SubscriptionID, string VmName, string GroupName)</argsstring>
+        <name>GetCostByVM</name>
+        <param>
+          <type>string</type>
+          <declname>AccessToken</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>SubscriptionID</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>VmName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>GroupName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="630" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="630" bodyend="652"/>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="788" endline="802">AzVMMonitorCostTotalData.AzBillingRESTHelper.PostRequestAsync</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a2c8b251ae7a0c49cdaff3557a076330e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task AzVMMonitorCostTotalData.AzBillingRESTHelper.GetCostByVMDisk</definition>
+        <argsstring>(string AccessToken, string SubscriptionID, string VmDiskName, string GroupName)</argsstring>
+        <name>GetCostByVMDisk</name>
+        <param>
+          <type>string</type>
+          <declname>AccessToken</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>SubscriptionID</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>VmDiskName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>GroupName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="655" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="655" bodyend="679"/>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="788" endline="802">AzVMMonitorCostTotalData.AzBillingRESTHelper.PostRequestAsync</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae63d81e1bb4e41ce750c6075b7a453e3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task AzVMMonitorCostTotalData.AzBillingRESTHelper.GetCostByVMNetwork</definition>
+        <argsstring>(string AccessToken, string SubscriptionID, string VmNetworkName, string GroupName)</argsstring>
+        <name>GetCostByVMNetwork</name>
+        <param>
+          <type>string</type>
+          <declname>AccessToken</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>SubscriptionID</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>VmNetworkName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>GroupName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="682" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="682" bodyend="704"/>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="788" endline="802">AzVMMonitorCostTotalData.AzBillingRESTHelper.PostRequestAsync</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a0e6e400fcce23c910c76b6e58b78e0e7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string AzVMMonitorCostTotalData.AzBillingRESTHelper.AAAAA</definition>
+        <argsstring>(string SubscriptionID, string VmName, string GroupName)</argsstring>
+        <name>AAAAA</name>
+        <param>
+          <type>string</type>
+          <declname>SubscriptionID</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>VmName</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>GroupName</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="708" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="708" bodyend="722"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa1438161010b4a54a23c222622262f84" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task</type>
+        <definition>static async Task AzVMMonitorCostTotalData.AzBillingRESTHelper.getBilling1</definition>
+        <argsstring>(string AccessToken, string SubscriptionID, string method)</argsstring>
+        <name>getBilling1</name>
+        <param>
+          <type>string</type>
+          <declname>AccessToken</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>SubscriptionID</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>method</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="725" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="725" bodyend="752"/>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a9355ef8767fc8a4790fa0ab08119db55" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="771" endline="786">AzVMMonitorCostTotalData.AzBillingRESTHelper.MakeRequestAsync</references>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="788" endline="802">AzVMMonitorCostTotalData.AzBillingRESTHelper.PostRequestAsync</references>
+        <references refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a9052d4d630e5d02bd58cfa7fc0a28d95" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="436">AzVMMonitorCostTotalData.CostManagementQuery.requestByTagPayload</references>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a3d70db0cbebbb82efe8998e73240a275" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string &gt;</type>
+        <definition>static async Task&lt;string&gt; AzVMMonitorCostTotalData.AzBillingRESTHelper.GetRequestAsync</definition>
+        <argsstring>(HttpRequestMessage getRequest, HttpClient client)</argsstring>
+        <name>GetRequestAsync</name>
+        <param>
+          <type>HttpRequestMessage</type>
+          <declname>getRequest</declname>
+        </param>
+        <param>
+          <type>HttpClient</type>
+          <declname>client</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="754" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="754" bodyend="769"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a9355ef8767fc8a4790fa0ab08119db55" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string &gt;</type>
+        <definition>static async Task&lt;string&gt; AzVMMonitorCostTotalData.AzBillingRESTHelper.MakeRequestAsync</definition>
+        <argsstring>(HttpRequestMessage getRequest, HttpClient client)</argsstring>
+        <name>MakeRequestAsync</name>
+        <param>
+          <type>HttpRequestMessage</type>
+          <declname>getRequest</declname>
+        </param>
+        <param>
+          <type>HttpClient</type>
+          <declname>client</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="771" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="771" bodyend="786"/>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa1438161010b4a54a23c222622262f84" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="725" endline="752">AzVMMonitorCostTotalData.AzBillingRESTHelper.getBilling1</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>async Task&lt; string &gt;</type>
+        <definition>static async Task&lt;string&gt; AzVMMonitorCostTotalData.AzBillingRESTHelper.PostRequestAsync</definition>
+        <argsstring>(HttpRequestMessage postRequest, HttpClient client)</argsstring>
+        <name>PostRequestAsync</name>
+        <param>
+          <type>HttpRequestMessage</type>
+          <declname>postRequest</declname>
+        </param>
+        <param>
+          <type>HttpClient</type>
+          <declname>client</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="788" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="788" bodyend="802"/>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa1438161010b4a54a23c222622262f84" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="725" endline="752">AzVMMonitorCostTotalData.AzBillingRESTHelper.getBilling1</referencedby>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa4dfa34b1232a9e28503618774590e6a" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="630" endline="652">AzVMMonitorCostTotalData.AzBillingRESTHelper.GetCostByVM</referencedby>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a2c8b251ae7a0c49cdaff3557a076330e" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="655" endline="679">AzVMMonitorCostTotalData.AzBillingRESTHelper.GetCostByVMDisk</referencedby>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae63d81e1bb4e41ce750c6075b7a453e3" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="682" endline="704">AzVMMonitorCostTotalData.AzBillingRESTHelper.GetCostByVMNetwork</referencedby>
+        <referencedby refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a769a6242195c19437025bade756c1225" compoundref="_az_billing_r_e_s_t_helper_8cs" startline="606" endline="627">AzVMMonitorCostTotalData.AzBillingRESTHelper.GetTotalCost</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="566" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="565" bodyend="805"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a0e6e400fcce23c910c76b6e58b78e0e7" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>AAAAA</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae7315a7dac4dd944e063fd77d9a1fc44" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>GetAuthorizationToken</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa1438161010b4a54a23c222622262f84" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>getBilling1</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa4dfa34b1232a9e28503618774590e6a" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>GetCostByVM</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a2c8b251ae7a0c49cdaff3557a076330e" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>GetCostByVMDisk</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae63d81e1bb4e41ce750c6075b7a453e3" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>GetCostByVMNetwork</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a3d70db0cbebbb82efe8998e73240a275" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>GetRequestAsync</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a769a6242195c19437025bade756c1225" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>GetTotalCost</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a9355ef8767fc8a4790fa0ab08119db55" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>MakeRequestAsync</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper</scope><name>PostRequestAsync</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

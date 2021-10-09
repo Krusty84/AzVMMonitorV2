@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_row_converter" kind="class" prot="package">
+    <compoundname>AzVMMonitorCostTotalData::RowConverter</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">JsonConverter</basecompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a41959d8295531e5f32d027c5a76a0e59" prot="public" static="yes" mutable="no">
+        <type>readonly <ref refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter" kindref="compound">RowConverter</ref></type>
+        <definition>readonly RowConverter AzVMMonitorCostTotalData.RowConverter.Singleton</definition>
+        <argsstring></argsstring>
+        <name>Singleton</name>
+        <initializer>= new <ref refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter" kindref="compound">RowConverter</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="560" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="560" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a7588ae228b68a158524296beb0a192a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>override bool</type>
+        <definition>override bool AzVMMonitorCostTotalData.RowConverter.CanConvert</definition>
+        <argsstring>(Type t)</argsstring>
+        <name>CanConvert</name>
+        <param>
+          <type>Type</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="526" column="1"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1aecee4dc4599e5b4b914fefdf20a9ad20" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override object</type>
+        <definition>override object AzVMMonitorCostTotalData.RowConverter.ReadJson</definition>
+        <argsstring>(JsonReader reader, Type t, object existingValue, JsonSerializer serializer)</argsstring>
+        <name>ReadJson</name>
+        <param>
+          <type>JsonReader</type>
+          <declname>reader</declname>
+        </param>
+        <param>
+          <type>Type</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>object</type>
+          <declname>existingValue</declname>
+        </param>
+        <param>
+          <type>JsonSerializer</type>
+          <declname>serializer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="528" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="528" bodyend="542"/>
+      </memberdef>
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a8dc4a1d6e0d42349de6c57b65bb00292" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>override void</type>
+        <definition>override void AzVMMonitorCostTotalData.RowConverter.WriteJson</definition>
+        <argsstring>(JsonWriter writer, object untypedValue, JsonSerializer serializer)</argsstring>
+        <name>WriteJson</name>
+        <param>
+          <type>JsonWriter</type>
+          <declname>writer</declname>
+        </param>
+        <param>
+          <type>object</type>
+          <declname>untypedValue</declname>
+        </param>
+        <param>
+          <type>JsonSerializer</type>
+          <declname>serializer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="544" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="544" bodyend="558"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="71">
+        <label>AzVMMonitorCostTotalData.RowConverter</label>
+        <link refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter"/>
+        <childnode refid="72" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="72">
+        <label>JsonConverter</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="73">
+        <label>AzVMMonitorCostTotalData.RowConverter</label>
+        <link refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter"/>
+        <childnode refid="74" relation="public-inheritance">
+        </childnode>
+        <childnode refid="73" relation="usage">
+          <edgelabel>Singleton</edgelabel>
+        </childnode>
+      </node>
+      <node id="74">
+        <label>JsonConverter</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="525" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="524" bodyend="561"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a7588ae228b68a158524296beb0a192a7" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::RowConverter</scope><name>CanConvert</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1aecee4dc4599e5b4b914fefdf20a9ad20" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::RowConverter</scope><name>ReadJson</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a41959d8295531e5f32d027c5a76a0e59" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::RowConverter</scope><name>Singleton</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a8dc4a1d6e0d42349de6c57b65bb00292" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::RowConverter</scope><name>WriteJson</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

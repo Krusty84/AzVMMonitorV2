@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_converter" kind="class" prot="package">
+    <compoundname>AzVMMonitorCostTotalData::Converter</compoundname>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="class_az_v_m_monitor_cost_total_data_1_1_converter_1a661d57dab5d165f03a61e034e1c12773" prot="public" static="yes" mutable="no">
+        <type>readonly JsonSerializerSettings</type>
+        <definition>readonly JsonSerializerSettings AzVMMonitorCostTotalData.Converter.Settings</definition>
+        <argsstring></argsstring>
+        <name>Settings</name>
+        <initializer>= new JsonSerializerSettings
+        {
+            MetadataPropertyHandling = MetadataPropertyHandling.Ignore,
+            DateParseHandling = DateParseHandling.None,
+            Converters =
+            {
+                <ref refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a41959d8295531e5f32d027c5a76a0e59" kindref="member">RowConverter.Singleton</ref>,
+                new IsoDateTimeConverter { DateTimeStyles = DateTimeStyles.AssumeUniversal }
+            },
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="512" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="512" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="511" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="510" bodyend="522"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_converter_1a661d57dab5d165f03a61e034e1c12773" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Converter</scope><name>Settings</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

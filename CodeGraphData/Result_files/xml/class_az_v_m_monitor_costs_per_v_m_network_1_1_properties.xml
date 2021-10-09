@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostsPerVMNetwork::Properties</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1a59bb410e5d38549c63a25ca75212da99" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostsPerVMNetwork.Properties.NextLink</definition>
+        <argsstring></argsstring>
+        <name>NextLink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="305" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="305" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1ad41ab8a0463eea3d1243fd6bada02744" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_column" kindref="compound">Column</ref>[]</type>
+        <definition>Column [] AzVMMonitorCostsPerVMNetwork.Properties.Columns</definition>
+        <argsstring></argsstring>
+        <name>Columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="308" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1a057bb918a0707376d38682dd20136aa6" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row" kindref="compound">Row</ref>[][]</type>
+        <definition>Row [][] AzVMMonitorCostsPerVMNetwork.Properties.Rows</definition>
+        <argsstring></argsstring>
+        <name>Rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="311" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="303" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="302" bodyend="312"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1ad41ab8a0463eea3d1243fd6bada02744" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::Properties</scope><name>Columns</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1a59bb410e5d38549c63a25ca75212da99" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::Properties</scope><name>NextLink</name></member>
+      <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1a057bb918a0707376d38682dd20136aa6" prot="public" virt="non-virtual"><scope>AzVMMonitorCostsPerVMNetwork::Properties</scope><name>Rows</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

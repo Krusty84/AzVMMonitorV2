@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_az_v_m_monitor_v2" kind="namespace">
+    <compoundname>AzVMMonitorV2</compoundname>
+    <innerclass refid="class_az_v_m_monitor_v2_1_1_app" prot="public">AzVMMonitorV2::App</innerclass>
+    <innerclass refid="class_az_v_m_monitor_v2_1_1_configuration_window" prot="public">AzVMMonitorV2::ConfigurationWindow</innerclass>
+    <innerclass refid="class_az_v_m_monitor_v2_1_1_loading_splash" prot="public">AzVMMonitorV2::LoadingSplash</innerclass>
+    <innerclass refid="class_az_v_m_monitor_v2_1_1_main_window" prot="public">AzVMMonitorV2::MainWindow</innerclass>
+    <innerclass refid="class_az_v_m_monitor_v2_1_1_v_m_helper" prot="public">AzVMMonitorV2::VMHelper</innerclass>
+    <innernamespace refid="namespace_az_v_m_monitor_v2_1_1_properties">AzVMMonitorV2::Properties</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/App.xaml.cs" line="10" column="1"/>
+  </compounddef>
+</doxygen>

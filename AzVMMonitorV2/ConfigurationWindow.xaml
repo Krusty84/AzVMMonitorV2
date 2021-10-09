@@ -1,0 +1,120 @@
+﻿<Window
+    x:Class="AzVMMonitorV2.ConfigurationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AzVMMonitorV2"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Enter or change credentials data for connect to AZURE"
+    Width="626.5"
+    Height="382"
+    Loaded="Window_Loaded"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid Width="616" HorizontalAlignment="Left">
+        <TextBlock
+            Height="30"
+            Margin="40,30,496,0"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Client ID" />
+        <TextBlock
+            Height="30"
+            Margin="40,82,496,0"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Client Secret" />
+
+        <TextBlock
+            Height="30"
+            Margin="40,129,496,0"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Tenant ID" />
+
+        <TextBlock
+            Height="30"
+            Margin="40,189,475,0"
+            VerticalAlignment="Top"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="Subscription ID" />
+        <TextBox
+            x:Name="ClientIDField"
+            Width="444"
+            Height="35"
+            Margin="0,25,26,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            materialDesign:TransitionAssist.DisableTransitions="True"
+            BorderThickness="0,0,0,1"
+            IsReadOnly="False" />
+        <TextBox
+            x:Name="ClientSecretField"
+            Width="444"
+            Height="35"
+            Margin="0,77,26,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            materialDesign:TransitionAssist.DisableTransitions="True"
+            IsReadOnly="False" />
+        <TextBox
+            x:Name="ClientTenantIDField"
+            Width="444"
+            Height="35"
+            Margin="0,124,26,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            materialDesign:TransitionAssist.DisableTransitions="True"
+            IsReadOnly="False" />
+        <TextBox
+            x:Name="ClientSubscriptionIDField"
+            Width="444"
+            Height="35"
+            Margin="0,189,26,0"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Top"
+            materialDesign:TransitionAssist.DisableTransitions="True"
+            IsReadOnly="False" />
+
+        <Button
+            x:Name="btn_saveConfiguration"
+            Width="94"
+            Height="Auto"
+            Margin="496,297,0,25"
+            HorizontalAlignment="Left"
+            Click="ButtonSaveConfiguration_Click"
+            Content="{materialDesign:PackIcon ContentSaveCog}"
+            Style="{StaticResource MaterialDesignRaisedLightButton}"
+            ToolTip="Save" />
+
+        <ComboBox
+            x:Name="comboBoxCurrency"
+            Height="36"
+            Margin="22,256,461,24"
+            materialDesign:HintAssist.Hint="Currency"
+            RenderTransformOrigin="0.489,0.954"
+            ToolTip="The Currency of the billing data">
+            <ComboBoxItem Content="USD" />
+            <ComboBoxItem Content="RUS" />
+        </ComboBox>
+
+        <ComboBox
+            x:Name="comboBoxTypeTimeFrame"
+            Width="198"
+            Height="36"
+            Margin="192,256,0,24"
+            HorizontalAlignment="Left"
+            materialDesign:HintAssist.Hint="Time Frame"
+            RenderTransformOrigin="0.489,0.954"
+            ToolTip="The Time frame for getting billing data">
+            <ComboBoxItem Content="BillingMonthToDate" />
+            <ComboBoxItem Content="MonthToDate" />
+            <ComboBoxItem Content="TheLastBillingMonth" />
+            <ComboBoxItem Content="TheLastMonth" />
+            <ComboBoxItem Content="WeekToDate" />
+        </ComboBox>
+    </Grid>
+</Window>

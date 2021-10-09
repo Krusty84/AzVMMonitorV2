@@ -1,0 +1,84 @@
+﻿<Window
+    x:Class="AzVMMonitorV2.AboutWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AzVMMonitorV2"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="About AzVMMonitor"
+    Width="519.071"
+    Height="257.821"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    Topmost="True"
+    mc:Ignorable="d">
+    <Grid>
+        <Image
+            x:Name="image"
+            Width="68"
+            Height="69"
+            Margin="27,27,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Source="icon_app.ico" />
+        <Label
+            x:Name="label"
+            Width="206"
+            Height="25"
+            Margin="134,27,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="AzVMMonitor 1.0.1"
+            FontWeight="Bold" />
+        <Label
+            x:Name="label1"
+            Width="102"
+            Margin="134,135,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="Copyright © 2021" />
+        <Label
+            x:Name="label2"
+            Width="297"
+            Margin="134,47,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="The small utility for managing Azure VMs" />
+        <TextBlock Margin="245,139,173,60">
+            <Hyperlink
+                x:Name="eMailHyperLink"
+                Click="EMailHyperLink_Click"
+                NavigateUri="sedoykin@gmail.com">
+                Alexey Sedoykin
+            </Hyperlink>
+        </TextBlock>
+        <Label
+            x:Name="label2_Copy"
+            Width="297"
+            Margin="23,173,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Content="AzVMMonitor is hosted by GitHub at" />
+        <TextBlock Margin="27,196,217,9">
+            <Hyperlink
+                x:Name="gitHubHyperLink"
+                Click="GitHubHyperLink_Click"
+                NavigateUri="https://github.com/Krusty84/AzVMMonitorV2">
+                https://github.com/Krusty84/AzVMMonitorV2
+            </Hyperlink>
+        </TextBlock>
+        <Label
+            x:Name="label2_Copy1"
+            Width="323"
+            Height="54"
+            Margin="134,71,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top">
+            <AccessText TextWrapping="WrapWithOverflow">
+                AzVMMonitor comes with ABSOLUTELY NO WARRANTY.
+                This is free software, and you are welcome to redistribute it under certain conditions.
+                GNU General Public Licenese
+            </AccessText>
+        </Label>
+    </Grid>
+</Window>

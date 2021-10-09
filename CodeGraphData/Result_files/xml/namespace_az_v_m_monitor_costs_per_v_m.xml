@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_az_v_m_monitor_costs_per_v_m" kind="namespace">
+    <compoundname>AzVMMonitorCostsPerVM</compoundname>
+    <innerclass refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm" prot="public">AzVMMonitorCostsPerVM::CostDataPerVm</innerclass>
+    <innerclass refid="class_az_v_m_monitor_costs_per_v_m_1_1_properties" prot="public">AzVMMonitorCostsPerVM::Properties</innerclass>
+    <innerclass refid="class_az_v_m_monitor_costs_per_v_m_1_1_column" prot="public">AzVMMonitorCostsPerVM::Column</innerclass>
+    <innerclass refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row" prot="public">AzVMMonitorCostsPerVM::Row</innerclass>
+    <innerclass refid="class_az_v_m_monitor_costs_per_v_m_1_1_serialize" prot="public">AzVMMonitorCostsPerVM::Serialize</innerclass>
+    <innerclass refid="class_az_v_m_monitor_costs_per_v_m_1_1_converter" prot="package">AzVMMonitorCostsPerVM::Converter</innerclass>
+    <innerclass refid="class_az_v_m_monitor_costs_per_v_m_1_1_row_converter" prot="package">AzVMMonitorCostsPerVM::RowConverter</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="13" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_az_v_m_monitor_v2_1_1_app" kind="class"><name>AzVMMonitorV2::App</name>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper" kind="class"><name>AzVMMonitorCostTotalData::AzBillingRESTHelper</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae7315a7dac4dd944e063fd77d9a1fc44" kind="function"><name>GetAuthorizationToken</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a769a6242195c19437025bade756c1225" kind="function"><name>GetTotalCost</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa4dfa34b1232a9e28503618774590e6a" kind="function"><name>GetCostByVM</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a2c8b251ae7a0c49cdaff3557a076330e" kind="function"><name>GetCostByVMDisk</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ae63d81e1bb4e41ce750c6075b7a453e3" kind="function"><name>GetCostByVMNetwork</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a0e6e400fcce23c910c76b6e58b78e0e7" kind="function"><name>AAAAA</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1aa1438161010b4a54a23c222622262f84" kind="function"><name>getBilling1</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a3d70db0cbebbb82efe8998e73240a275" kind="function"><name>GetRequestAsync</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1a9355ef8767fc8a4790fa0ab08119db55" kind="function"><name>MakeRequestAsync</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1ad1217fa9d905c6e8abd20e27ccc7f11c" kind="function"><name>PostRequestAsync</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details" kind="class"><name>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1aefc84b5365476868d9e321c82ce8d232" kind="property"><name>Response</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1af0252855befc42236c6ecba4b620065c" kind="property"><name>ResponseCostDataTotal</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1a8041a9e2caa2031f19364c890f58e9ab" kind="property"><name>ResponseCostDataPerVM</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1adcc8b95c99a013f36ff7b9f7156a19ce" kind="property"><name>ResponseCostDataPerVMDisk</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1acd668246007208737e8efb01fb2415e9" kind="property"><name>ResponseCostDataPerVMNetwork</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_1_1_column" kind="class"><name>AzVMMonitorCostsPerVM::Column</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_column_1a4bedab2593e6abf86f070877d35a6b0b" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_column_1a3696eb2010a559fbf44c1650e68479b9" kind="property"><name>Type</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_column" kind="class"><name>AzVMMonitorCostsPerVMNetwork::Column</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_column_1a5369181fcadc0dcbb3d016045399f6e1" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_column_1ad6bdaffe0b64bfd9ec67ae297d36c21d" kind="property"><name>Type</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_column" kind="class"><name>AzVMMonitorCostsPerVMDisk::Column</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_column_1a69425b8930561e0d312868583112af5b" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_column_1aa1d90296370b73ae88b9edfa9c5b3d1c" kind="property"><name>Type</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_column" kind="class"><name>AzVMMonitorCostTotalData::Column</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_column_1ab761af6fefe62f14d277745f75ec6023" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_column_1aea67088612c5f6ffe4c770daac3fc794" kind="property"><name>Type</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_v2_1_1_configuration_window" kind="class"><name>AzVMMonitorV2::ConfigurationWindow</name>
+    <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1af1a1d0d168d4c5d6ea9e9d35918c6afd" kind="variable"><name>xmlConfigFile</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1ab460225b56a27bb2b607ee1d2cadaf8d" kind="function"><name>ConfigurationWindow</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1ad30ce6ffe26976ddb03c34abb4c0a41a" kind="function"><name>Window_Loaded</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_configuration_window_1a156b5b2981d712a6c5c272bee58bcd04" kind="function"><name>btn_saveConfiguration_Click</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_converter" kind="class"><name>AzVMMonitorCostsPerVMNetwork::Converter</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_converter_1a2f1a6c614e854046cddccabf4d41e634" kind="variable"><name>Settings</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_1_1_converter" kind="class"><name>AzVMMonitorCostsPerVM::Converter</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_converter_1a5df915f2b8b9c2c99914a1432ad91cdc" kind="variable"><name>Settings</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_converter" kind="class"><name>AzVMMonitorCostTotalData::Converter</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_converter_1a661d57dab5d165f03a61e034e1c12773" kind="variable"><name>Settings</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_converter" kind="class"><name>AzVMMonitorCostsPerVMDisk::Converter</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_converter_1a3fdff8592be7d4e80ef70fac25136389" kind="variable"><name>Settings</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm" kind="class"><name>AzVMMonitorCostsPerVM::CostDataPerVm</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1aa0bc64872fee3847d996eb37aee823eb" kind="property"><name>Id</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1a36fa881b9a41fcd2cfeda2634d03c53e" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1a8810117b392e81041e23f05285d238f1" kind="property"><name>Type</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1a161856d706f2b2d515242b0f857d7529" kind="property"><name>Location</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1a4e6c2e06e5707bfefd714ef6523cab2e" kind="property"><name>Sku</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1ac4895931b04cf64346c79956bc7fcb08" kind="property"><name>ETag</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1a2fcf1f80ef093416fb322639dc78f9e5" kind="property"><name>Properties</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_cost_data_per_vm_1ac541c807ba052a75b516601ca7145f77" kind="function"><name>FromJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk" kind="class"><name>AzVMMonitorCostsPerVMDisk::CostDataPerVmDisk</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a05ad1cd17237c99c878426b8ea60733a" kind="property"><name>Id</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1aa8a6054f753cc978d58b8a4f072d191a" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a58fc97728ad0fe80d883f461537abe53" kind="property"><name>Type</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a0c87a402068df6e98e19e93085ae5ef5" kind="property"><name>Location</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a81ca932d167ad8680f30d07beceb09ee" kind="property"><name>Sku</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a597f732e2f654a025103c931312ff461" kind="property"><name>ETag</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a78a08741ac527b37433d385974bc23af" kind="property"><name>Properties</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_cost_data_per_vm_disk_1a787c1a01d4173fbbeb5c275f6b63e4ae" kind="function"><name>FromJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network" kind="class"><name>AzVMMonitorCostsPerVMNetwork::CostDataPerVmNetwork</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aec93297b13af8040c17f448d93c6dc2e" kind="property"><name>Id</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1af17a16eb8d46d2b089b161e487f57a9e" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1ae237eda50ff520f7e01f49fdbbfdfedd" kind="property"><name>Type</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aee88244ea5525fbf654869a22d44ffb5" kind="property"><name>Location</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aedc42f3583ff97a08b6d7da88be8efa3" kind="property"><name>Sku</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1ae371e7b14e1a0e8daeb7c9d958fad97d" kind="property"><name>ETag</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1a6cb0c91fdf04e01bf48553f81f42a7d7" kind="property"><name>Properties</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_cost_data_per_vm_network_1aa57b4e1f3a599d1ba8aa4d0f3a3ecdb1" kind="function"><name>FromJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total" kind="class"><name>AzVMMonitorCostTotalData::CostDataTotal</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1acdf8f7517bf623ec8c641896f6927cb7" kind="property"><name>Id</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a6bf050003c18232e948e0a7c47d21f8f" kind="property"><name>Name</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a7f424e6e18e1fc4f693c3aa7f672e176" kind="property"><name>Type</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a47f3d41bace3d749e41fe8dfeb2cbc0a" kind="property"><name>Location</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a6d5accd500119a43bbfba651022c22cc" kind="property"><name>Sku</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a7c99ff2e9edd86923651af8e980b6129" kind="property"><name>ETag</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1ad5c8d2cb131d7d39ea7c0af56d87ada4" kind="property"><name>Properties</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total_1a9b1559de28b79e530d7842633ce4f404" kind="function"><name>FromJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query" kind="class"><name>AzVMMonitorCostTotalData::CostManagementQuery</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a9052d4d630e5d02bd58cfa7fc0a28d95" kind="variable"><name>requestByTagPayload</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1aa1f5d8654c4ac89c1f47de5ae387621a" kind="variable"><name>requestByDimensionPayload</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_cost_management_query_1a1909534ed9c2d986964a7c34cd812548" kind="variable"><name>requestCostManagementTotal</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_v2_1_1_loading_splash" kind="class"><name>AzVMMonitorV2::LoadingSplash</name>
+    <member refid="class_az_v_m_monitor_v2_1_1_loading_splash_1a160991960f26833c87d3b61b7bcc1da3" kind="variable"><name>Splash</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_loading_splash_1a03c8c8cc5205300d98095bcd34bb7721" kind="variable"><name>MainWindow</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_loading_splash_1a44e3a19959335b84ff781f9c84666632" kind="function"><name>Start</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_v2_1_1_main_window" kind="class"><name>AzVMMonitorV2::MainWindow</name>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1afd2017a90a9cd88ffd41cdbc43a34c87" kind="variable"><name>ClientId_appID</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1af0ffc97090440bfaf8890654c27bd9cb" kind="variable"><name>ClientSecret_appSecret</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1aa9192b09750d45886b18894801513bb4" kind="variable"><name>ClientTenantId</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a2fe9940bfdb818033c6dd31733eb97fa" kind="variable"><name>AzureSubscriptionID</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a55cbaaa55c73c57bae0be0341ff029cd" kind="variable"><name>TypeCurrency</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1aa0cdb7fa88ce88b76424afa102a65feb" kind="variable"><name>CostVM</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1af5c848a888e7869dea59c1b6d19171d1" kind="variable"><name>vMPublcIP</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1adbfdad0caceb8479ffd8bb25b18141a0" kind="variable"><name>SelectedVM</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a30f58cd2cc724ddf690e8334861925dd" kind="variable"><name>AzureCred</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a548736385e9e49eb671abc976839e643" kind="variable"><name>AzureTokenRESTAPI</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a96be2b2f5c647dfcc2de091989384f51" kind="variable"><name>itemsVM</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a354223b0c06482066adce2455cb1c29f" kind="variable"><name>isOkay</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a6ced2f15d91b3261f62789cdfbae9faf" kind="variable"><name>CostDisks</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a355388e2890d5c78c1e4d937187c5ced" kind="variable"><name>CostNET</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a8bdbd269a07212451fb917e87ae72a57" kind="function"><name>LogInAzure</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a7c2018583b4f5f205412233fec29f17b" kind="function"><name>Window_Loaded</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1af7e6e8bea9e408e0705e158f87364ec8" kind="function"><name>ListOfVM_PreviewMouseLeftButtonDown</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a06bde43f6a718b1f3a738183b9a36c7d" kind="function"><name>ListOfVM_PreviewMouseLeftButtonUp</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1ad97465fd50b883f4704767a63fc5cc8f" kind="function"><name>btn_StartVM_Click</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a6a2137e2a0fe552ecb8605de9d06cb75" kind="function"><name>btn_RestartVM_Click</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a0ac900d402c855affefcefb0a611b374" kind="function"><name>btn_StopVM_Click</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a026e8ba44e25c28e8711aa4baf5c2d77" kind="function"><name>btn_openRDP_Click</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a5911d1f6c5ebec0e0f299de1f1f38fb4" kind="function"><name>TabItem_PreviewMouseLeftButtonUp</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1afed146dd99ebc0176cbb0c072e357b9d" kind="function"><name>Hyperlink_RequestNavigate_1</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a2a9bab0e85d5401890d2be8c4066309e" kind="function"><name>TabItem_PreviewMouseLeftButtonUpAsync</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a536dd25b4529dfa6da5922d3f7d54a2e" kind="function"><name>btn_openConfiguration_Click</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1abf24a68fc51360b85625f289181ddeda" kind="function"><name>RefreshVMData</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1add8e2c9da7011962d7a861f775a44e08" kind="function"><name>ConnectionToAzureTrouble</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1ab1d71af2d3b2e44fabee4a8bd42b3d70" kind="function"><name>RefreshVMData_legacy</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_main_window_1a81886d536328c3413b05d37bb3c0c677" kind="function"><name>MainWindow</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties" kind="class"><name>AzVMMonitorCostsPerVMNetwork::Properties</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1a59bb410e5d38549c63a25ca75212da99" kind="property"><name>NextLink</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1ad41ab8a0463eea3d1243fd6bada02744" kind="property"><name>Columns</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_properties_1a057bb918a0707376d38682dd20136aa6" kind="property"><name>Rows</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_properties" kind="class"><name>AzVMMonitorCostsPerVMDisk::Properties</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_properties_1a04d2470256c1112623dbeeca126a208f" kind="property"><name>NextLink</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_properties_1a6315826270247fd3b425337e5bfd2ad8" kind="property"><name>Columns</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_properties_1a507da595062d525ffeaeadbd1f53f2bd" kind="property"><name>Rows</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_properties" kind="class"><name>AzVMMonitorCostTotalData::Properties</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_properties_1aeb30775d442e487da8a7f0c2a22a0d98" kind="property"><name>NextLink</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_properties_1a9b0db7cca55898dd36024d6fc1c7c87d" kind="property"><name>Columns</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_properties_1a294ec662e00f66f5e2edb9e689c1bca0" kind="property"><name>Rows</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_1_1_properties" kind="class"><name>AzVMMonitorCostsPerVM::Properties</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_properties_1a8a3407237e7df5e7b5ce1d316c93e056" kind="property"><name>NextLink</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_properties_1ae6e06357467cececfe2a21b2cb685ac7" kind="property"><name>Columns</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_properties_1a80abac1a6664a555a594e7b616cd91fb" kind="property"><name>Rows</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_v2_1_1_properties_1_1_resources" kind="class"><name>AzVMMonitorV2::Properties::Resources</name>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_resources_1a264d478e1d103d2937d171218eee58ab" kind="variable"><name>resourceMan</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_resources_1a9807f5a57705ad76cd1539ce17cd79ba" kind="variable"><name>resourceCulture</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_resources_1a791ab58c9f38b3d3ad834bf32e520106" kind="property"><name>ResourceManager</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_resources_1ad1eca1a14c806a71238d92cb45138e92" kind="property"><name>Culture</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_resources_1a1cc45990c9d71a8682963b9935bcb8d3" kind="function"><name>Resources</name></member>
+  </compound>
+  <compound refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row" kind="struct"><name>AzVMMonitorCostsPerVMNetwork::Row</name>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row_1aa227a78b27483a856f2f28e864ec585a" kind="variable"><name>AnythingArray</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row_1a564b3b1048fb0c5ee8dc5bef0986259b" kind="variable"><name>Double</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row_1a6428dc71b93d77d7eaf949fbb3768243" kind="variable"><name>String</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row_1a82488ad120c781e6227dd0050f590b5f" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row_1a5df7b955c6b4630d169f175a22c56096" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_network_1_1_row_1a10ae30676f6afa7a41f24af98316daba" kind="function"><name>operator Row</name></member>
+  </compound>
+  <compound refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row" kind="struct"><name>AzVMMonitorCostsPerVM::Row</name>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row_1a9c9e6c9d9d9338267797a8aba33f1067" kind="variable"><name>AnythingArray</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row_1a943076998e2e4d9d726219dd88c56df6" kind="variable"><name>Double</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row_1a927677a301cd6f50313b1eaa6de5ea44" kind="variable"><name>String</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row_1ae532e021a5685e8e36ace69e308fdc13" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row_1a94130d9b6e803cd363d34a16f8d9dce5" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_1_1_row_1a2f14ac922f0c2fce94682a6c23d59cc9" kind="function"><name>operator Row</name></member>
+  </compound>
+  <compound refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row" kind="struct"><name>AzVMMonitorCostsPerVMDisk::Row</name>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a159c01fe7740962a08522e8b83540237" kind="variable"><name>Double</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a97fb57f034e29b937cbc80c6133c3f0f" kind="variable"><name>String</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a75118e6f6da207aafbb427184c0faa62" kind="variable"><name>StringArray</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a78d64e9c027de0d9fed0071b1ed955e7" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1a6e1b1ea46e02d8d55d349b6934cbab61" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_costs_per_v_m_disk_1_1_row_1af5bf7ec3b567f3e9b38bb020356e5bdf" kind="function"><name>operator Row</name></member>
+  </compound>
+  <compound refid="struct_az_v_m_monitor_cost_total_data_1_1_row" kind="struct"><name>AzVMMonitorCostTotalData::Row</name>
+    <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1abed895bd28dfac20be5e400b4233e6f4" kind="variable"><name>Double</name></member>
+    <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1a9c8fb2768725bfdbee72b96dfe47f8c1" kind="variable"><name>String</name></member>
+    <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1abdae9e3ea48b6bc4bbf6df3a59ae1c27" kind="function"><name>operator Row</name></member>
+    <member refid="struct_az_v_m_monitor_cost_total_data_1_1_row_1a94ef9491d56b4ab2b7f615341df86d4a" kind="function"><name>operator Row</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_1_1_row_converter" kind="class"><name>AzVMMonitorCostsPerVM::RowConverter</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_row_converter_1aa1468341825d3035e2c7f4fc2285e97f" kind="variable"><name>Singleton</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_row_converter_1a7b241f166dea36113d991e6db7011d26" kind="function"><name>CanConvert</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_row_converter_1a7ce8b23f5719ef17b975c6cfb22b1fec" kind="function"><name>ReadJson</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_row_converter_1a8deaf0a59a916cdb5a622074e64ba1fe" kind="function"><name>WriteJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter" kind="class"><name>AzVMMonitorCostTotalData::RowConverter</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a41959d8295531e5f32d027c5a76a0e59" kind="variable"><name>Singleton</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a7588ae228b68a158524296beb0a192a7" kind="function"><name>CanConvert</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1aecee4dc4599e5b4b914fefdf20a9ad20" kind="function"><name>ReadJson</name></member>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_row_converter_1a8dc4a1d6e0d42349de6c57b65bb00292" kind="function"><name>WriteJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_row_converter" kind="class"><name>AzVMMonitorCostsPerVMNetwork::RowConverter</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_row_converter_1a0beddfd2d47b4fe7ca696e2b358ba5e2" kind="variable"><name>Singleton</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_row_converter_1a36d8e0aa4263e3394a1808a9573b8eed" kind="function"><name>CanConvert</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_row_converter_1a3a821180b333208a20c37168db90649a" kind="function"><name>ReadJson</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_row_converter_1aa0bb255b5c0c512b3698cf83b6391ff9" kind="function"><name>WriteJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_row_converter" kind="class"><name>AzVMMonitorCostsPerVMDisk::RowConverter</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_row_converter_1abcaa7858d154b7c7a5cc00fceb8e013c" kind="variable"><name>Singleton</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_row_converter_1a27533cbaf1454a95b124417fac413d3b" kind="function"><name>CanConvert</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_row_converter_1aa022d516fbd52100c2a3fe9f6984c6c9" kind="function"><name>ReadJson</name></member>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_row_converter_1a02a39ce84e2aaa45bfd816d387a58b7d" kind="function"><name>WriteJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_1_1_serialize" kind="class"><name>AzVMMonitorCostsPerVM::Serialize</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_1_1_serialize_1ad82b576a24d4c40e8baab71de33ab6c3" kind="function"><name>ToJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_serialize" kind="class"><name>AzVMMonitorCostsPerVMDisk::Serialize</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_disk_1_1_serialize_1ae9c7fd742a2d7b13d58cf13f85eabfe0" kind="function"><name>ToJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_serialize" kind="class"><name>AzVMMonitorCostsPerVMNetwork::Serialize</name>
+    <member refid="class_az_v_m_monitor_costs_per_v_m_network_1_1_serialize_1a1477a45a90ddc44341f2c4812da8871e" kind="function"><name>ToJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_cost_total_data_1_1_serialize" kind="class"><name>AzVMMonitorCostTotalData::Serialize</name>
+    <member refid="class_az_v_m_monitor_cost_total_data_1_1_serialize_1a08d49157ddecd5be71099d77c787ddd9" kind="function"><name>ToJson</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings" kind="class"><name>AzVMMonitorV2::Properties::Settings</name>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings_1a5f153d094d5e5080970a2abd038abafb" kind="variable"><name>defaultInstance</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_properties_1_1_settings_1a37aef46e18320e713f81eeb968cdd768" kind="property"><name>Default</name></member>
+  </compound>
+  <compound refid="class_az_v_m_monitor_v2_1_1_v_m_helper" kind="class"><name>AzVMMonitorV2::VMHelper</name>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6fdda0bdba80a16df473a20269e936cb" kind="property"><name>VMName</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a60795f88038ac2d437c4c8b3b87b71dc" kind="property"><name>VMState</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a871e6fedea80e8519c2fb141937516d9" kind="property"><name>VMKey</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1af583e402540621c8543bfd19e18c515f" kind="property"><name>VMSize</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a42d8f4e46cfd24aa36275c000273c576" kind="property"><name>VMUpTime</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a12e7bb61e7402c651d3cf6a2304df994" kind="property"><name>VMPublicIP</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a17fdbd2f134a6d6446a56f024de59a26" kind="property"><name>VMGroupName</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a70ad48c043044269637a0b3993dd8202" kind="property"><name>VMDiskCount</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1adf7b294ac3000fecb798dc110f585721" kind="property"><name>VMDiskFirst</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1ae0f95456ca5e047893fa3f72dc13b223" kind="property"><name>VMNetwork</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1af56483c66a012803ccee41fd42085f09" kind="property"><name>VMCurrent</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1aaa1ef8dc054f8d114f9841b3100e9372" kind="function"><name>VMHelper</name></member>
+    <member refid="class_az_v_m_monitor_v2_1_1_v_m_helper_1a6969aca7e8a5a72f7842e80288d4f3e1" kind="function"><name>ToString</name></member>
+  </compound>
+  <compound refid="namespace_az_v_m_monitor_costs_per_v_m" kind="namespace"><name>AzVMMonitorCostsPerVM</name>
+  </compound>
+  <compound refid="namespace_az_v_m_monitor_costs_per_v_m_disk" kind="namespace"><name>AzVMMonitorCostsPerVMDisk</name>
+  </compound>
+  <compound refid="namespace_az_v_m_monitor_costs_per_v_m_network" kind="namespace"><name>AzVMMonitorCostsPerVMNetwork</name>
+  </compound>
+  <compound refid="namespace_az_v_m_monitor_cost_total_data" kind="namespace"><name>AzVMMonitorCostTotalData</name>
+  </compound>
+  <compound refid="namespace_az_v_m_monitor_v2" kind="namespace"><name>AzVMMonitorV2</name>
+  </compound>
+  <compound refid="namespace_az_v_m_monitor_v2_1_1_properties" kind="namespace"><name>AzVMMonitorV2::Properties</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_azure_1_1_management_1_1_compute_1_1_fluent" kind="namespace"><name>Microsoft::Azure::Management::Compute::Fluent</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_azure_1_1_management_1_1_fluent" kind="namespace"><name>Microsoft::Azure::Management::Fluent</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_azure_1_1_management_1_1_resource_manager_1_1_fluent" kind="namespace"><name>Microsoft::Azure::Management::ResourceManager::Fluent</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_azure_1_1_management_1_1_resource_manager_1_1_fluent_1_1_core" kind="namespace"><name>Microsoft::Azure::Management::ResourceManager::Fluent::Core</name>
+  </compound>
+  <compound refid="namespace_microsoft_1_1_identity_model_1_1_clients_1_1_active_directory" kind="namespace"><name>Microsoft::IdentityModel::Clients::ActiveDirectory</name>
+  </compound>
+  <compound refid="namespace_newtonsoft_1_1_json" kind="namespace"><name>Newtonsoft::Json</name>
+  </compound>
+  <compound refid="namespace_newtonsoft_1_1_json_1_1_converters" kind="namespace"><name>Newtonsoft::Json::Converters</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_configuration" kind="namespace"><name>System::Configuration</name>
+  </compound>
+  <compound refid="namespace_system_1_1_data" kind="namespace"><name>System::Data</name>
+  </compound>
+  <compound refid="namespace_system_1_1_diagnostics" kind="namespace"><name>System::Diagnostics</name>
+  </compound>
+  <compound refid="namespace_system_1_1_globalization" kind="namespace"><name>System::Globalization</name>
+  </compound>
+  <compound refid="namespace_system_1_1_i_o" kind="namespace"><name>System::IO</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_net_1_1_http" kind="namespace"><name>System::Net::Http</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_resources" kind="namespace"><name>System::Resources</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows" kind="namespace"><name>System::Windows</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_controls" kind="namespace"><name>System::Windows::Controls</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_data" kind="namespace"><name>System::Windows::Data</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_documents" kind="namespace"><name>System::Windows::Documents</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_input" kind="namespace"><name>System::Windows::Input</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_media" kind="namespace"><name>System::Windows::Media</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_media_1_1_imaging" kind="namespace"><name>System::Windows::Media::Imaging</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_shapes" kind="namespace"><name>System::Windows::Shapes</name>
+  </compound>
+  <compound refid="namespace_system_1_1_windows_1_1_threading" kind="namespace"><name>System::Windows::Threading</name>
+  </compound>
+  <compound refid="namespace_system_1_1_xml_1_1_linq" kind="namespace"><name>System::Xml::Linq</name>
+  </compound>
+  <compound refid="_app_8xaml_8cs" kind="file"><name>App.xaml.cs</name>
+  </compound>
+  <compound refid="_az_billing_r_e_s_t_helper_8cs" kind="file"><name>AzBillingRESTHelper.cs</name>
+  </compound>
+  <compound refid="_configuration_window_8xaml_8cs" kind="file"><name>ConfigurationWindow.xaml.cs</name>
+  </compound>
+  <compound refid="_loading_splash_8cs" kind="file"><name>LoadingSplash.cs</name>
+  </compound>
+  <compound refid="_main_window_8xaml_8cs" kind="file"><name>MainWindow.xaml.cs</name>
+  </compound>
+  <compound refid="_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="_resources_8_designer_8cs" kind="file"><name>Resources.Designer.cs</name>
+  </compound>
+  <compound refid="_settings_8_designer_8cs" kind="file"><name>Settings.Designer.cs</name>
+  </compound>
+  <compound refid="_v_m_helper_8cs" kind="file"><name>VMHelper.cs</name>
+  </compound>
+  <compound refid="dir_f5a64b234f02e1092a864658d81f0002" kind="dir"><name>C:/Users/Administrator</name>
+  </compound>
+  <compound refid="dir_ac81c6b91ac90f29cf5e36033c6ef38e" kind="dir"><name>C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2</name>
+  </compound>
+  <compound refid="dir_4a52453270edd71d4524dd24fec7a4f2" kind="dir"><name>C:/Users/Administrator/source/repos/AzVMMonitorV2</name>
+  </compound>
+  <compound refid="dir_6e3916ac0f4e7fbf9f766b9b5eab649c" kind="dir"><name>C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/Properties</name>
+  </compound>
+  <compound refid="dir_1b4649223df9d90043920590e3f234d3" kind="dir"><name>C:/Users/Administrator/source/repos</name>
+  </compound>
+  <compound refid="dir_55daa0dc0c9f3b2d675d96e56a69e565" kind="dir"><name>C:/Users/Administrator/source</name>
+  </compound>
+  <compound refid="dir_d522931ffa1371640980b621734a4381" kind="dir"><name>C:/Users</name>
+  </compound>
+</doxygenindex>

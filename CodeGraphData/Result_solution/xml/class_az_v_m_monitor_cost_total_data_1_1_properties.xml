@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_properties" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::Properties</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_properties_1aeb30775d442e487da8a7f0c2a22a0d98" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>object</type>
+        <definition>object AzVMMonitorCostTotalData.Properties.NextLink</definition>
+        <argsstring></argsstring>
+        <name>NextLink</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="473" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="473" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_properties_1a9b0db7cca55898dd36024d6fc1c7c87d" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="class_az_v_m_monitor_cost_total_data_1_1_column" kindref="compound">Column</ref>[]</type>
+        <definition>Column [] AzVMMonitorCostTotalData.Properties.Columns</definition>
+        <argsstring></argsstring>
+        <name>Columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="476" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="476" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_properties_1a294ec662e00f66f5e2edb9e689c1bca0" prot="public" static="no" readable="no" writable="no" gettable="yes" settable="yes">
+        <type><ref refid="struct_az_v_m_monitor_cost_total_data_1_1_row" kindref="compound">Row</ref>[][]</type>
+        <definition>Row [][] AzVMMonitorCostTotalData.Properties.Rows</definition>
+        <argsstring></argsstring>
+        <name>Rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="479" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="479" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="471" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="470" bodyend="480"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_properties_1a9b0db7cca55898dd36024d6fc1c7c87d" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Properties</scope><name>Columns</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_properties_1aeb30775d442e487da8a7f0c2a22a0d98" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Properties</scope><name>NextLink</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_properties_1a294ec662e00f66f5e2edb9e689c1bca0" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Properties</scope><name>Rows</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

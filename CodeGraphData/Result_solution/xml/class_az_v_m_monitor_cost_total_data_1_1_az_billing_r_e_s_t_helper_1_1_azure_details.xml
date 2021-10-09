@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</compoundname>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1aefc84b5365476868d9e321c82ce8d232" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.AzBillingRESTHelper.AzureDetails.Response</definition>
+        <argsstring></argsstring>
+        <name>Response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="571" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="571" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1af0252855befc42236c6ecba4b620065c" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.AzBillingRESTHelper.AzureDetails.ResponseCostDataTotal</definition>
+        <argsstring></argsstring>
+        <name>ResponseCostDataTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="572" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="572" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1a8041a9e2caa2031f19364c890f58e9ab" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.AzBillingRESTHelper.AzureDetails.ResponseCostDataPerVM</definition>
+        <argsstring></argsstring>
+        <name>ResponseCostDataPerVM</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="573" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="573" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1adcc8b95c99a013f36ff7b9f7156a19ce" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.AzBillingRESTHelper.AzureDetails.ResponseCostDataPerVMDisk</definition>
+        <argsstring></argsstring>
+        <name>ResponseCostDataPerVMDisk</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="574" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="574" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1acd668246007208737e8efb01fb2415e9" prot="public" static="yes" readable="no" writable="no" gettable="yes" settable="yes">
+        <type>string</type>
+        <definition>string AzVMMonitorCostTotalData.AzBillingRESTHelper.AzureDetails.ResponseCostDataPerVMNetwork</definition>
+        <argsstring></argsstring>
+        <name>ResponseCostDataPerVMNetwork</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="575" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="575" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="569" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="568" bodyend="577"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1aefc84b5365476868d9e321c82ce8d232" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</scope><name>Response</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1a8041a9e2caa2031f19364c890f58e9ab" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</scope><name>ResponseCostDataPerVM</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1adcc8b95c99a013f36ff7b9f7156a19ce" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</scope><name>ResponseCostDataPerVMDisk</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1acd668246007208737e8efb01fb2415e9" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</scope><name>ResponseCostDataPerVMNetwork</name></member>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_az_billing_r_e_s_t_helper_1_1_azure_details_1af0252855befc42236c6ecba4b620065c" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::AzBillingRESTHelper::AzureDetails</scope><name>ResponseCostDataTotal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_az_v_m_monitor_cost_total_data_1_1_serialize" kind="class" prot="public">
+    <compoundname>AzVMMonitorCostTotalData::Serialize</compoundname>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_az_v_m_monitor_cost_total_data_1_1_serialize_1a08d49157ddecd5be71099d77c787ddd9" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>string</type>
+        <definition>static string AzVMMonitorCostTotalData.Serialize.ToJson</definition>
+        <argsstring>(this CostDataTotal self)</argsstring>
+        <name>ToJson</name>
+        <param>
+          <type>this <ref refid="class_az_v_m_monitor_cost_total_data_1_1_cost_data_total" kindref="compound">CostDataTotal</ref></type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="507" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" line="506" column="1" bodyfile="C:/Users/Administrator/source/repos/AzVMMonitorV2/AzVMMonitorV2/AzBillingRESTHelper.cs" bodystart="505" bodyend="508"/>
+    <listofallmembers>
+      <member refid="class_az_v_m_monitor_cost_total_data_1_1_serialize_1a08d49157ddecd5be71099d77c787ddd9" prot="public" virt="non-virtual"><scope>AzVMMonitorCostTotalData::Serialize</scope><name>ToJson</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
