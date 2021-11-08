@@ -754,55 +754,101 @@ namespace AzVMMonitorV2
                         ButtonRestartVM.IsEnabled = true;
                         ButtonOpenRDP.IsEnabled = true;
 
-                        //Получаем время запуска VM и приводим его к локальном времени (из UTC)
-                        DateTime utcVMStartTime = DateTime.Parse(SelectedVM.VMCurrent.InstanceView.Statuses[0].Time.ToString());
-                        DateTime localVMStartTime = utcVMStartTime.ToLocalTime();
-                        TimeSpan valueOfWorkinTime = ((TimeSpan)(DateTime.Now - localVMStartTime));
+                        //Кол-во элементов массива содержащего инфомрацию о состоянии запущенной VM, почему-то плавает, определяем сколько элементов
+                        //и в зависимости от этого считываем время то из 0 то из 1-го индекса
+                        if (SelectedVM.VMCurrent.InstanceView.Statuses.Count == 2)
+                        {
+                            //Получаем время запуска VM и приводим его к локальном времени (из UTC)
+                            DateTime utcVMStartTime = DateTime.Parse(SelectedVM.VMCurrent.InstanceView.Statuses[0].Time.ToString());
+                            DateTime localVMStartTime = utcVMStartTime.ToLocalTime();
+                            TimeSpan valueOfWorkinTime = ((TimeSpan)(DateTime.Now - localVMStartTime));
+                            //
+                            //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMState
+                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.2)
+                            {
+                                LabelVMState.Background = Brushes.Aquamarine;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else
+                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.5)
+                            {
+                                LabelVMState.Background = Brushes.GreenYellow;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else
+                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 1)
+                            {
+                                LabelVMState.Background = Brushes.DarkSeaGreen;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 7)
+                            {
+                                LabelVMState.Background = Brushes.Gold;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 14)
+                            {
+                                LabelVMState.Background = Brushes.Orange;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 28)
+                            {
+                                LabelVMState.Background = Brushes.OrangeRed;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
 
-                        /* для отладки
-                        Console.WriteLine(SelectedVM.VMCurrent.Name+" "+ SelectedVM.VMCurrent.InstanceView.Statuses[0].ToString()+"  "+SelectedVM.VMCurrent.InstanceView.Statuses[0].Time.ToString());
-                        Console.WriteLine("Current Time: " + DateTime.Now.ToString());
-                        Console.WriteLine("Started Time (UTC): " + SelectedVM.VMCurrent.InstanceView.Statuses[0].Time.ToString());
-                        Console.WriteLine("Started Time (LOCAL): " + LocalVMStartTime.ToString());
+                        } else if (SelectedVM.VMCurrent.InstanceView.Statuses.Count == 3)
+                        {
+                            //Получаем время запуска VM и приводим его к локальном времени (из UTC)
+                            DateTime utcVMStartTime = DateTime.Parse(SelectedVM.VMCurrent.InstanceView.Statuses[1].Time.ToString());
+                            DateTime localVMStartTime = utcVMStartTime.ToLocalTime();
+                            TimeSpan valueOfWorkinTime = ((TimeSpan)(DateTime.Now - localVMStartTime));
+                            //
+                            //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMState
+                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.2)
+                            {
+                                LabelVMState.Background = Brushes.Aquamarine;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else
+                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.5)
+                            {
+                                LabelVMState.Background = Brushes.GreenYellow;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else
+                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 1)
+                            {
+                                LabelVMState.Background = Brushes.DarkSeaGreen;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 7)
+                            {
+                                LabelVMState.Background = Brushes.Gold;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 14)
+                            {
+                                LabelVMState.Background = Brushes.Orange;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 28)
+                            {
+                                LabelVMState.Background = Brushes.OrangeRed;
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                            }
+                        }
 
-                        Console.WriteLine("Working Time_raw: " + ValueOfWorkingTime.TotalHours.ToString());
-                        Console.WriteLine("Time Was Spent (Hours): " + ValueOfWorkingTime.TotalHours.ToString());
-                        Console.WriteLine("Time Was Spent (Hours-Days): " + (TimeSpan.FromHours(ValueOfWorkingTime.TotalHours)).TotalDays.ToString());
-                         */
+                        /*    Console.WriteLine(SelectedVM.VMCurrent.Name + " " + SelectedVM.VMCurrent.InstanceView.Statuses[0].ToString() + "  " + SelectedVM.VMCurrent.InstanceView.Statuses[0].Time.ToString());
+                            Console.WriteLine("Current Time: " + DateTime.Now.ToString());
+                            Console.WriteLine("Started Time (UTC): " + SelectedVM.VMCurrent.InstanceView.Statuses[0].Time.ToString());
+                            Console.WriteLine("Started Time (LOCAL): " + localVMStartTime.ToString());
 
-                        //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMState
-                        if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.2)
-                        {
-                            LabelVMState.Background = Brushes.Aquamarine;
-                            vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
-                        }
-                        else
-                        if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.5)
-                        {
-                            LabelVMState.Background = Brushes.GreenYellow;
-                            vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
-                        }
-                        else
-                        if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 1)
-                        {
-                            LabelVMState.Background = Brushes.DarkSeaGreen;
-                            vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
-                        }
-                        else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 7)
-                        {
-                            LabelVMState.Background = Brushes.Gold;
-                            vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
-                        }
-                        else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 14)
-                        {
-                            LabelVMState.Background = Brushes.Orange;
-                            vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
-                        }
-                        else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 28)
-                        {
-                            LabelVMState.Background = Brushes.OrangeRed;
-                            vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
-                        }
+                            Console.WriteLine("Working Time_raw: " + valueOfWorkinTime.TotalHours.ToString());
+                            Console.WriteLine("Time Was Spent (Hours): " + valueOfWorkinTime.TotalHours.ToString());
+                            Console.WriteLine("Time Was Spent (Hours-Days): " + (TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays.ToString());
+                        */
+
                     }
                     //Если выбранная VM не запущена - даем возможност её запустить
                     else
@@ -838,9 +884,12 @@ namespace AzVMMonitorV2
                     GetFinancialData();
                 }
             }
-            catch
+            catch (Exception ex)
             {
+               Console.WriteLine(ex);
+               throw;
             }
+
         }
 
         /// <summary>
