@@ -1,6 +1,6 @@
 ﻿/*
 MainWindow.xaml.cs
-06.10.2021 22:22:09
+15.12.2021 1:43:57
 Alexey Sedoykin
 */
 
@@ -12,6 +12,7 @@ namespace AzVMMonitorV2
     using AzVMMonitorCostTotalData;
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Fluent;
+    using Microsoft.Azure.Management.Network.Fluent;
     using Microsoft.Azure.Management.ResourceManager.Fluent;
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     using System;
@@ -125,7 +126,7 @@ namespace AzVMMonitorV2
         internal string ClientTenantId = "";
 
         /// <summary>
-        /// Defines the CostVM, CostDisks, CostNET.......
+        /// Defines the CostVM, CostDisks, CostNET........
         /// </summary>
         internal double CostVM, CostDisks, CostNET;
 
@@ -170,6 +171,16 @@ namespace AzVMMonitorV2
         private string vmworkingTime;
 
         /// <summary>
+        /// Defines the SecurityRulePriority.
+        /// </summary>
+        private int SecurityRulePriority;
+
+        /// <summary>
+        /// Defines the OpenPorts.
+        /// </summary>
+        private string OpenPorts;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
         public void ReadXMLConfig()
@@ -183,6 +194,8 @@ namespace AzVMMonitorV2
                 AzureSubscriptionID = xmlConfigFile.Descendants("azureSubscriptionID").First().Value;
                 TypeCurrency = xmlConfigFile.Descendants("currency").First().Value;
                 TypeTimeFrame = xmlConfigFile.Descendants("typeTimeFrame").First().Value;
+                SecurityRulePriority = Int16.Parse(xmlConfigFile.Descendants("securityRulePriority").First().Value);
+                OpenPorts = xmlConfigFile.Descendants("openPorts").First().Value;
             }
             catch (FileNotFoundException)
             {
@@ -235,6 +248,7 @@ namespace AzVMMonitorV2
             ButtonRestartVM.IsEnabled = false;
             ButtonOpenRDP.IsEnabled = false;
             ButtonOpenAzurePortal.IsEnabled = false;
+            ButtonProvideAccess.IsEnabled = false;
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
             TabFinanceData.IsEnabled = false;
             LabelWarningError.Visibility = Visibility.Hidden;
@@ -349,6 +363,7 @@ namespace AzVMMonitorV2
             ButtonOpenRDP.IsEnabled = isLock;
             ButtonReloadData.IsEnabled = isLock;
             ButtonOpenAzurePortal.IsEnabled = isLock;
+            ButtonProvideAccess.IsEnabled = isLock;
             TabTechicalData.IsEnabled = isLock;
 
             ListOfVM.IsEnabled = isLock;
@@ -559,7 +574,7 @@ namespace AzVMMonitorV2
         private void ButtonOpenConfiguration_Click(object sender, RoutedEventArgs e)
         {
             ConfigurationWindow confWindow = new ConfigurationWindow();
-            confWindow.Show();
+            confWindow.ShowDialog();
         }
 
         /// <summary>
@@ -743,6 +758,7 @@ namespace AzVMMonitorV2
                 LabelVMState.Background = Brushes.White;
 
                 SelectedVM = (VMHelper)this.ListOfVM.SelectedItem;
+
                 if (SelectedVM != null)
                 {
                     //определяем состояние выбранной VM, работает или нет
@@ -796,8 +812,8 @@ namespace AzVMMonitorV2
                                 LabelVMState.Background = Brushes.OrangeRed;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
                             }
-
-                        } else if (SelectedVM.VMCurrent.InstanceView.Statuses.Count == 3)
+                        }
+                        else if (SelectedVM.VMCurrent.InstanceView.Statuses.Count == 3)
                         {
                             //Получаем время запуска VM и приводим его к локальном времени (из UTC)
                             DateTime utcVMStartTime = DateTime.Parse(SelectedVM.VMCurrent.InstanceView.Statuses[1].Time.ToString());
@@ -848,7 +864,6 @@ namespace AzVMMonitorV2
                             Console.WriteLine("Time Was Spent (Hours): " + valueOfWorkinTime.TotalHours.ToString());
                             Console.WriteLine("Time Was Spent (Hours-Days): " + (TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays.ToString());
                         */
-
                     }
                     //Если выбранная VM не запущена - даем возможност её запустить
                     else
@@ -861,15 +876,18 @@ namespace AzVMMonitorV2
                         LabelVMStateToolTip.Content = "";
                         LabelVMState.Background = Brushes.White;
                     }
+
+                    //Заполяем инфомрационные поля о выбранной VM
+                    TabFinanceData.IsEnabled = true;
+                    LabelVMName.Text = SelectedVM.VMName;
+                    LabelVMSize.Text = SelectedVM.VMSize;
+                    LabelVMState.Text = SelectedVM.VMState;
+                    LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
+                    IDisk disk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
+                    LabelVMWasCreated.Text = disk.Inner.TimeCreated.Value.ToString();
+
                 }
-                //Заполяем инфомрационные поля о выбранной VM
-                TabFinanceData.IsEnabled = true;
-                LabelVMName.Text = SelectedVM.VMName;
-                LabelVMSize.Text = SelectedVM.VMSize;
-                LabelVMState.Text = SelectedVM.VMState;
-                LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
-                IDisk disk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
-                LabelVMWasCreated.Text = disk.Inner.TimeCreated.Value.ToString();
+
 
                 if (TabTechicalData.IsFocused)
                 {
@@ -886,10 +904,9 @@ namespace AzVMMonitorV2
             }
             catch (Exception ex)
             {
-               Console.WriteLine(ex);
-               throw;
+                Console.WriteLine(ex);
+                throw;
             }
-
         }
 
         /// <summary>
@@ -919,6 +936,19 @@ namespace AzVMMonitorV2
         private void ButtonOpenAzurePortal_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://portal.azure.com/#@/resource/subscriptions/" + AzureSubscriptionID + "/resourceGroups/" + SelectedVM.VMGroupName + "/providers/Microsoft.Compute/virtualMachines/" + SelectedVM.VMCurrent.Name + "/overview");
+        }
+
+        /// <summary>
+        /// The ButtonProvideAccess_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
+        private void ButtonProvideAccess_Click(object sender, RoutedEventArgs e)
+        {
+            INetworkInterface nic = SelectedVM.VMCurrent.GetPrimaryNetworkInterface();
+            string Nsg = nic.GetNetworkSecurityGroup().Name.ToString();
+            SetNetworkRuleWindow setNGSWindow = new SetNetworkRuleWindow(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, Nsg, SecurityRulePriority, OpenPorts);
+            setNGSWindow.ShowDialog();
         }
 
         /// <summary>

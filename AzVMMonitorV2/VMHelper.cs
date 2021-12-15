@@ -7,6 +7,7 @@ Alexey Sedoykin
 namespace AzVMMonitorV2
 {
     using Microsoft.Azure.Management.Compute.Fluent;
+    using Microsoft.Azure.Management.Network.Fluent;
 
     /// <summary>
     /// Defines the <see cref="VMHelper" />.
@@ -72,6 +73,8 @@ namespace AzVMMonitorV2
         /// Gets or sets the VMCurrent.
         /// </summary>
         public IVirtualMachine VMCurrent { get; set; }
+
+        public INetworkInterface VMNET { get; set; }
 
         //Класс обёртка для возвращения методов/парамётров из IVirtualMachine
         /// <summary>

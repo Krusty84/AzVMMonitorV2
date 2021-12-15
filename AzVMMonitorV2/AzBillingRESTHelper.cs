@@ -122,7 +122,6 @@ namespace AzVMMonitorCostsPerVM
         /// </summary>
         public string String;
 
-
         public static implicit operator Row(object[] AnythingArray) => new Row { AnythingArray = AnythingArray };
 
         public static implicit operator Row(double Double) => new Row { Double = Double };
@@ -369,7 +368,6 @@ namespace AzVMMonitorCostsPerVMDisk
         /// </summary>
         public string[] StringArray;
 
-
         public static implicit operator Row(double Double) => new Row { Double = Double };
 
         public static implicit operator Row(string String) => new Row { String = String };
@@ -615,7 +613,6 @@ namespace AzVMMonitorCostsPerVMNetwork
         /// Defines the String.
         /// </summary>
         public string String;
-
 
         public static implicit operator Row(object[] AnythingArray) => new Row { AnythingArray = AnythingArray };
 
@@ -883,7 +880,6 @@ namespace AzVMMonitorCostTotalData
         /// </summary>
         public string String;
 
-
         public static implicit operator Row(double Double) => new Row { Double = Double };
 
         public static implicit operator Row(string String) => new Row { String = String };
@@ -1096,6 +1092,7 @@ namespace AzVMMonitorCostTotalData
            The time frame for pulling data for the query.If custom, then a specific time period must be provided.
            accepted values: BillingMonthToDate, Custom, MonthToDate, TheLastBillingMonth, TheLastMonth, WeekToDate
         */
+
         /// <summary>
         /// The GetCostByVM.
         /// </summary>

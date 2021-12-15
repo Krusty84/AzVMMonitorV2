@@ -6,7 +6,7 @@
     xmlns:local="clr-namespace:AzVMMonitorV2"
     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Title="Enter or change credentials data for connect to AZURE"
+    Title="Settings"
     Width="626.5"
     Height="382"
     Loaded="Window_Loaded"
@@ -15,106 +15,274 @@
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid Width="616" HorizontalAlignment="Left">
-        <TextBlock
-            Height="30"
-            Margin="40,30,496,0"
-            VerticalAlignment="Top"
-            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-            Text="Client ID" />
-        <TextBlock
-            Height="30"
-            Margin="40,82,496,0"
-            VerticalAlignment="Top"
-            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-            Text="Client Secret" />
+        <TabControl
+            x:Name="TabConfigurationData"
+            Margin="4,4,4,45"
+            Style="{StaticResource MaterialDesignTabControl}">
+            <TabItem Header="General" PreviewMouseLeftButtonUp="TabItemGeneralConf_PreviewMouseLeftButtonUp">
+                <StackPanel Margin="0,0,0,-16" Orientation="Horizontal">
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="270" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="31" />
+                            <RowDefinition Height="50" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Height="20"
+                            Margin="15,20,10,0"
+                            VerticalAlignment="Top"
+                            RenderTransformOrigin="0.505,1.15"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Client ID" />
 
-        <TextBlock
-            Height="30"
-            Margin="40,129,496,0"
-            VerticalAlignment="Top"
-            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-            Text="Tenant ID" />
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Height="19"
+                            Margin="15,21,260,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Client Secret" />
 
-        <TextBlock
-            Height="30"
-            Margin="40,189,475,0"
-            VerticalAlignment="Top"
-            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-            Text="Subscription ID" />
-        <TextBox
-            x:Name="ClientIDField"
-            Width="444"
-            Height="35"
-            Margin="0,25,26,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            materialDesign:TransitionAssist.DisableTransitions="True"
-            BorderThickness="0,0,0,1"
-            IsReadOnly="False" />
-        <TextBox
-            x:Name="ClientSecretField"
-            Width="444"
-            Height="35"
-            Margin="0,77,26,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            materialDesign:TransitionAssist.DisableTransitions="True"
-            IsReadOnly="False" />
-        <TextBox
-            x:Name="ClientTenantIDField"
-            Width="444"
-            Height="35"
-            Margin="0,124,26,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            materialDesign:TransitionAssist.DisableTransitions="True"
-            IsReadOnly="False" />
-        <TextBox
-            x:Name="ClientSubscriptionIDField"
-            Width="444"
-            Height="35"
-            Margin="0,189,26,0"
-            HorizontalAlignment="Right"
-            VerticalAlignment="Top"
-            materialDesign:TransitionAssist.DisableTransitions="True"
-            IsReadOnly="False" />
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Height="19"
+                            Margin="15,21,7,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Tenant ID" />
 
+                        <TextBlock
+                            Grid.Row="3"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            Height="19"
+                            Margin="15,21,250,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Subscription ID" />
+
+                        <TextBox
+                            x:Name="ClientIDField"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Width="450"
+                            Height="29"
+                            Margin="0,11,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            BorderThickness="0,0,0,1"
+                            IsReadOnly="False" />
+
+                        <TextBox
+                            x:Name="ClientSecretField"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Width="450"
+                            Height="30"
+                            Margin="0,10,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="False" />
+
+                        <TextBox
+                            x:Name="ClientTenantIDField"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Width="450"
+                            Height="30"
+                            Margin="0,10,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="False" />
+
+                        <TextBox
+                            x:Name="ClientSubscriptionIDField"
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Width="450"
+                            Height="30"
+                            Margin="0,10,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="False" />
+
+
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem
+                x:Name="TabFinanceConf"
+                Header="Finance"
+                PreviewMouseLeftButtonUp="TabItemFinanceConf_PreviewMouseLeftButtonUpAsync">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="270" />
+                            <ColumnDefinition Width="200" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="50" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Height="20"
+                            Margin="15,23,10,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Currency" />
+
+                        <TextBlock
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Height="20"
+                            Margin="15,23,10,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Time Type" />
+
+                        <ComboBox
+                            x:Name="comboBoxCurrency"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Height="36"
+                            Margin="10,7"
+                            materialDesign:HintAssist.Hint="Currency"
+                            RenderTransformOrigin="0.489,0.954"
+                            ToolTip="The Currency of the billing data">
+                            <ComboBoxItem Content="USD" />
+                            <ComboBoxItem Content="RUS" />
+                        </ComboBox>
+
+                        <ComboBox
+                            x:Name="comboBoxTypeTimeFrame"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Width="250"
+                            Height="36"
+                            Margin="10,7,0,7"
+                            HorizontalAlignment="Left"
+                            materialDesign:HintAssist.Hint="Time Frame"
+                            RenderTransformOrigin="0.489,0.954"
+                            ToolTip="The Time frame for getting billing data">
+                            <ComboBoxItem Content="BillingMonthToDate" />
+                            <ComboBoxItem Content="MonthToDate" />
+                            <ComboBoxItem Content="TheLastBillingMonth" />
+                            <ComboBoxItem Content="TheLastMonth" />
+                            <ComboBoxItem Content="WeekToDate" />
+                        </ComboBox>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+
+            <TabItem
+                x:Name="TabSecurityConf"
+                Header="Security"
+                PreviewMouseLeftButtonUp="TabItemSecurityConf_PreviewMouseLeftButtonUpAsync">
+                <StackPanel Orientation="Horizontal">
+                    <Grid Margin="0,0,0,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="130" />
+                            <ColumnDefinition Width="100" />
+                            <ColumnDefinition Width="370" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                            <RowDefinition Height="40" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Height="20"
+                            Margin="15,15,10,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Priority Rule" />
+
+                        <TextBlock
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            Height="20"
+                            Margin="15,15,10,0"
+                            VerticalAlignment="Top"
+                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                            Text="Open Ports" />
+
+                        <TextBox
+                            x:Name="PriorityRuleField"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Width="80"
+                            Height="35"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="False"
+                            MaxLength="4"
+                            PreviewTextInput="PriorityRuleField_PreviewTextInput"
+                            TextChanged="PriorityRuleField_TextChanged" />
+
+                        <TextBox
+                            x:Name="OpenPortsRuleField"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            Grid.ColumnSpan="2"
+                            Width="450"
+                            Height="35"
+                            Margin="0,0,10,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Top"
+                            materialDesign:TransitionAssist.DisableTransitions="True"
+                            IsReadOnly="False"
+                            PreviewTextInput="OpenPortsRuleField_PreviewTextInput" />
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
         <Button
             x:Name="btn_saveConfiguration"
-            Width="94"
             Height="Auto"
-            Margin="496,297,0,25"
-            HorizontalAlignment="Left"
+            Margin="541,308,10,10"
             Click="ButtonSaveConfiguration_Click"
             Content="{materialDesign:PackIcon ContentSaveCog}"
             Style="{StaticResource MaterialDesignRaisedLightButton}"
             ToolTip="Save" />
-
-        <ComboBox
-            x:Name="comboBoxCurrency"
-            Height="36"
-            Margin="22,256,461,24"
-            materialDesign:HintAssist.Hint="Currency"
-            RenderTransformOrigin="0.489,0.954"
-            ToolTip="The Currency of the billing data">
-            <ComboBoxItem Content="USD" />
-            <ComboBoxItem Content="RUS" />
-        </ComboBox>
-
-        <ComboBox
-            x:Name="comboBoxTypeTimeFrame"
-            Width="198"
-            Height="36"
-            Margin="192,256,0,24"
-            HorizontalAlignment="Left"
-            materialDesign:HintAssist.Hint="Time Frame"
-            RenderTransformOrigin="0.489,0.954"
-            ToolTip="The Time frame for getting billing data">
-            <ComboBoxItem Content="BillingMonthToDate" />
-            <ComboBoxItem Content="MonthToDate" />
-            <ComboBoxItem Content="TheLastBillingMonth" />
-            <ComboBoxItem Content="TheLastMonth" />
-            <ComboBoxItem Content="WeekToDate" />
-        </ComboBox>
     </Grid>
 </Window>

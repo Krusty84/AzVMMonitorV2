@@ -108,6 +108,7 @@
                             <ColumnDefinition Width="150" />
                             <ColumnDefinition Width="350" />
                             <ColumnDefinition Width="200" />
+                            <ColumnDefinition Width="200" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="30" />
@@ -205,7 +206,7 @@
                         <Button
                             x:Name="ButtonOpenRDP"
                             Grid.Row="5"
-                            Grid.Column="3"
+                            Grid.Column="2"
                             Width="76"
                             Height="30"
                             HorizontalAlignment="Center"
@@ -216,9 +217,22 @@
                             ToolTip="Connect via RDP" />
 
                         <Button
+                            x:Name="ButtonProvideAccess"
+                            Grid.Row="5"
+                            Grid.Column="3"
+                            Width="76"
+                            Height="30"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Click="ButtonProvideAccess_Click"
+                            Content="{materialDesign:PackIcon Security}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            ToolTip="Open connect at VM for You" />
+
+                        <Button
                             x:Name="ButtonOpenAzurePortal"
                             Grid.Row="1"
-                            Grid.Column="3"
+                            Grid.Column="2"
                             Width="76"
                             Height="30"
                             HorizontalAlignment="Center"

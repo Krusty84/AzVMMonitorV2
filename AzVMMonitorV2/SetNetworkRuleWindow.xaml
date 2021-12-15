@@ -1,0 +1,129 @@
+﻿<Window
+    x:Class="AzVMMonitorV2.SetNetworkRuleWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:AzVMMonitorV2"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="A security rule for access to the VM will be created/updated"
+    Width="620"
+    Height="209"
+    ResizeMode="NoResize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <StackPanel
+        x:Name="DataPanel"
+        Width="610"
+        Margin="0,0,0,4"
+        HorizontalAlignment="Left"
+        Orientation="Horizontal">
+        <Grid Width="615" Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+                <RowDefinition Height="30" />
+
+            </Grid.RowDefinitions>
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Margin="5,0,39,0"
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                Text="Your Current IP" />
+
+            <TextBox
+                x:Name="LabelCurrentIP"
+                Grid.Row="1"
+                Grid.Column="1"
+                materialDesign:TransitionAssist.DisableTransitions="True"
+                IsReadOnly="True" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="2"
+                Width="106"
+                Margin="0,6,31,6"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                Text="Your Country" />
+
+            <TextBox
+                x:Name="LabelCurrentCountry"
+                Grid.Row="1"
+                Grid.Column="3"
+                materialDesign:TransitionAssist.DisableTransitions="True"
+                IsReadOnly="True" />
+
+            <TextBlock
+                Grid.Row="2"
+                Grid.Column="0"
+                Margin="5,6,0,6"
+                VerticalAlignment="Center"
+                Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+                Text="Name of Security Rule" />
+
+            <TextBox
+                x:Name="LabelSecurityRuleName"
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="3"
+                materialDesign:TransitionAssist.DisableTransitions="True"
+                IsReadOnly="True" />
+
+            <Button
+                x:Name="btn_provideAccess"
+                Grid.Row="4"
+                Grid.Column="0"
+                Height="Auto"
+                Margin="30,10,27,-10"
+                Click="ButtonProvideAccess_Click"
+                Content="{materialDesign:PackIcon LockOpenVariant}"
+                RenderTransformOrigin="0.489,-0.567"
+                Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                ToolTip="Provide Access" />
+
+            <Button
+                x:Name="btn_closeWindow"
+                Grid.Row="4"
+                Grid.Column="3"
+                Height="Auto"
+                Margin="27,10,30,-10"
+                Click="ButtonCloseWindow_Click"
+                Content="{materialDesign:PackIcon CloseCircle}"
+                Style="{StaticResource MaterialDesignRaisedLightButton}"
+                ToolTip="Close Window" />
+            <StackPanel
+                x:Name="ProgressDataLoadPanel"
+                Grid.RowSpan="5"
+                Grid.ColumnSpan="4"
+                Width="615"
+                Height="140"
+                Margin="0,0,-11,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Opacity="0.8">
+                <ProgressBar
+                    Width="Auto"
+                    Height="96"
+                    Margin="273,20,236,0"
+                    VerticalAlignment="Center"
+                    IsIndeterminate="True"
+                    RenderTransformOrigin="0.475,0.473"
+                    Style="{StaticResource MaterialDesignCircularProgressBar}"
+                    Value="0" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>

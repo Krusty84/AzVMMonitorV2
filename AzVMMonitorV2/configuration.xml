@@ -7,4 +7,8 @@
 	<currency>USD</currency>
 	<!-- BillingMonthToDate, MonthToDate, TheLastBillingMonth, TheLastMonth, WeekToDate-->
 	<typeTimeFrame>TheLastBillingMonth</typeTimeFrame>
+	<!-- The Priority of Security Rule-->
+	<securityRulePriority>444</securityRulePriority>
+	<!-- The Opened Ports in the Security Rule-->
+	<openPorts>80,443,3389,4544,7001,3000,28000,5201</openPorts>
 </AzVMMonitor>
