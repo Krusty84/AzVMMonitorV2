@@ -16,30 +16,57 @@
     mc:Ignorable="d">
     <Grid Width="911" HorizontalAlignment="Left">
 
-        <ListView
+        <DataGrid
             x:Name="ListOfVM"
-            Height="309"
-            Margin="10,10,174,0"
-            VerticalAlignment="Top"
+            Margin="10,10,131,328"
+            AutoGenerateColumns="False"
+            GridLinesVisibility="All"
             PreviewMouseLeftButtonDown="ListOfVM_PreviewMouseLeftButtonDown"
-            PreviewMouseLeftButtonUp="ListOfVM_PreviewMouseLeftButtonUp">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn
-                        Width="200"
-                        DisplayMemberBinding="{Binding VMName}"
-                        Header="Virtual Machine" />
-                    <GridViewColumn
-                        Width="200"
-                        DisplayMemberBinding="{Binding VMState}"
-                        Header="State" />
-                    <GridViewColumn
-                        Width="200"
-                        DisplayMemberBinding="{Binding VMGroupName}"
-                        Header="Resource Group" />
-                </GridView>
-            </ListView.View>
-        </ListView>
+            PreviewMouseLeftButtonUp="ListOfVM_PreviewMouseLeftButtonUp"
+            SelectionMode="Single"
+            SelectionUnit="FullRow">
+            <DataGrid.Columns>
+                <DataGridTextColumn
+                    Binding="{Binding VMName}"
+                    Header="VM Name"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="Auto"
+                    Binding="{Binding VMState}"
+                    Header="VM State"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="Auto"
+                    Binding="{Binding VMGroupName}"
+                    Header="VM Group"
+                    IsReadOnly="True" />
+            </DataGrid.Columns>
+
+            <DataGrid.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.ContainerStyle>
+                        <Style TargetType="{x:Type GroupItem}">
+                            <Setter Property="Margin" Value="0,0,0,5" />
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type GroupItem}">
+                                        <StackPanel Background="White" DataContext="{Binding Items}">
+                                            <DockPanel Margin="0,5px,0,5px" HorizontalAlignment="Stretch">
+                                                <TextBlock
+                                                    FontWeight="Bold"
+                                                    Foreground="Black"
+                                                    Text="{Binding VMState}" />
+                                            </DockPanel>
+                                            <ItemsPresenter />
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GroupStyle.ContainerStyle>
+                </GroupStyle>
+            </DataGrid.GroupStyle>
+        </DataGrid>
 
         <Button
             x:Name="ButtonStartVM"

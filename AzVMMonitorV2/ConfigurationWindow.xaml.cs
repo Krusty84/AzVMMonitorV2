@@ -11,7 +11,6 @@ namespace AzVMMonitorV2
     using System.Linq;
     using System.Text.RegularExpressions;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Xml.Linq;
 
     /// <summary>
@@ -37,7 +36,6 @@ namespace AzVMMonitorV2
                 ClientSecretField.Text = xmlConfigFile.Descendants("clietnSecret_appSecret").First().Value;
                 ClientTenantIDField.Text = xmlConfigFile.Descendants("clientTenantId").First().Value;
                 ClientSubscriptionIDField.Text = xmlConfigFile.Descendants("azureSubscriptionID").First().Value;
-                PriorityRuleField.Text = xmlConfigFile.Descendants("securityRulePriority").First().Value;
                 OpenPortsRuleField.Text = xmlConfigFile.Descendants("openPorts").First().Value;
                 comboBoxCurrency.Text = xmlConfigFile.Descendants("currency").First().Value;
                 comboBoxTypeTimeFrame.Text = xmlConfigFile.Descendants("typeTimeFrame").First().Value;
@@ -71,7 +69,6 @@ namespace AzVMMonitorV2
             xmlConfigFile.Descendants("azureSubscriptionID").First().SetValue(ClientSubscriptionIDField.Text);
             xmlConfigFile.Descendants("currency").First().SetValue(comboBoxCurrency.Text);
             xmlConfigFile.Descendants("typeTimeFrame").First().SetValue(comboBoxTypeTimeFrame.Text);
-            xmlConfigFile.Descendants("securityRulePriority").First().SetValue(PriorityRuleField.Text);
             xmlConfigFile.Descendants("openPorts").First().SetValue(OpenPortsRuleField.Text);
             xmlConfigFile.Save("configuration.xml");
             //DialogResult = true;
@@ -86,25 +83,6 @@ namespace AzVMMonitorV2
         private void PriorityRuleField_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             if (!Char.IsDigit(e.Text, 0)) e.Handled = true;
-        }
-
-        /// <summary>
-        /// The PriorityRuleField_TextChanged.
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/>.</param>
-        /// <param name="e">The e<see cref="TextChangedEventArgs"/>.</param>
-        private void PriorityRuleField_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (PriorityRuleField.Text == "")
-                PriorityRuleField.Text = 100.ToString();
-            int number = int.Parse(PriorityRuleField.Text);
-            PriorityRuleField.Text = number.ToString();
-            if (number <= 1000)
-            {
-                return;
-            }
-            PriorityRuleField.Text = PriorityRuleField.Text.Remove(2);
-            PriorityRuleField.SelectionStart = PriorityRuleField.Text.Length;
         }
 
         /// <summary>

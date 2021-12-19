@@ -53,6 +53,8 @@ namespace AzVMMonitorNetworkSecurity
         /// Gets or sets the direction.
         /// </summary>
         public string direction { get; set; }
+
+        public string description { get; set; }
     }
 
     //обёртка для будущего json с правилом доступа к VM
@@ -76,8 +78,57 @@ namespace AzVMMonitorNetworkSecurity
     }
 }
 
+namespace AzVMMonitorExistNetworkSecurity
+{
+    using System.Collections.Generic;
+
+    public class Properties
+    {
+        public string provisioningState { get; set; }
+        public string protocol { get; set; }
+        public string sourcePortRange { get; set; }
+        public string destinationPortRange { get; set; }
+        public string sourceAddressPrefix { get; set; }
+        public string destinationAddressPrefix { get; set; }
+        public string access { get; set; }
+        public int priority { get; set; }
+        public string direction { get; set; }
+        public List<object> sourcePortRanges { get; set; }
+        public List<string> destinationPortRanges { get; set; }
+        public List<string> sourceAddressPrefixes { get; set; }
+        public List<object> destinationAddressPrefixes { get; set; }
+        public string description { get; set; }
+    }
+
+    public class Value
+    {
+        public string name { get; set; }
+        public string id { get; set; }
+        public string etag { get; set; }
+        public string type { get; set; }
+        public Properties properties { get; set; }
+
+        public Value()
+        {
+            this.properties = new Properties();
+        }
+    }
+
+    public class ExistNetworkSecurity
+    {
+        public List<Value> value { get; set; }
+
+        /*public ExistNetworkSecurity()
+        {
+            this.value = new Value();
+        }*/
+    }
+}
+
 namespace AzVMMonitorV2
 {
+    using AzVMMonitorExistNetworkSecurity;
+    using Newtonsoft.Json;
     using System;
     using System.Net.Http;
     using System.Text;
@@ -131,6 +182,34 @@ namespace AzVMMonitorV2
             {
                 Console.WriteLine(e);
             }
+        }
+
+        public static async Task<int> GetExistSecurityRule(string accesstoken, string subscriptionid, string groupname, string nsg)
+        {
+            var LatestAllowPriorityNumber = 0;
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/resourceGroups/" + groupname + "/providers/Microsoft.Network/networkSecurityGroups/" + nsg + "/securityRules?api-version=2021-03-01");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, client.BaseAddress);
+                var response = await client.SendAsync(request);
+                var content = await response.Content.ReadAsStringAsync();
+                //ждём ответа.....
+                await Task.Delay(10000);
+                AzureDetails.Response = content.ToString();
+                //Console.WriteLine("Result of call:  " + content.ToString());
+                ExistNetworkSecurity ensr = JsonConvert.DeserializeObject<ExistNetworkSecurity>(content.ToString());
+                //Console.WriteLine("Security Rule Number:  " + ensr.value.Count.ToString());
+                //Console.WriteLine("Latest Priority Number:  " + ensr.value[ensr.value.Count - 1].properties.priority.ToString());
+                LatestAllowPriorityNumber = ensr.value[ensr.value.Count - 1].properties.priority;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine(e);
+            }
+            return LatestAllowPriorityNumber;
         }
     }
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace AzVMMonitorV2
 {
@@ -29,9 +31,14 @@ namespace AzVMMonitorV2
     public partial class SetNetworkRuleWindow : Window
     {
         private string AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload;
-        private int securityRulePriority_;
+        private int securityRulePriority_, futureSecurityRulePriority;
 
-        public SetNetworkRuleWindow(string AzureTokenRESTAPI, string AzureSubscriptionID, string CurrentGroup, string Nsg, int securityRulePayload, string PortsList)
+        /// <summary>
+        /// Defines the xmlConfigFile.
+        /// </summary>
+        private XDocument xmlConfigFile = XDocument.Load("configuration.xml");
+
+        public SetNetworkRuleWindow(string AzureTokenRESTAPI, string AzureSubscriptionID, string CurrentGroup, string Nsg, string PortsList)
         {
             InitializeComponent();
             //
@@ -40,13 +47,22 @@ namespace AzVMMonitorV2
             CurrentGroup_ = CurrentGroup;
             Nsg_ = Nsg;
             PortsList_ = PortsList;
-            securityRulePriority_ = securityRulePayload;
             //имя будущего правила доступа, Access_+имя компьютера
             securityRuleName = "Access_" + Environment.MachineName.ToString();
             LabelSecurityRuleName.Text = securityRuleName;
-
+            //
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
             DataPanel.IsEnabled = true;
+            //
+            try
+            {
+                LabelOpenPorts.Text = xmlConfigFile.Descendants("openPorts").First().Value;
+            }
+            catch (FileNotFoundException)
+            {
+                //label_WarningErrorNotes.Text = "Configuration.xml is missing";
+                // label_WarningErrorNotes.Visible = true;
+            }
             try
             {
                 WebRequest requestMyIP = WebRequest.Create("https://api.myip.com");
@@ -75,6 +91,11 @@ namespace AzVMMonitorV2
 
         private async void ButtonProvideAccess_Click(object sender, RoutedEventArgs e)
         {
+            CreateNewSecurityRuleForCurrentWorkstation();
+        }
+
+        private async Task CreateNewSecurityRuleForCurrentWorkstation()
+        {
             //заполянем структуру будущего правила доступа, где IP - ткекущий IP компьютера
             List<string> PortRanges = PortsList_.Split(',').ToList();
             AzVMMonitorNetworkSecurity.NetworkSecurity nsrule = new AzVMMonitorNetworkSecurity.NetworkSecurity();
@@ -83,20 +104,22 @@ namespace AzVMMonitorV2
             nsrule.properties.destinationPortRanges = PortRanges;
             nsrule.properties.destinationAddressPrefix = "*";
             nsrule.properties.direction = "Inbound";
-            nsrule.properties.priority = securityRulePriority_;
-            nsrule.properties.sourcePortRange = "*";
-            nsrule.properties.protocol = "TCP";
-            securityRulePayload = JsonConvert.SerializeObject(nsrule);
             //
-            SetUpdateSecurityRule();
-        }
-
-        //обёртка для отправки запроса по устаноновлению правила доступа
-        private async void SetUpdateSecurityRule()
-        {
             ProgressDataLoadPanel.Visibility = Visibility.Visible;
             DataPanel.IsEnabled = false;
             //
+            var task2GetNetworkRuleVM = AzNetworkRESTHelper.GetExistSecurityRule(AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, Nsg_);
+            securityRulePriority_ = await task2GetNetworkRuleVM;
+            //прибавляем к нему 1 и это будет нашим правилом
+            futureSecurityRulePriority = securityRulePriority_ + 1;
+            //
+            nsrule.properties.priority = futureSecurityRulePriority;
+            nsrule.properties.sourcePortRange = "*";
+            nsrule.properties.protocol = "TCP";
+            nsrule.properties.description = "It was created: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            securityRulePayload = JsonConvert.SerializeObject(nsrule);
+            //
+            //Имя для создаваемого правила задается в виде параметра и выглядит как "Access_ИмяРабочейСтанцииГдеЗапущеноПриложение"
             var task2SetNetworkRuleVM = AzNetworkRESTHelper.SetAccessForWorkstation(AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, Nsg_, securityRuleName, securityRulePayload);
             await task2SetNetworkRuleVM;
             //

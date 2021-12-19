@@ -20,9 +20,11 @@ namespace AzVMMonitorV2
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
+    using System.Net.Sockets;
     using System.Runtime.InteropServices;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Data;
     using System.Windows.Input;
     using System.Windows.Interop;
     using System.Windows.Media;
@@ -171,11 +173,6 @@ namespace AzVMMonitorV2
         private string vmworkingTime;
 
         /// <summary>
-        /// Defines the SecurityRulePriority.
-        /// </summary>
-        private int SecurityRulePriority;
-
-        /// <summary>
         /// Defines the OpenPorts.
         /// </summary>
         private string OpenPorts;
@@ -194,7 +191,6 @@ namespace AzVMMonitorV2
                 AzureSubscriptionID = xmlConfigFile.Descendants("azureSubscriptionID").First().Value;
                 TypeCurrency = xmlConfigFile.Descendants("currency").First().Value;
                 TypeTimeFrame = xmlConfigFile.Descendants("typeTimeFrame").First().Value;
-                SecurityRulePriority = Int16.Parse(xmlConfigFile.Descendants("securityRulePriority").First().Value);
                 OpenPorts = xmlConfigFile.Descendants("openPorts").First().Value;
             }
             catch (FileNotFoundException)
@@ -303,7 +299,16 @@ namespace AzVMMonitorV2
                     if (IsOkay == true)
                     {
                         //наполянем список имеющимися Virtual Machine-ами
-                        ListOfVM.ItemsSource = ItemsVM;
+                        //ListOfVM.ItemsSource = ItemsVM;
+
+                        /*CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
+                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
+                        view.GroupDescriptions.Add(groupDescription);*/
+
+                        ListCollectionView collectionView = new ListCollectionView(ItemsVM);
+                        collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
+                        ListOfVM.ItemsSource = collectionView;
+
                         //скрываем панель индикатора загрузки
                         ProgressDataLoadPanel.Visibility = Visibility.Hidden;
                         //выводим дату обновления данных из Azure и включаем кнопку запроса данных
@@ -365,7 +370,7 @@ namespace AzVMMonitorV2
             ButtonOpenAzurePortal.IsEnabled = isLock;
             ButtonProvideAccess.IsEnabled = isLock;
             TabTechicalData.IsEnabled = isLock;
-
+            LabelLastUpdate.IsEnabled = isLock;
             ListOfVM.IsEnabled = isLock;
             if (isLock == false)
             {
@@ -648,6 +653,11 @@ namespace AzVMMonitorV2
                     if (IsOkay == true)
                     {
                         ListOfVM.ItemsSource = ItemsVM;
+
+                        CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
+                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
+                        view.GroupDescriptions.Add(groupDescription);
+
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was started";
                         LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
@@ -686,6 +696,11 @@ namespace AzVMMonitorV2
                     if (IsOkay == true)
                     {
                         ListOfVM.ItemsSource = ItemsVM;
+
+                        CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
+                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
+                        view.GroupDescriptions.Add(groupDescription);
+
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was stopped";
                         LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
@@ -734,21 +749,7 @@ namespace AzVMMonitorV2
             });
         }
 
-        /// <summary>
-        /// The ListOfVM_PreviewMouseLeftButtonDown.
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/>.</param>
-        /// <param name="e">The e<see cref="MouseButtonEventArgs"/>.</param>
-        private void ListOfVM_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-        }
-
-        /// <summary>
-        /// The ListOfVM_PreviewMouseLeftButtonUp.
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/>.</param>
-        /// <param name="e">The e<see cref="MouseButtonEventArgs"/>.</param>
-        private void ListOfVM_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private async void ListOfVM_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UnlockLockUI(true);
             try
@@ -756,7 +757,9 @@ namespace AzVMMonitorV2
                 vmworkingTime = null;
                 LabelVMStateToolTip.Content = "";
                 LabelVMState.Background = Brushes.White;
-
+                //
+                var converterBrush = new System.Windows.Media.BrushConverter();
+                //
                 SelectedVM = (VMHelper)this.ListOfVM.SelectedItem;
 
                 if (SelectedVM != null)
@@ -764,11 +767,30 @@ namespace AzVMMonitorV2
                     //определяем состояние выбранной VM, работает или нет
                     if (SelectedVM.VMState == "running")
                     {
+                        var client = new TcpClient();
+                        if (!client.ConnectAsync(SelectedVM.VMPublicIP, 3389).Wait(500))
+                        {
+                            ButtonOpenRDP.IsEnabled = false;
+                            ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FFE26B6B");
+                            LabelVMPublicIP.Background = Brushes.Brown;
+                            LabelVMPublicIP.Background = (Brush)converterBrush.ConvertFromString("#FFE26B6B");
+                            LabelVMPublicIP.Text = SelectedVM.VMPublicIP + " (you don't have access)";
+                        }
+                        else
+                        {
+                            ButtonOpenRDP.IsEnabled = true;
+                            ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FF03A9F4");
+                            LabelVMPublicIP.Background = Brushes.Green;
+                            LabelVMPublicIP.Background = (Brush)converterBrush.ConvertFromString("#FF67DAFF");
+                            LabelVMPublicIP.Text = SelectedVM.VMPublicIP + " (you have access)";
+                        }
+
+                        //
                         //Управляем доступностью кнопок старт/стоп/перезапуск для выбранной VM в состоянии работает
                         ButtonStartVM.IsEnabled = false;
                         ButtonStopVM.IsEnabled = true;
                         ButtonRestartVM.IsEnabled = true;
-                        ButtonOpenRDP.IsEnabled = true;
+                        //ButtonOpenRDP.IsEnabled = true;
 
                         //Кол-во элементов массива содержащего инфомрацию о состоянии запущенной VM, почему-то плавает, определяем сколько элементов
                         //и в зависимости от этого считываем время то из 0 то из 1-го индекса
@@ -875,6 +897,9 @@ namespace AzVMMonitorV2
                         vmworkingTime = null;
                         LabelVMStateToolTip.Content = "";
                         LabelVMState.Background = Brushes.White;
+                        LabelVMPublicIP.Background = Brushes.White;
+                        LabelVMPublicIP.Text = "";
+                        ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FF03A9F4");
                     }
 
                     //Заполяем инфомрационные поля о выбранной VM
@@ -882,12 +907,10 @@ namespace AzVMMonitorV2
                     LabelVMName.Text = SelectedVM.VMName;
                     LabelVMSize.Text = SelectedVM.VMSize;
                     LabelVMState.Text = SelectedVM.VMState;
-                    LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
+                    //LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
                     IDisk disk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
                     LabelVMWasCreated.Text = disk.Inner.TimeCreated.Value.ToString();
-
                 }
-
 
                 if (TabTechicalData.IsFocused)
                 {
@@ -907,6 +930,10 @@ namespace AzVMMonitorV2
                 Console.WriteLine(ex);
                 throw;
             }
+        }
+
+        private async void ListOfVM_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
         }
 
         /// <summary>
@@ -947,7 +974,7 @@ namespace AzVMMonitorV2
         {
             INetworkInterface nic = SelectedVM.VMCurrent.GetPrimaryNetworkInterface();
             string Nsg = nic.GetNetworkSecurityGroup().Name.ToString();
-            SetNetworkRuleWindow setNGSWindow = new SetNetworkRuleWindow(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, Nsg, SecurityRulePriority, OpenPorts);
+            SetNetworkRuleWindow setNGSWindow = new SetNetworkRuleWindow(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, Nsg, OpenPorts);
             setNGSWindow.ShowDialog();
         }
 

@@ -127,8 +127,6 @@
                             VerticalAlignment="Top"
                             materialDesign:TransitionAssist.DisableTransitions="True"
                             IsReadOnly="False" />
-
-
                     </Grid>
                 </StackPanel>
             </TabItem>
@@ -218,7 +216,7 @@
                             <ColumnDefinition Width="370" />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="40" />
+                            <RowDefinition Height="50" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
@@ -226,47 +224,24 @@
                             <RowDefinition Height="40" />
                             <RowDefinition Height="40" />
                         </Grid.RowDefinitions>
+
                         <TextBlock
                             Grid.Row="0"
                             Grid.Column="0"
                             Height="20"
-                            Margin="15,15,10,0"
-                            VerticalAlignment="Top"
-                            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-                            Text="Priority Rule" />
-
-                        <TextBlock
-                            Grid.Row="2"
-                            Grid.Column="0"
-                            Height="20"
-                            Margin="15,15,10,0"
+                            Margin="15,20,10,0"
                             VerticalAlignment="Top"
                             Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
                             Text="Open Ports" />
 
                         <TextBox
-                            x:Name="PriorityRuleField"
-                            Grid.Row="0"
-                            Grid.Column="1"
-                            Width="80"
-                            Height="35"
-                            Margin="0,0,10,0"
-                            HorizontalAlignment="Right"
-                            VerticalAlignment="Top"
-                            materialDesign:TransitionAssist.DisableTransitions="True"
-                            IsReadOnly="False"
-                            MaxLength="4"
-                            PreviewTextInput="PriorityRuleField_PreviewTextInput"
-                            TextChanged="PriorityRuleField_TextChanged" />
-
-                        <TextBox
                             x:Name="OpenPortsRuleField"
-                            Grid.Row="2"
+                            Grid.Row="0"
                             Grid.Column="1"
                             Grid.ColumnSpan="2"
                             Width="450"
-                            Height="35"
-                            Margin="0,0,10,0"
+                            Height="29"
+                            Margin="0,11,10,0"
                             HorizontalAlignment="Right"
                             VerticalAlignment="Top"
                             materialDesign:TransitionAssist.DisableTransitions="True"
