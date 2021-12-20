@@ -176,7 +176,7 @@ namespace AzVMMonitorV2
                 //ждём ответа.....
                 await Task.Delay(10000);
                 AzureDetails.Response = content.ToString();
-                //Console.WriteLine("Result of call:  " + content.ToString());
+                Console.WriteLine("Result of call:  " + content.ToString());
             }
             catch (HttpRequestException e)
             {
@@ -202,8 +202,15 @@ namespace AzVMMonitorV2
                 //Console.WriteLine("Result of call:  " + content.ToString());
                 ExistNetworkSecurity ensr = JsonConvert.DeserializeObject<ExistNetworkSecurity>(content.ToString());
                 //Console.WriteLine("Security Rule Number:  " + ensr.value.Count.ToString());
-                //Console.WriteLine("Latest Priority Number:  " + ensr.value[ensr.value.Count - 1].properties.priority.ToString());
-                LatestAllowPriorityNumber = ensr.value[ensr.value.Count - 1].properties.priority;
+
+                if (ensr.value.Count == 0)
+                {
+                    LatestAllowPriorityNumber = 100;
+                } else
+                {
+                    //Console.WriteLine("Latest Priority Number:  " + ensr.value[ensr.value.Count - 1].properties.priority.ToString());
+                    LatestAllowPriorityNumber = ensr.value[ensr.value.Count - 1].properties.priority;
+                }
             }
             catch (HttpRequestException e)
             {

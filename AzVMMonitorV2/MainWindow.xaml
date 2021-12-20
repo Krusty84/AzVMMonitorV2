@@ -332,6 +332,18 @@
                             ToolTip="Open connect at VM for You" />
 
                         <Button
+                            x:Name="ButtonMakeSnapshot"
+                            Grid.Row="1"
+                            Grid.Column="3"
+                            Width="76"
+                            Height="30"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Content="{materialDesign:PackIcon CoffeeMaker}"
+                            Style="{StaticResource MaterialDesignOutlinedButton}"
+                            ToolTip="Make a snapshot" Click="ButtonMakeSnapshot_Click" />
+
+                        <Button
                             x:Name="ButtonOpenAzurePortal"
                             Grid.Row="1"
                             Grid.Column="2"

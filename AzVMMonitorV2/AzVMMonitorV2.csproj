@@ -277,6 +277,9 @@
     <Compile Include="SetNetworkRuleWindow.xaml.cs">
       <DependentUpon>SetNetworkRuleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SnapShotManagement.xaml.cs">
+      <DependentUpon>SnapShotManagement.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SomeHelpers.cs" />
     <Compile Include="VMHelper.cs" />
     <Page Include="AboutWindow.xaml">
@@ -301,6 +304,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="SetNetworkRuleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SnapShotManagement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

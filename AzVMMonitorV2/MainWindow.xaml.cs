@@ -333,6 +333,7 @@ namespace AzVMMonitorV2
                         LabelVMCount.Text = ItemsVM.Count.ToString();
                         LabelVMRunning.Text = totalWorkingVM.ToString();
                         LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
+
                     }
                     else
                     {
@@ -481,6 +482,7 @@ namespace AzVMMonitorV2
                         RunningVMNow += " "+IVirtualMachine.Name + " "+ SomeHelpers.TruncateString((TimeSpan.FromHours(ValueOfWorkingTime.Hours).TotalDays).ToString(), 4)+" days\n";
                     }
                     */
+
                     if (IVirtualMachine.PowerState.Value.Substring(11).ToString() == "running")
                     {
                         totalWorkingVM++;
@@ -492,6 +494,7 @@ namespace AzVMMonitorV2
             {
                 IsOkay = false;
             }
+
         }
 
         /// <summary>
@@ -972,6 +975,8 @@ namespace AzVMMonitorV2
                     //LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
                     IDisk disk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
                     LabelVMWasCreated.Text = disk.Inner.TimeCreated.Value.ToString();
+
+                    Console.WriteLine("Disk ID: " + SelectedVM.VMOsDiskID);
                 }
 
                 if (TabTechicalData.IsFocused)
@@ -1044,6 +1049,14 @@ namespace AzVMMonitorV2
             SetNetworkRuleWindow setNGSWindow = new SetNetworkRuleWindow(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, Nsg, OpenPorts);
             setNGSWindow.ShowDialog();
         }
+
+        private void ButtonMakeSnapshot_Click(object sender, RoutedEventArgs e)
+        {
+            SnapShotManagement snapshotMgt = new SnapShotManagement(SelectedVM.VMOsDiskID, AzureCred);
+            snapshotMgt.ShowDialog();
+
+        }
+
 
         /// <summary>
         /// The TextBlock_MouseDown.

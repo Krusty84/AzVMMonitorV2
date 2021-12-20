@@ -153,14 +153,13 @@ namespace AzVMMonitorV2
             securityRulePriority_ = await task2GetNetworkRuleVM;
             //прибавляем к нему 1 и это будет нашим правилом
             futureSecurityRulePriority = securityRulePriority_ + 1;
-            //
             nsrule.properties.priority = futureSecurityRulePriority;
             nsrule.properties.sourcePortRange = "*";
             nsrule.properties.protocol = "TCP";
             nsrule.properties.description = "It was created: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             securityRulePayload = JsonConvert.SerializeObject(nsrule);
             //
-            //Имя для создаваемого правила задается в виде параметра и выглядит как "Access_ИмяРабочейСтанцииГдеЗапущеноПриложение"
+            //Имя для создаваемого правила задается в виде параметра и выглядит как "Access_ИмяРабочейСтанцииГдеЗапущеноПриложение" securityRuleName
             var task2SetNetworkRuleVM = AzNetworkRESTHelper.SetAccessForWorkstation(AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, Nsg_, securityRuleName, securityRulePayload);
             await task2SetNetworkRuleVM;
             //
