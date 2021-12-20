@@ -8,17 +8,17 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     x:Name="MainWindowUI"
     Title="AzVMMonitor"
-    Width="917"
+    Width="945"
     Height="703"
     Loaded="Window_Loaded"
     ResizeMode="CanMinimize"
     StateChanged="MainWindowUI_StateChanged"
     mc:Ignorable="d">
-    <Grid Width="911" HorizontalAlignment="Left">
+    <Grid Width="935" HorizontalAlignment="Left">
 
         <DataGrid
             x:Name="ListOfVM"
-            Margin="10,10,131,328"
+            Margin="10,10,150,328"
             AutoGenerateColumns="False"
             GridLinesVisibility="All"
             PreviewMouseLeftButtonDown="ListOfVM_PreviewMouseLeftButtonDown"
@@ -39,6 +39,11 @@
                     Width="Auto"
                     Binding="{Binding VMGroupName}"
                     Header="VM Group"
+                    IsReadOnly="True" />
+                <DataGridTextColumn
+                    Width="Auto"
+                    Binding="{Binding VMInterestUser}"
+                    Header="Who has interest"
                     IsReadOnly="True" />
             </DataGrid.Columns>
 
@@ -68,11 +73,81 @@
             </DataGrid.GroupStyle>
         </DataGrid>
 
+        <TextBlock
+            x:Name="LabelVMCount_"
+            Grid.Column="0"
+            Height="26"
+            Margin="848,10,78,638"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Bold"
+            RenderTransformOrigin="-2.056,0.519"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="&#8721;" />
+        <TextBlock
+            x:Name="LabelVMCount"
+            Grid.Column="0"
+            Width="50"
+            Height="26"
+            Margin="862,10,23,638"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text=" ..." />
+        <TextBlock
+            Grid.Column="0"
+            Height="26"
+            Margin="820,35,102,613"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            Foreground="Green"
+            RenderTransformOrigin="-0.923,0.538"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="&#9650;" />
+
+        <TextBlock
+            x:Name="LabelVMRunning"
+            Grid.Column="0"
+            Height="26"
+            Margin="833,35,68,613"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            RenderTransformOrigin="-0.382,0.577"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text=" ..." />
+
+        <TextBlock
+            Grid.Column="0"
+            Height="26"
+            Margin="878,35,44,613"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            Foreground="Brown"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="&#9660;" />
+
+        <TextBlock
+            x:Name="LabelVMStopped"
+            Grid.Column="0"
+            Height="26"
+            Margin="891,36,10,612"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text=" ..." />
+
         <Button
             x:Name="ButtonStartVM"
             Width="76"
             Height="52"
-            Margin="809,66,0,0"
+            Margin="825,130,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="#FF0BE650"
@@ -90,7 +165,7 @@
             x:Name="ButtonRestartVM"
             Width="76"
             Height="52"
-            Margin="809,149,0,0"
+            Margin="825,200,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="#FFF8FF67"
@@ -108,7 +183,7 @@
             x:Name="ButtonStopVM"
             Width="76"
             Height="52"
-            Margin="809,232,0,0"
+            Margin="825,271,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Background="#FFF0150A"
@@ -399,7 +474,7 @@
             x:Name="ButtonReloadData"
             Width="52"
             Height="24"
-            Margin="839,310,0,0"
+            Margin="839,342,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="ButtonReloadData_Click"
@@ -422,12 +497,25 @@
             x:Name="LabelLastUpdate"
             Grid.Column="0"
             Height="26"
-            Margin="681,325,20,272"
+            Margin="817,67,-4,581"
             VerticalAlignment="Center"
             FontStyle="Italic"
             FontWeight="Normal"
             Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
-            Text="Last Update:" />
+            Text="" />
+
+        <TextBlock
+            Grid.Column="0"
+            Width="22"
+            Height="28"
+            Margin="790,66,123,580"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="18"
+            FontWeight="Normal"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="&#8986;"
+            TextDecorations="{x:Null}" />
 
         <StackPanel
             x:Name="ProgressDataLoadPanel"
@@ -449,5 +537,16 @@
                 Style="{StaticResource MaterialDesignCircularProgressBar}"
                 Value="0" />
         </StackPanel>
+        <TextBlock
+            x:Name="LabelLastUpdate_Copy"
+            Grid.Column="0"
+            Height="26"
+            Margin="790,77,5,571"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontStyle="Italic"
+            FontWeight="Normal"
+            Style="{StaticResource MaterialDesignSubtitle2TextBlock}"
+            Text="" />
     </Grid>
 </Window>

@@ -1,36 +1,55 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Xml.Linq;
+﻿/*
+SetNetworkRuleWindow.xaml.cs
+20.12.2021 17:11:46
+Alexey Sedoykin
+*/
 
 namespace AzVMMonitorV2
 {
+    using Newtonsoft.Json;
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Net;
+    using System.Threading.Tasks;
+    using System.Windows;
+    using System.Xml.Linq;
+
     /// <summary>
-    /// Interaction logic for SetNetworkRuleWindow.xaml
+    /// Interaction logic for SetNetworkRuleWindow.xaml.
     /// </summary>
-    ///
-    //Класс для последующей десерилазиции ответа от myip
     public partial class YourCurrentIP
     {
+        /// <summary>
+        /// Gets or sets the Ip.
+        /// </summary>
         [JsonProperty("ip")]
         public string Ip { get; set; }
 
         /*[JsonProperty("country")]
         public string Country { get; set; }
         */
-
+        /// <summary>
+        /// Gets or sets the country.
+        /// </summary>
         [JsonProperty("country")]
         public string country { get; set; }
     }
 
+    /// <summary>
+    /// Defines the <see cref="SetNetworkRuleWindow" />.
+    /// </summary>
     public partial class SetNetworkRuleWindow : Window
     {
+        /// <summary>
+        /// Defines the AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload.
+        /// </summary>
         private string AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload;
+
+        /// <summary>
+        /// Defines the securityRulePriority_, futureSecurityRulePriority.
+        /// </summary>
         private int securityRulePriority_, futureSecurityRulePriority;
 
         /// <summary>
@@ -38,6 +57,14 @@ namespace AzVMMonitorV2
         /// </summary>
         private XDocument xmlConfigFile = XDocument.Load("configuration.xml");
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SetNetworkRuleWindow"/> class.
+        /// </summary>
+        /// <param name="AzureTokenRESTAPI">The AzureTokenRESTAPI<see cref="string"/>.</param>
+        /// <param name="AzureSubscriptionID">The AzureSubscriptionID<see cref="string"/>.</param>
+        /// <param name="CurrentGroup">The CurrentGroup<see cref="string"/>.</param>
+        /// <param name="Nsg">The Nsg<see cref="string"/>.</param>
+        /// <param name="PortsList">The PortsList<see cref="string"/>.</param>
         public SetNetworkRuleWindow(string AzureTokenRESTAPI, string AzureSubscriptionID, string CurrentGroup, string Nsg, string PortsList)
         {
             InitializeComponent();
@@ -84,16 +111,30 @@ namespace AzVMMonitorV2
             }
         }
 
+        /// <summary>
+        /// The ButtonCloseWindow_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
         private void ButtonCloseWindow_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        /// The ButtonProvideAccess_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
         private async void ButtonProvideAccess_Click(object sender, RoutedEventArgs e)
         {
             CreateNewSecurityRuleForCurrentWorkstation();
         }
 
+        /// <summary>
+        /// The CreateNewSecurityRuleForCurrentWorkstation.
+        /// </summary>
+        /// <returns>The <see cref="Task"/>.</returns>
         private async Task CreateNewSecurityRuleForCurrentWorkstation()
         {
             //заполянем структуру будущего правила доступа, где IP - ткекущий IP компьютера

@@ -128,7 +128,7 @@ namespace AzVMMonitorV2
         internal string ClientTenantId = "";
 
         /// <summary>
-        /// Defines the CostVM, CostDisks, CostNET........
+        /// Defines the CostVM, CostDisks, CostNET.........
         /// </summary>
         internal double CostVM, CostDisks, CostNET;
 
@@ -176,6 +176,21 @@ namespace AzVMMonitorV2
         /// Defines the OpenPorts.
         /// </summary>
         private string OpenPorts;
+
+        /// <summary>
+        /// Defines the totalCountVM.
+        /// </summary>
+        private int totalCountVM = 0;
+
+        /// <summary>
+        /// Defines the totalWorkingVM.
+        /// </summary>
+        private int totalWorkingVM = 0;
+
+        /// <summary>
+        /// Defines the totalStoppedVM.
+        /// </summary>
+        private int totalStoppedVM = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -312,8 +327,12 @@ namespace AzVMMonitorV2
                         //скрываем панель индикатора загрузки
                         ProgressDataLoadPanel.Visibility = Visibility.Hidden;
                         //выводим дату обновления данных из Azure и включаем кнопку запроса данных
-                        LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
+                        LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
                         ButtonReloadData.IsEnabled = true;
+                        //выводим кол-во VM, запущенных и остановленных
+                        LabelVMCount.Text = ItemsVM.Count.ToString();
+                        LabelVMRunning.Text = totalWorkingVM.ToString();
+                        LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
                     }
                     else
                     {
@@ -371,6 +390,7 @@ namespace AzVMMonitorV2
             ButtonProvideAccess.IsEnabled = isLock;
             TabTechicalData.IsEnabled = isLock;
             LabelLastUpdate.IsEnabled = isLock;
+
             ListOfVM.IsEnabled = isLock;
             if (isLock == false)
             {
@@ -441,6 +461,7 @@ namespace AzVMMonitorV2
         public void RefreshVMData()
         {
             ItemsVM.Clear();
+            totalWorkingVM = 0;
             try
             {
                 AzureTokenRESTAPI = AzBillingRESTHelper.
@@ -460,6 +481,10 @@ namespace AzVMMonitorV2
                         RunningVMNow += " "+IVirtualMachine.Name + " "+ SomeHelpers.TruncateString((TimeSpan.FromHours(ValueOfWorkingTime.Hours).TotalDays).ToString(), 4)+" days\n";
                     }
                     */
+                    if (IVirtualMachine.PowerState.Value.Substring(11).ToString() == "running")
+                    {
+                        totalWorkingVM++;
+                    }
                 }
                 IsOkay = true;
             }
@@ -566,7 +591,7 @@ namespace AzVMMonitorV2
 
             LabelCOSTVMTotal.Text = (CostVM + CostDisks + CostNET).ToString();
             //
-            LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
+            LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             //
             UnlockLockUI(true);
         }
@@ -618,7 +643,13 @@ namespace AzVMMonitorV2
                         ListOfVM.ItemsSource = ItemsVM;
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was restarted";
-                        LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
+                        //выводим дату обновления данных из Azure и включаем кнопку запроса данных
+                        LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                        ButtonReloadData.IsEnabled = true;
+                        //выводим кол-во VM, запущенных и остановленных
+                        LabelVMCount.Text = ItemsVM.Count.ToString();
+                        LabelVMRunning.Text = totalWorkingVM.ToString();
+                        LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
                         UnlockLockUI(true);
                     }
                     else
@@ -660,7 +691,13 @@ namespace AzVMMonitorV2
 
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was started";
-                        LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
+                        //выводим дату обновления данных из Azure и включаем кнопку запроса данных
+                        LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                        ButtonReloadData.IsEnabled = true;
+                        //выводим кол-во VM, запущенных и остановленных
+                        LabelVMCount.Text = ItemsVM.Count.ToString();
+                        LabelVMRunning.Text = totalWorkingVM.ToString();
+                        LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
                         UnlockLockUI(true);
                     }
                     else
@@ -703,7 +740,13 @@ namespace AzVMMonitorV2
 
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was stopped";
-                        LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
+                        //выводим дату обновления данных из Azure и включаем кнопку запроса данных
+                        LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                        ButtonReloadData.IsEnabled = true;
+                        //выводим кол-во VM, запущенных и остановленных
+                        LabelVMCount.Text = ItemsVM.Count.ToString();
+                        LabelVMRunning.Text = totalWorkingVM.ToString();
+                        LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
                         UnlockLockUI(true);
                     }
                     else
@@ -737,8 +780,20 @@ namespace AzVMMonitorV2
                     if (IsOkay == true)
                     {
                         ListOfVM.ItemsSource = ItemsVM;
+
+                        CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
+                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
+                        view.GroupDescriptions.Add(groupDescription);
+
+                        ListOfVM.Items.Refresh();
                         ProgressDataLoadPanel.Visibility = Visibility.Hidden;
-                        LabelLastUpdate.Text = "Last update: " + DateTime.Now.ToString();
+                        //выводим дату обновления данных из Azure и включаем кнопку запроса данных
+                        LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+                        ButtonReloadData.IsEnabled = true;
+                        //выводим кол-во VM, запущенных и остановленных
+                        LabelVMCount.Text = ItemsVM.Count.ToString();
+                        LabelVMRunning.Text = totalWorkingVM.ToString();
+                        LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
                         UnlockLockUI(true);
                     }
                     else
@@ -749,6 +804,11 @@ namespace AzVMMonitorV2
             });
         }
 
+        /// <summary>
+        /// The ListOfVM_PreviewMouseLeftButtonUp.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="MouseButtonEventArgs"/>.</param>
         private async void ListOfVM_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UnlockLockUI(true);
@@ -779,7 +839,8 @@ namespace AzVMMonitorV2
                         else
                         {
                             ButtonOpenRDP.IsEnabled = true;
-                            ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FF03A9F4");
+                            ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FFD8EAF1");
+                            ButtonProvideAccess.Foreground = (Brush)converterBrush.ConvertFromString("#FFD8EAF1");
                             LabelVMPublicIP.Background = Brushes.Green;
                             LabelVMPublicIP.Background = (Brush)converterBrush.ConvertFromString("#FF67DAFF");
                             LabelVMPublicIP.Text = SelectedVM.VMPublicIP + " (you have access)";
@@ -900,6 +961,7 @@ namespace AzVMMonitorV2
                         LabelVMPublicIP.Background = Brushes.White;
                         LabelVMPublicIP.Text = "";
                         ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FF03A9F4");
+                        ButtonProvideAccess.Foreground = (Brush)converterBrush.ConvertFromString("#FF03A9F4");
                     }
 
                     //Заполяем инфомрационные поля о выбранной VM
@@ -932,6 +994,11 @@ namespace AzVMMonitorV2
             }
         }
 
+        /// <summary>
+        /// The ListOfVM_PreviewMouseLeftButtonDown.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="MouseButtonEventArgs"/>.</param>
         private async void ListOfVM_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
         }

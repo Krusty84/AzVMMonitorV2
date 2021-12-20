@@ -28,7 +28,7 @@
             Margin="134,27,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="AzVMMonitor 1.0.1"
+            Content="AzVMMonitor 1.0.5"
             FontWeight="Bold" />
         <Label
             x:Name="label1"

@@ -76,6 +76,8 @@ namespace AzVMMonitorV2
 
         public INetworkInterface VMNET { get; set; }
 
+        public string VMInterestUser { get; set; }
+
         //Класс обёртка для возвращения методов/парамётров из IVirtualMachine
         /// <summary>
         /// Initializes a new instance of the <see cref="VMHelper"/> class.
@@ -100,6 +102,13 @@ namespace AzVMMonitorV2
             VMNetwork = selectedvm.GetPrimaryPublicIPAddress().Name;
             VMOsDiskID = selectedvm.OSDiskId;
             selectedvm.InstanceView.Statuses[0].Time.ToString();
+            foreach (var tag in selectedvm.Tags)
+            {
+                if (tag.Key.StartsWith("interest"))
+                {
+                    VMInterestUser += tag.Key.Remove(0, 8).ToString() + "/";
+                }
+            }
             //Вернем vm как IVirtualMachine в VMCurrent
             VMCurrent = selectedvm;
         }
