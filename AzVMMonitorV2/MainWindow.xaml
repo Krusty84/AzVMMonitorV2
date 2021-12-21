@@ -13,6 +13,7 @@
     Loaded="Window_Loaded"
     ResizeMode="CanMinimize"
     StateChanged="MainWindowUI_StateChanged"
+    Topmost="True"
     mc:Ignorable="d">
     <Grid Width="935" HorizontalAlignment="Left">
 
@@ -339,9 +340,10 @@
                             Height="30"
                             HorizontalAlignment="Center"
                             VerticalAlignment="Top"
+                            Click="ButtonMakeSnapshot_Click"
                             Content="{materialDesign:PackIcon CoffeeMaker}"
                             Style="{StaticResource MaterialDesignOutlinedButton}"
-                            ToolTip="Make a snapshot" Click="ButtonMakeSnapshot_Click" />
+                            ToolTip="Make a snapshot" />
 
                         <Button
                             x:Name="ButtonOpenAzurePortal"

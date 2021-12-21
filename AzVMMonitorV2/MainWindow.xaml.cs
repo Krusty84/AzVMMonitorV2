@@ -260,6 +260,7 @@ namespace AzVMMonitorV2
             ButtonOpenRDP.IsEnabled = false;
             ButtonOpenAzurePortal.IsEnabled = false;
             ButtonProvideAccess.IsEnabled = false;
+            ButtonMakeSnapshot.IsEnabled = false;
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
             TabFinanceData.IsEnabled = false;
             LabelWarningError.Visibility = Visibility.Hidden;
@@ -333,7 +334,6 @@ namespace AzVMMonitorV2
                         LabelVMCount.Text = ItemsVM.Count.ToString();
                         LabelVMRunning.Text = totalWorkingVM.ToString();
                         LabelVMStopped.Text = (ItemsVM.Count - totalWorkingVM).ToString();
-
                     }
                     else
                     {
@@ -494,7 +494,6 @@ namespace AzVMMonitorV2
             {
                 IsOkay = false;
             }
-
         }
 
         /// <summary>
@@ -855,6 +854,7 @@ namespace AzVMMonitorV2
                         ButtonStopVM.IsEnabled = true;
                         ButtonRestartVM.IsEnabled = true;
                         //ButtonOpenRDP.IsEnabled = true;
+                        ButtonMakeSnapshot.IsEnabled = false;
 
                         //Кол-во элементов массива содержащего инфомрацию о состоянии запущенной VM, почему-то плавает, определяем сколько элементов
                         //и в зависимости от этого считываем время то из 0 то из 1-го индекса
@@ -957,6 +957,7 @@ namespace AzVMMonitorV2
                         ButtonStartVM.IsEnabled = true;
                         ButtonStopVM.IsEnabled = false;
                         ButtonOpenRDP.IsEnabled = false;
+                        ButtonMakeSnapshot.IsEnabled = true;
                         //
                         vmworkingTime = null;
                         LabelVMStateToolTip.Content = "";
@@ -1054,9 +1055,7 @@ namespace AzVMMonitorV2
         {
             SnapShotManagement snapshotMgt = new SnapShotManagement(SelectedVM.VMOsDiskID, AzureCred);
             snapshotMgt.ShowDialog();
-
         }
-
 
         /// <summary>
         /// The TextBlock_MouseDown.

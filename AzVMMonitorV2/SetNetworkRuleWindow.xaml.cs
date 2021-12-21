@@ -30,6 +30,7 @@ namespace AzVMMonitorV2
         /*[JsonProperty("country")]
         public string Country { get; set; }
         */
+
         /// <summary>
         /// Gets or sets the country.
         /// </summary>

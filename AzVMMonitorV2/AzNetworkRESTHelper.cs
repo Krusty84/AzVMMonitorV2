@@ -206,7 +206,8 @@ namespace AzVMMonitorV2
                 if (ensr.value.Count == 0)
                 {
                     LatestAllowPriorityNumber = 100;
-                } else
+                }
+                else
                 {
                     //Console.WriteLine("Latest Priority Number:  " + ensr.value[ensr.value.Count - 1].properties.priority.ToString());
                     LatestAllowPriorityNumber = ensr.value[ensr.value.Count - 1].properties.priority;

@@ -277,6 +277,7 @@
     <Compile Include="SetNetworkRuleWindow.xaml.cs">
       <DependentUpon>SetNetworkRuleWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SnapShotHelper.cs" />
     <Compile Include="SnapShotManagement.xaml.cs">
       <DependentUpon>SnapShotManagement.xaml</DependentUpon>
     </Compile>

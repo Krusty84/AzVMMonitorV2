@@ -102,7 +102,6 @@ namespace AzVMMonitorV2
             VMNetwork = selectedvm.GetPrimaryPublicIPAddress().Name;
             VMOsDiskID = selectedvm.OSDiskId;
 
-            selectedvm.InstanceView.Statuses[0].Time.ToString();
             foreach (var tag in selectedvm.Tags)
             {
                 if (tag.Key.StartsWith("interest"))
