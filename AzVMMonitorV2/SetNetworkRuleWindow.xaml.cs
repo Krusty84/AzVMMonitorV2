@@ -43,6 +43,9 @@ namespace AzVMMonitorV2
     /// </summary>
     public partial class SetNetworkRuleWindow : Window
     {
+        //логгер NLog
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Defines the AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload.
         /// </summary>
@@ -85,11 +88,11 @@ namespace AzVMMonitorV2
             try
             {
                 LabelOpenPorts.Text = xmlConfigFile.Descendants("openPorts").First().Value;
+                _logger.Info("Read Config.xml data successfully");
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException ex)
             {
-                //label_WarningErrorNotes.Text = "Configuration.xml is missing";
-                // label_WarningErrorNotes.Visible = true;
+                _logger.Error(ex, "Configuration.xml is missing");
             }
             try
             {
@@ -106,9 +109,11 @@ namespace AzVMMonitorV2
                     LabelCurrentCountry.Text = myCurrentIP.country;
                 }
                 responseMyIP.Close();
+                _logger.Info("Retrieving current IP address was a success");
             }
-            catch (WebException)
+            catch (WebException ex)
             {
+                _logger.Error(ex, "Retrieving current IP address was not a success");
             }
         }
 
@@ -149,6 +154,7 @@ namespace AzVMMonitorV2
             //
             ProgressDataLoadPanel.Visibility = Visibility.Visible;
             DataPanel.IsEnabled = false;
+            this.Title = "Creating the security rule...";
             //
             var task2GetNetworkRuleVM = AzNetworkRESTHelper.GetExistSecurityRule(AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, Nsg_);
             securityRulePriority_ = await task2GetNetworkRuleVM;
@@ -166,6 +172,7 @@ namespace AzVMMonitorV2
             //
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
             DataPanel.IsEnabled = true;
+            this.Title = "The security rule: " + securityRuleName + " was created/updated with " + futureSecurityRulePriority + " priority";
         }
     }
 }

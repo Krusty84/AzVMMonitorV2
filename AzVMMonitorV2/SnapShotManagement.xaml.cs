@@ -3,6 +3,7 @@ using Microsoft.Azure.Management.Fluent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,12 +16,20 @@ namespace AzVMMonitorV2
     /// </summary>
     public partial class SnapShotManagement : Window
     {
-        private string VMOsDiskID_;
+        //логгер NLog
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
+        private string VMOsDiskID_, tempName;
         private IAzure AzureCred_;
         internal List<SnapShotHelper> ItemsSS = new List<SnapShotHelper>();
+
         //для задания мат.загадки перед созданием snapshot-а
         private Random rndGenerator = new Random();
+
         private int a, b;
+
+        //
+        private string filterForSnapShotName = "[^a-zA-Z_0-9]";
 
         public SnapShotManagement(string VMOsDiskID, IAzure azure)
         {
@@ -55,27 +64,38 @@ namespace AzVMMonitorV2
         private void TabItemExistSnapshot_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ItemsSS.Clear();
+            this.Title = "The snapshot manager for the chosen VM";
             //
-            IDisk vmDisk = AzureCred_.Disks.GetById(VMOsDiskID_);
-            var snapshotsResourceGroup = AzureCred_.Snapshots.ListByResourceGroup(vmDisk.ResourceGroupName);
-            foreach (var Snapshot in snapshotsResourceGroup.ToList())
+            try
             {
-                //отбираем снэпшоты связанные с кокретным диском
-                if (Snapshot.Incremental == true && Snapshot.Inner.CreationData.SourceResourceId == vmDisk.Id && Snapshot.Inner.CreationData.SourceUniqueId == vmDisk.Inner.UniqueId)
+                IDisk vmDisk = AzureCred_.Disks.GetById(VMOsDiskID_);
+                var snapshotsResourceGroup = AzureCred_.Snapshots.ListByResourceGroup(vmDisk.ResourceGroupName);
+                foreach (var Snapshot in snapshotsResourceGroup.ToList())
                 {
-                    /*Console.WriteLine("snap name: " + Snapshot.Name.ToString());
-                    Console.WriteLine("snap created: " + Snapshot.Inner.TimeCreated.ToString());
-                    Console.WriteLine("snap size GB: " + Snapshot.Inner.DiskSizeGB.ToString());
-                    Console.WriteLine("snap OS Type: " + Snapshot.Inner.OsType.Value.ToString());
-                    */
-                    ItemsSS.Add(new SnapShotHelper(Snapshot));
+                    //отбираем снэпшоты связанные с кокретным диском
+                    if (Snapshot.Incremental == true && Snapshot.Inner.CreationData.SourceResourceId == vmDisk.Id && Snapshot.Inner.CreationData.SourceUniqueId == vmDisk.Inner.UniqueId)
+                    {
+                        /*Console.WriteLine("snap name: " + Snapshot.Name.ToString());
+                        Console.WriteLine("snap created: " + Snapshot.Inner.TimeCreated.ToString());
+                        Console.WriteLine("snap size GB: " + Snapshot.Inner.DiskSizeGB.ToString());
+                        Console.WriteLine("snap OS Type: " + Snapshot.Inner.OsType.Value.ToString());
+                        */
+                        ItemsSS.Add(new SnapShotHelper(Snapshot));
+                    }
                 }
+                ListOfVMSnapshots.ItemsSource = ItemsSS;
+                _logger.Info("Retrieving Snapshots data was a success");
             }
-            ListOfVMSnapshots.ItemsSource = ItemsSS;
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Trouble with retrive data about Snapshots");
+            }
         }
 
         private async void ButtonCreateSnapshot_Click(object sender, RoutedEventArgs e)
         {
+            SnapShotNameField.Text = Regex.Replace(SnapShotNameField.Text, filterForSnapShotName, "");
+            tempName = Regex.Replace(SnapShotNameField.Text, filterForSnapShotName, "");
             CreateNewSnapShot();
         }
 
@@ -91,6 +111,10 @@ namespace AzVMMonitorV2
         {
         }
 
+        private void ButtonDeleteSnapshot_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
         private void EqualField_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             EqualField.Text = "";
@@ -99,6 +123,7 @@ namespace AzVMMonitorV2
         //обёртка для создания SnapShot-а и управление UI
         private async Task CreateNewSnapShot()
         {
+            this.Title = "Creating the snapshot...";
             ProgressDataLoadPanel.Visibility = Visibility.Visible;
             SnapShotNameField.IsEnabled = false;
             AField.IsEnabled = false;
@@ -116,6 +141,7 @@ namespace AzVMMonitorV2
             BField.IsEnabled = true;
             EqualField.IsEnabled = true;
             ButtonCreateSnapshot.IsEnabled = true;
+            this.Title = "The snapshot: " + tempName + " was created";
         }
     }
 }

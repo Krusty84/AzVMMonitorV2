@@ -35,6 +35,9 @@ namespace AzVMMonitorV2
     /// </summary>
     public partial class MainWindow : Window
     {
+        //логгер NLog
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Defines the WM_SYSCOMMAND.
         /// </summary>
@@ -178,19 +181,9 @@ namespace AzVMMonitorV2
         private string OpenPorts;
 
         /// <summary>
-        /// Defines the totalCountVM.
-        /// </summary>
-        private int totalCountVM = 0;
-
-        /// <summary>
         /// Defines the totalWorkingVM.
         /// </summary>
         private int totalWorkingVM = 0;
-
-        /// <summary>
-        /// Defines the totalStoppedVM.
-        /// </summary>
-        private int totalStoppedVM = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -207,11 +200,15 @@ namespace AzVMMonitorV2
                 TypeCurrency = xmlConfigFile.Descendants("currency").First().Value;
                 TypeTimeFrame = xmlConfigFile.Descendants("typeTimeFrame").First().Value;
                 OpenPorts = xmlConfigFile.Descendants("openPorts").First().Value;
+                //
+                _logger.Info("Read Config.xml data successfully");
             }
-            catch (FileNotFoundException)
+            catch (FileNotFoundException ex)
             {
                 LabelWarningError.Visibility = Visibility.Visible;
                 LabelWarningError.Text = "The something wrong: Configuration.xml is missing";
+                //
+                _logger.Error(ex, "Configuration.xml is missing");
             }
         }
 
@@ -444,16 +441,27 @@ namespace AzVMMonitorV2
         /// <returns>The <see cref="IAzure"/>.</returns>
         private IAzure LogInAzure(string clientId, string clientSecret, string clientTenantId)
         {
-            var creds = SdkContext.AzureCredentialsFactory.FromServicePrincipal(
+            try
+            {
+                var creds = SdkContext.AzureCredentialsFactory.FromServicePrincipal(
                 clientId,
                 clientSecret,
                 clientTenantId,
                 environment: AzureEnvironment.AzureGlobalCloud);
 
-            return Azure.Configure()
-                .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
-                .Authenticate(creds)
-                .WithDefaultSubscription();
+                var iazure = Azure.Configure()
+                   .WithLogLevel(HttpLoggingDelegatingHandler.Level.Basic)
+                   .Authenticate(creds)
+                   .WithDefaultSubscription();
+                _logger.Info("Logged in Azure Account was a success");
+                return iazure;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Logged in Azure Account was not a success");
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -489,10 +497,12 @@ namespace AzVMMonitorV2
                     }
                 }
                 IsOkay = true;
+                _logger.Info("Retrieving VMs data was a success");
             }
-            catch
+            catch (Exception ex)
             {
                 IsOkay = false;
+                _logger.Error(ex, "Trouble with retrive data about Virtual Machine");
             }
         }
 
@@ -532,11 +542,13 @@ namespace AzVMMonitorV2
             {
                 LabelCOSTPerVM.Text = costDataPerVm.Properties.Rows[3][0].Double.Value.ToString();
                 CostVM = costDataPerVm.Properties.Rows[3][0].Double.Value;
+                _logger.Info("Retrieving COST per VM data was a success");
             }
             catch (System.IndexOutOfRangeException)
             {
                 LabelCOSTPerVM.Text = "Data was not get";
                 CostVM = 0;
+                _logger.Error("Retrieving COST per VM data was not a success - but its ok!");
             }
 
             if (TypeCurrency == "RUB")
@@ -562,11 +574,13 @@ namespace AzVMMonitorV2
             {
                 LabelCOSTPerVMDisk.Text = totalVmDiskCosts.ToString();
                 CostDisks = totalVmDiskCosts;
+                _logger.Info("Retrieving data about COST per VM Disk was a success");
             }
             catch (System.IndexOutOfRangeException)
             {
                 LabelCOSTPerVMDisk.Text = "Data was not get";
                 CostDisks = 0;
+                _logger.Error("Retrieving data about COST per VM Disk was not a success - but its ok!");
             }
 
             //выводим суммарную стоимость по сетевой подсистеме VM, если данных нет то exception
@@ -574,21 +588,26 @@ namespace AzVMMonitorV2
             {
                 LabelCOSTPerVMNetwork.Text = costDataPermVMNetwork.Properties.Rows[0][0].Double.Value.ToString();
                 CostNET = costDataPermVMNetwork.Properties.Rows[0][0].Double.Value;
+                _logger.Info("Retrieving data about COST per VM Net Inteface was a success");
             }
             catch (System.IndexOutOfRangeException)
             {
                 LabelCOSTPerVMNetwork.Text = "Data was not get";
                 CostNET = 0;
+                _logger.Error("Retrieving data about COST per VM Net Inteface was not a success - but its ok!");
             }
 
+            //выводим суммарную стоимость по подписке
             try
             {
                 LabelCOSTTotal.Text
                  = costDataTotal.Properties.Rows[0][0].Double.Value.ToString().Remove(7);
+                _logger.Info("Retrieving Total COST data was a success");
             }
             catch (System.IndexOutOfRangeException)
             {
                 LabelCOSTTotal.Text = "Data was not get";
+                _logger.Error("Retrieving Total COST data was not a success - and its ABNORMAL!");
             }
 
             LabelCOSTVMTotal.Text = (CostVM + CostDisks + CostNET).ToString();
@@ -992,10 +1011,12 @@ namespace AzVMMonitorV2
                 {
                     GetFinancialData();
                 }
+
+                _logger.Info("Retrieving data about chosen VM was a success");
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                _logger.Info(ex, "Retrieving data about chosen VM was not a success");
                 throw;
             }
         }
@@ -1072,6 +1093,7 @@ namespace AzVMMonitorV2
         /// </summary>
         /// <param name="sender">The sender<see cref="object"/>.</param>
         /// <param name="e">The e<see cref="MouseEventArgs"/>.</param>
+        /// Всплывающая подсказка про отработанные VM дни
         private void LabelVMState_MouseEnter(object sender, MouseEventArgs e)
         {
             if (vmworkingTime != null)

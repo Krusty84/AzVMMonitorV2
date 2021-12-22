@@ -1001,6 +1001,9 @@ namespace AzVMMonitorCostTotalData
     /// </summary>
     internal static class AzBillingRESTHelper
     {
+        //логгер NLog
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Defines the <see cref="AzureDetails" />.
         /// </summary>
@@ -1050,11 +1053,13 @@ namespace AzVMMonitorCostTotalData
                 if (result == null)
                 {
                     throw new InvalidOperationException("Failed to obtain the Access token");
+                    _logger.Error("Failed to obtain the Access token to Azure");
                 }
                 return result.Result.AccessToken;
             }
-            catch
+            catch (Exception ex)
             {
+                _logger.Error(ex, "Failed to obtain the Access token to Azure");
             }
 
             return null;
@@ -1069,22 +1074,30 @@ namespace AzVMMonitorCostTotalData
         /// <returns>The <see cref="Task"/>.</returns>
         public static async Task GetTotalCost(string accesstoken, string subscriptionid)
         {
-            string response = "";
-            HttpClient client = new HttpClient();
+            try
+            {
+                string response = "";
+                HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
-            client.DefaultRequestHeaders.Accept.Clear();
+                client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
+                client.DefaultRequestHeaders.Accept.Clear();
 
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
 
-            var payload = CostManagementQuery.RequestCostManagementTotal;
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
-            request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
-            response = await PostRequestAsync(request, client);
+                var payload = CostManagementQuery.RequestCostManagementTotal;
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
+                request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
+                response = await PostRequestAsync(request, client);
 
-            //ждём ответа.....
-            await Task.Delay(10000);
-            AzureDetails.ResponseCostDataTotal = response;
+                //ждём ответа.....
+                await Task.Delay(10000);
+                _logger.Info("GetTotalCost - ok");
+                AzureDetails.ResponseCostDataTotal = response;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Something wrong with GetTotalCost");
+            }
         }
 
         /* получение потраченных денег на конкретную VM и только на нее без трат на сетевой обмен и дисковое пространство
@@ -1104,26 +1117,34 @@ namespace AzVMMonitorCostTotalData
         /// <returns>The <see cref="Task"/>.</returns>
         public static async Task GetCostByVM(string accesstoken, string subscriptionid, string vmname, string groupname, string timeframe)
         {
-            //string srcRequestCostByVM = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"PublisherType\",\"Operator\":\"In\",\"Values\":[\"azure\"]}},{\"Dimensions\":{\"Name\":\"ServiceName\",\"Operator\":\"In\",\"Values\":[\"virtual machines\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/virtualmachines\\/[VmName]\"]}},{\"Dimensions\":{\"Name\":\"BillingPeriod\",\"Operator\":\"In\",\"Values\":[\"202109(2021-08-14 - 2021-09-13)\"]}}]}}}";
-            string srcRequestCostByVM = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.compute\\/virtualmachines\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/virtualmachines\\/[VmName]\"]}}]}},\"timeframe\":\"[TimeFrame]\"}";
+            try
+            {
+                //string srcRequestCostByVM = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"PublisherType\",\"Operator\":\"In\",\"Values\":[\"azure\"]}},{\"Dimensions\":{\"Name\":\"ServiceName\",\"Operator\":\"In\",\"Values\":[\"virtual machines\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/virtualmachines\\/[VmName]\"]}},{\"Dimensions\":{\"Name\":\"BillingPeriod\",\"Operator\":\"In\",\"Values\":[\"202109(2021-08-14 - 2021-09-13)\"]}}]}}}";
+                string srcRequestCostByVM = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.compute\\/virtualmachines\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/virtualmachines\\/[VmName]\"]}}]}},\"timeframe\":\"[TimeFrame]\"}";
 
-            var requestCostByVM = srcRequestCostByVM.Replace("[SubscriptionID]", subscriptionid).Replace("[GroupsName]", groupname.ToLower()).Replace("[VmName]", vmname.ToLower()).Replace("[TimeFrame]", timeframe);
+                var requestCostByVM = srcRequestCostByVM.Replace("[SubscriptionID]", subscriptionid).Replace("[GroupsName]", groupname.ToLower()).Replace("[VmName]", vmname.ToLower()).Replace("[TimeFrame]", timeframe);
 
-            HttpClient client = new HttpClient();
+                HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
-            client.DefaultRequestHeaders.Accept.Clear();
+                client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
+                client.DefaultRequestHeaders.Accept.Clear();
 
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
 
-            var payload = requestCostByVM;
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
-            request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
-            string response = await PostRequestAsync(request, client);
+                var payload = requestCostByVM;
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
+                request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
+                string response = await PostRequestAsync(request, client);
 
-            //ждём ответа.....
-            await Task.Delay(10000);
-            AzureDetails.ResponseCostDataPerVM = response;
+                //ждём ответа.....
+                await Task.Delay(10000);
+                _logger.Info("GetCostByVM - ok");
+                AzureDetails.ResponseCostDataPerVM = response;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Something wrong with GetCostByVM");
+            }
         }
 
         //получение потраченных денег на диск выбранной VM
@@ -1138,27 +1159,35 @@ namespace AzVMMonitorCostTotalData
         /// <returns>The <see cref="Task"/>.</returns>
         public static async Task GetCostByVMDisk(string accesstoken, string subscriptionid, string vmdiskname, string groupname, string timeframe)
         {
-            //string srcRequestCostByVMDisk = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.compute\\/disks\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/disks\\/[VmDiskName]\"]}}]}},\"timeframe\":\"Custom\",\"timePeriod\":{\"from\":\"2021-09-01T00:00:00+00:00\",\"to\":\"2021-09-30T23:59:59+00:00\"}}";
-            string srcRequestCostByVMDisk = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.compute\\/disks\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/disks\\/[VmDiskName]\"]}}]}},\"timeframe\":\"[TimeFrame]\"}";
+            try
+            {
+                //string srcRequestCostByVMDisk = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.compute\\/disks\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/disks\\/[VmDiskName]\"]}}]}},\"timeframe\":\"Custom\",\"timePeriod\":{\"from\":\"2021-09-01T00:00:00+00:00\",\"to\":\"2021-09-30T23:59:59+00:00\"}}";
+                string srcRequestCostByVMDisk = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.compute\\/disks\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.compute\\/disks\\/[VmDiskName]\"]}}]}},\"timeframe\":\"[TimeFrame]\"}";
 
-            var requestCostByVMDisk = srcRequestCostByVMDisk.Replace("[SubscriptionID]", subscriptionid).Replace("[GroupsName]", groupname.ToLower()).Replace("[VmDiskName]", vmdiskname.ToLower()).Replace("[TimeFrame]", timeframe);
+                var requestCostByVMDisk = srcRequestCostByVMDisk.Replace("[SubscriptionID]", subscriptionid).Replace("[GroupsName]", groupname.ToLower()).Replace("[VmDiskName]", vmdiskname.ToLower()).Replace("[TimeFrame]", timeframe);
 
-            HttpClient client = new HttpClient();
+                HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
-            client.DefaultRequestHeaders.Accept.Clear();
+                client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
+                client.DefaultRequestHeaders.Accept.Clear();
 
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
 
-            var payload = requestCostByVMDisk;
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
-            request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
-            string response = await PostRequestAsync(request, client);
+                var payload = requestCostByVMDisk;
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
+                request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
+                string response = await PostRequestAsync(request, client);
 
-            //ждём ответа.....
-            await Task.Delay(10000);
-            Console.WriteLine("DEBUG RESPONSE GetCostByVMDisk: " + response);
-            AzureDetails.ResponseCostDataPerVMDisk = response;
+                //ждём ответа.....
+                await Task.Delay(10000);
+                //Console.WriteLine("DEBUG RESPONSE GetCostByVMDisk: " + response);
+                _logger.Info("GetCostByVMDisk - ok");
+                AzureDetails.ResponseCostDataPerVMDisk = response;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Something wrong with GetCostByVMDisk");
+            }
         }
 
         //получение потраченных денег на сетевую подсистему выбранной VM
@@ -1173,28 +1202,36 @@ namespace AzVMMonitorCostTotalData
         /// <returns>The <see cref="Task"/>.</returns>
         public static async Task GetCostByVMNetwork(string accesstoken, string subscriptionid, string vmnetworkname, string groupname, string timeframe)
         {
-            //string srcRequestCostByVMNetwork = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"PublisherType\",\"Operator\":\"In\",\"Values\":[\"azure\"]}},{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.network\\/publicipaddresses\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.network\\/publicipaddresses\\/[VmDiskNetwork]\"]}},\"timeframe\":\"[TimeFrame]\"}";
+            try
+            {
+                //string srcRequestCostByVMNetwork = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"PublisherType\",\"Operator\":\"In\",\"Values\":[\"azure\"]}},{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.network\\/publicipaddresses\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.network\\/publicipaddresses\\/[VmDiskNetwork]\"]}},\"timeframe\":\"[TimeFrame]\"}";
 
-            string srcRequestCostByVMNetwork = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.network\\/publicipaddresses\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.network\\/publicipaddresses\\/[VmNetwork]\"]}}]}},\"timeframe\":\"[TimeFrame]\"}";
+                string srcRequestCostByVMNetwork = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"ResourceId\"},{\"type\":\"Dimension\",\"name\":\"ResourceType\"},{\"type\":\"Dimension\",\"name\":\"ResourceLocation\"},{\"type\":\"Dimension\",\"name\":\"ChargeType\"},{\"type\":\"Dimension\",\"name\":\"ResourceGroupName\"},{\"type\":\"Dimension\",\"name\":\"PublisherType\"},{\"type\":\"Dimension\",\"name\":\"ServiceName\"},{\"type\":\"Dimension\",\"name\":\"ServiceTier\"},{\"type\":\"Dimension\",\"name\":\"Meter\"}],\"include\":[\"Tags\"],\"filter\":{\"And\":[{\"Dimensions\":{\"Name\":\"ResourceType\",\"Operator\":\"In\",\"Values\":[\"microsoft.network\\/publicipaddresses\"]}},{\"Dimensions\":{\"Name\":\"ResourceId\",\"Operator\":\"In\",\"Values\":[\"\\/subscriptions\\/[SubscriptionID]\\/resourcegroups\\/[GroupsName]\\/providers\\/microsoft.network\\/publicipaddresses\\/[VmNetwork]\"]}}]}},\"timeframe\":\"[TimeFrame]\"}";
 
-            var requestCostByVMNetwork = srcRequestCostByVMNetwork.Replace("[SubscriptionID]", subscriptionid).Replace("[GroupsName]", groupname.ToLower()).Replace("[VmNetwork]", vmnetworkname.ToLower()).Replace("[TimeFrame]", timeframe);
+                var requestCostByVMNetwork = srcRequestCostByVMNetwork.Replace("[SubscriptionID]", subscriptionid).Replace("[GroupsName]", groupname.ToLower()).Replace("[VmNetwork]", vmnetworkname.ToLower()).Replace("[TimeFrame]", timeframe);
 
-            HttpClient client = new HttpClient();
+                HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
-            client.DefaultRequestHeaders.Accept.Clear();
+                client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/providers/Microsoft.CostManagement/query?api-version=2019-11-01&$top=5000");
+                client.DefaultRequestHeaders.Accept.Clear();
 
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
 
-            var payload = requestCostByVMNetwork;
-            HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
-            request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
-            string response = await PostRequestAsync(request, client);
+                var payload = requestCostByVMNetwork;
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, client.BaseAddress);
+                request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
+                string response = await PostRequestAsync(request, client);
 
-            //ждём ответа.....
-            await Task.Delay(10000);
-            Console.WriteLine("DEBUG RESPONSE GetCostByVMNetwork: " + response);
-            AzureDetails.ResponseCostDataPerVMNetwork = response;
+                //ждём ответа.....
+                await Task.Delay(10000);
+                //Console.WriteLine("DEBUG RESPONSE GetCostByVMNetwork: " + response);
+                _logger.Info("GetCostByVMNetwork - ok");
+                AzureDetails.ResponseCostDataPerVMNetwork = response;
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Something wrong with GetCostByVMNetwork");
+            }
         }
 
         /// <summary>
@@ -1212,9 +1249,9 @@ namespace AzVMMonitorCostTotalData
                 response.EnsureSuccessStatusCode();
                 responseString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException ex)
             {
-                Console.WriteLine(e);
+                _logger.Error(ex);
             }
             return responseString;
         }

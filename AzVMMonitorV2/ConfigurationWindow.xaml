@@ -11,7 +11,7 @@
     Height="382"
     Loaded="Window_Loaded"
     ResizeMode="NoResize"
-    ShowInTaskbar="False"
+    Topmost="True"
     WindowStartupLocation="CenterScreen"
     mc:Ignorable="d">
     <Grid Width="616" HorizontalAlignment="Left">

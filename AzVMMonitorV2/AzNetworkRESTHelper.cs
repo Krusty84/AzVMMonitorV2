@@ -139,6 +139,9 @@ namespace AzVMMonitorV2
     /// </summary>
     internal static class AzNetworkRESTHelper
     {
+        //логгер NLog
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Defines the <see cref="AzureDetails" />.
         /// </summary>
@@ -176,11 +179,12 @@ namespace AzVMMonitorV2
                 //ждём ответа.....
                 await Task.Delay(10000);
                 AzureDetails.Response = content.ToString();
-                Console.WriteLine("Result of call:  " + content.ToString());
+                //Console.WriteLine("Result of call:  " + content.ToString());
+                _logger.Info("SetAccessForWorkstation - ok");
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException ex)
             {
-                Console.WriteLine(e);
+                _logger.Error(ex, "Something wrong with SetAccessForWorkstation");
             }
         }
 
@@ -212,10 +216,11 @@ namespace AzVMMonitorV2
                     //Console.WriteLine("Latest Priority Number:  " + ensr.value[ensr.value.Count - 1].properties.priority.ToString());
                     LatestAllowPriorityNumber = ensr.value[ensr.value.Count - 1].properties.priority;
                 }
+                _logger.Info("GetExistSecurityRule - ok");
             }
-            catch (HttpRequestException e)
+            catch (HttpRequestException ex)
             {
-                Console.WriteLine(e);
+                _logger.Error(ex, "Something wrong with GetExistSecurityRule");
             }
             return LatestAllowPriorityNumber;
         }

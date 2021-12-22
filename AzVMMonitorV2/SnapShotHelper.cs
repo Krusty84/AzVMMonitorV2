@@ -8,6 +8,7 @@ namespace AzVMMonitorV2
 {
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Fluent;
+    using System;
     using System.Threading.Tasks;
 
     //класс обёртка для предоставления информации о SnapShot-е
@@ -16,6 +17,9 @@ namespace AzVMMonitorV2
     /// </summary>
     public class SnapShotHelper
     {
+        //логгер NLog
+        private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
         /// <summary>
         /// Gets or sets the SSName.
         /// </summary>
@@ -58,9 +62,17 @@ namespace AzVMMonitorV2
         /// <returns>The <see cref="Task"/>.</returns>
         public static async Task CreateSnapshotForVMDisk(string VMOsDiskID, string SnapShotName, IAzure Azure)
         {
-            await Task.Delay(5000);
-            IDisk vmDisk = Azure.Disks.GetById(VMOsDiskID);
-            Azure.Snapshots.Define(SnapShotName).WithRegion(vmDisk.RegionName).WithExistingResourceGroup(vmDisk.ResourceGroupName).WithDataFromDisk(vmDisk).WithIncremental(true).Create();
+            try
+            {
+                await Task.Delay(5000);
+                IDisk vmDisk = Azure.Disks.GetById(VMOsDiskID);
+                Azure.Snapshots.Define(SnapShotName).WithRegion(vmDisk.RegionName).WithExistingResourceGroup(vmDisk.ResourceGroupName).WithDataFromDisk(vmDisk).WithIncremental(true).Create();
+                _logger.Info("CreateSnapshotForVMDisk - ok");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Something wrong with CreateSnapshotForVMDisk");
+            }
         }
 
         /// <summary>

@@ -160,10 +160,10 @@
             </TabItem>
             <TabItem Header="Existing Snapshot" PreviewMouseLeftButtonUp="TabItemExistSnapshot_PreviewMouseLeftButtonUp">
                 <Grid>
-                    <StackPanel Margin="0,0,0,10" Orientation="Horizontal" />
+                    <StackPanel Margin="0,0,0,-11" Orientation="Horizontal" />
                     <DataGrid
                         x:Name="ListOfVMSnapshots"
-                        Margin="10"
+                        Margin="10,5,10,40"
                         AutoGenerateColumns="False"
                         GridLinesVisibility="All"
                         PreviewMouseLeftButtonDown="ListOfVMSnapshots_PreviewMouseLeftButtonDown"
@@ -192,6 +192,15 @@
                                 IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
+                    <Button
+                        x:Name="ButtonDeleteSnapshot"
+                        Height="Auto"
+                        Margin="718,288,10,6"
+                        Click="ButtonDeleteSnapshot_Click"
+                        Content="{materialDesign:PackIcon DeleteForever}"
+                        IsEnabled="False"
+                        Style="{StaticResource MaterialDesignRaisedLightButton}"
+                        ToolTip="Delete Snapshot" />
                 </Grid>
             </TabItem>
         </TabControl>

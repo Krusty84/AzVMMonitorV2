@@ -21,5 +21,10 @@ namespace AzVMMonitorV2
         {
             System.Diagnostics.Process.Start("https://github.com/Krusty84/AzVMMonitorV2");
         }
+
+        private void openLogFile_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("AzVMMonitorV2.syslog.txt");
+        }
     }
 }
