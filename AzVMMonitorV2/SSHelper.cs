@@ -9,31 +9,39 @@ namespace AzVMMonitorV2
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Fluent;
     using System;
+    using System.Net.Http;
     using System.Threading.Tasks;
 
     //класс обёртка для предоставления информации о SnapShot-е
     /// <summary>
-    /// Defines the <see cref="SnapShotHelper" />.
+    /// Defines the <see cref="SSHelper" />.
     /// </summary>
-    public class SnapShotHelper
+    public class SSHelper
     {
         //логгер NLog
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
+
+        public static class AzureDetails
+        {
+            /// <summary>
+            /// Gets or sets the Response.
+            /// </summary>
+            public static string Response { get; set; }
+        }
 
         /// <summary>
         /// Gets or sets the SSName.
         /// </summary>
         public string SSName { get; set; }
 
+        public string SSGroupName { get; set; }
+
         /// <summary>
         /// Gets or sets the SSTimeCreated.
         /// </summary>
         public string SSTimeCreated { get; set; }
 
-        /// <summary>
-        /// Gets or sets the SSOsType.
-        /// </summary>
-        public string SSOsType { get; set; }
+        public string SSSrcDiskID { get; set; }
 
         /// <summary>
         /// Gets or sets the SSDiskSizeGB.
@@ -41,15 +49,16 @@ namespace AzVMMonitorV2
         public string SSDiskSizeGB { get; set; }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="SnapShotHelper"/> class.
+        /// Initializes a new instance of the <see cref="SSHelper"/> class.
         /// </summary>
         /// <param name="existsnapshot">The existsnapshot<see cref="ISnapshot"/>.</param>
-        public SnapShotHelper(ISnapshot existsnapshot)
+        public SSHelper(ISnapshot existsnapshot)
         {
             SSName = existsnapshot.Name;
             SSTimeCreated = existsnapshot.Inner.TimeCreated.ToString();
-            SSOsType = existsnapshot.Inner.OsType.Value.ToString();
+            SSSrcDiskID = existsnapshot.Inner.CreationData.SourceResourceId.ToString();
             SSDiskSizeGB = existsnapshot.Inner.DiskSizeGB.ToString();
+            SSGroupName = existsnapshot.ResourceGroupName;
         }
 
         //создаем Snapshot для основного диска выбранной VM
@@ -72,6 +81,29 @@ namespace AzVMMonitorV2
             catch (Exception ex)
             {
                 _logger.Error(ex, "Something wrong with CreateSnapshotForVMDisk");
+            }
+        }
+
+        public static async Task DeleteSnapshotForVMDisk(string accesstoken, string subscriptionid, string groupname, string snapshotname)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("https://management.azure.com/subscriptions/" + subscriptionid + "/resourceGroups/" + groupname + "/providers/Microsoft.Compute/snapshots/" + snapshotname + "?api-version=2020-12-01");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Add("Authorization", "Bearer " + accesstoken);
+                HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Delete, client.BaseAddress);
+                var response = await client.SendAsync(request);
+                var content = await response.Content.ReadAsStringAsync();
+                //ждём ответа.....
+                await Task.Delay(5000);
+                AzureDetails.Response = content.ToString();
+                Console.WriteLine("RESPPPPPP_ " + AzureDetails.Response.ToString());
+                _logger.Info("DeleteSnapshotForVMDisk - ok");
+            }
+            catch (HttpRequestException ex)
+            {
+                _logger.Error(ex, "Something wrong with DeleteSnapshotForVMDisk");
             }
         }
 

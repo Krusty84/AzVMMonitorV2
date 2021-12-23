@@ -17,6 +17,7 @@ namespace AzVMMonitorV2
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Diagnostics;
     using System.IO;
     using System.Linq;
@@ -320,6 +321,8 @@ namespace AzVMMonitorV2
 
                         ListCollectionView collectionView = new ListCollectionView(ItemsVM);
                         collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
+                        collectionView.SortDescriptions.Clear();
+                        collectionView.SortDescriptions.Add(new SortDescription("VMState", ListSortDirection.Descending));
                         ListOfVM.ItemsSource = collectionView;
 
                         //скрываем панель индикатора загрузки
@@ -662,6 +665,13 @@ namespace AzVMMonitorV2
                     if (IsOkay == true)
                     {
                         ListOfVM.ItemsSource = ItemsVM;
+
+                        ListCollectionView collectionView = new ListCollectionView(ItemsVM);
+                        collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
+                        collectionView.SortDescriptions.Clear();
+                        collectionView.SortDescriptions.Add(new SortDescription("VMState", ListSortDirection.Descending));
+                        ListOfVM.ItemsSource = collectionView;
+
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was restarted";
                         //выводим дату обновления данных из Azure и включаем кнопку запроса данных
@@ -706,9 +716,11 @@ namespace AzVMMonitorV2
                     {
                         ListOfVM.ItemsSource = ItemsVM;
 
-                        CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
-                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
-                        view.GroupDescriptions.Add(groupDescription);
+                        ListCollectionView collectionView = new ListCollectionView(ItemsVM);
+                        collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
+                        collectionView.SortDescriptions.Clear();
+                        collectionView.SortDescriptions.Add(new SortDescription("VMState", ListSortDirection.Descending));
+                        ListOfVM.ItemsSource = collectionView;
 
                         ListOfVM.Items.Refresh();
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was started";
@@ -755,11 +767,14 @@ namespace AzVMMonitorV2
                     {
                         ListOfVM.ItemsSource = ItemsVM;
 
-                        CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
-                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
-                        view.GroupDescriptions.Add(groupDescription);
+                        ListCollectionView collectionView = new ListCollectionView(ItemsVM);
+                        collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
+                        collectionView.SortDescriptions.Clear();
+                        collectionView.SortDescriptions.Add(new SortDescription("VMState", ListSortDirection.Descending));
+                        ListOfVM.ItemsSource = collectionView;
 
                         ListOfVM.Items.Refresh();
+
                         MainWindowUI.Title = "AzVMMonitor - The " + SelectedVM.VMName + " was stopped";
                         //выводим дату обновления данных из Azure и включаем кнопку запроса данных
                         LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -802,9 +817,11 @@ namespace AzVMMonitorV2
                     {
                         ListOfVM.ItemsSource = ItemsVM;
 
-                        CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(ListOfVM.ItemsSource);
-                        PropertyGroupDescription groupDescription = new PropertyGroupDescription("VMState");
-                        view.GroupDescriptions.Add(groupDescription);
+                        ListCollectionView collectionView = new ListCollectionView(ItemsVM);
+                        collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
+                        collectionView.SortDescriptions.Clear();
+                        collectionView.SortDescriptions.Add(new SortDescription("VMState", ListSortDirection.Descending));
+                        ListOfVM.ItemsSource = collectionView;
 
                         ListOfVM.Items.Refresh();
                         ProgressDataLoadPanel.Visibility = Visibility.Hidden;
@@ -1074,7 +1091,7 @@ namespace AzVMMonitorV2
 
         private void ButtonMakeSnapshot_Click(object sender, RoutedEventArgs e)
         {
-            SnapShotManagement snapshotMgt = new SnapShotManagement(SelectedVM.VMOsDiskID, AzureCred);
+            SnapShotManagement snapshotMgt = new SnapShotManagement(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMOsDiskID, AzureCred);
             snapshotMgt.ShowDialog();
         }
 

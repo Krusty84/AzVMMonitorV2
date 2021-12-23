@@ -28,7 +28,7 @@
             Margin="134,27,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="AzVMMonitor 1.0.9"
+            Content="AzVMMonitor 1.1.0"
             FontWeight="Bold" />
         <TextBlock Width="101" Margin="292,31,120,167">
             <Hyperlink Click="openLogFile_Click">Open log file</Hyperlink>

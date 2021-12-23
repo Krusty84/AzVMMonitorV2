@@ -19,9 +19,11 @@ namespace AzVMMonitorV2
         //логгер NLog
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
-        private string VMOsDiskID_, tempName;
+        private string VMOsDiskID_, AzureTokenRESTAPI_, AzureSubscriptionID_, tempName;
+        internal bool IsOkay = false;
         private IAzure AzureCred_;
-        internal List<SnapShotHelper> ItemsSS = new List<SnapShotHelper>();
+        internal List<SSHelper> ItemsSS = new List<SSHelper>();
+        internal SSHelper SelectedSS;
 
         //для задания мат.загадки перед созданием snapshot-а
         private Random rndGenerator = new Random();
@@ -31,20 +33,23 @@ namespace AzVMMonitorV2
         //
         private string filterForSnapShotName = "[^a-zA-Z_0-9]";
 
-        public SnapShotManagement(string VMOsDiskID, IAzure azure)
+        public SnapShotManagement(string AzureTokenRESTAPI, string AzureSubscriptionID, string VMOsDiskID, IAzure azure)
         {
             InitializeComponent();
             //
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
+            ProgressDataLoadPanel2.Visibility = Visibility.Hidden;
+            ButtonCreateSnapshot.IsEnabled = false;
             //
             a = rndGenerator.Next(0, 999);
             AField.Text = a.ToString();
             b = rndGenerator.Next(0, 999);
             BField.Text = b.ToString();
-            ButtonCreateSnapshot.IsEnabled = false;
             //
             VMOsDiskID_ = VMOsDiskID;
             AzureCred_ = azure;
+            AzureTokenRESTAPI_ = AzureTokenRESTAPI;
+            AzureSubscriptionID_ = AzureSubscriptionID;
         }
 
         private void EqualField_TextChanged(object sender, TextChangedEventArgs e)
@@ -61,35 +66,16 @@ namespace AzVMMonitorV2
             }
         }
 
-        private void TabItemExistSnapshot_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private async void TabItemExistSnapshot_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            ItemsSS.Clear();
-            this.Title = "The snapshot manager for the chosen VM";
-            //
-            try
-            {
-                IDisk vmDisk = AzureCred_.Disks.GetById(VMOsDiskID_);
-                var snapshotsResourceGroup = AzureCred_.Snapshots.ListByResourceGroup(vmDisk.ResourceGroupName);
-                foreach (var Snapshot in snapshotsResourceGroup.ToList())
-                {
-                    //отбираем снэпшоты связанные с кокретным диском
-                    if (Snapshot.Incremental == true && Snapshot.Inner.CreationData.SourceResourceId == vmDisk.Id && Snapshot.Inner.CreationData.SourceUniqueId == vmDisk.Inner.UniqueId)
-                    {
-                        /*Console.WriteLine("snap name: " + Snapshot.Name.ToString());
-                        Console.WriteLine("snap created: " + Snapshot.Inner.TimeCreated.ToString());
-                        Console.WriteLine("snap size GB: " + Snapshot.Inner.DiskSizeGB.ToString());
-                        Console.WriteLine("snap OS Type: " + Snapshot.Inner.OsType.Value.ToString());
-                        */
-                        ItemsSS.Add(new SnapShotHelper(Snapshot));
-                    }
-                }
-                ListOfVMSnapshots.ItemsSource = ItemsSS;
-                _logger.Info("Retrieving Snapshots data was a success");
-            }
-            catch (Exception ex)
-            {
-                _logger.Error(ex, "Trouble with retrive data about Snapshots");
-            }
+            var taskRefreshSSData = GetSSData();
+            await taskRefreshSSData;
+        }
+
+        private async void TabItem_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var taskRefreshSSData = GetSSData();
+            await taskRefreshSSData;
         }
 
         private async void ButtonCreateSnapshot_Click(object sender, RoutedEventArgs e)
@@ -99,20 +85,11 @@ namespace AzVMMonitorV2
             CreateNewSnapShot();
         }
 
-        private void ListOfVMSnapshots_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private async void ButtonDeleteSnapshot_Click(object sender, RoutedEventArgs e)
         {
-        }
-
-        private void ListOfVMSnapshots_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-        }
-
-        private void TabItemNewSnapshot_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-        }
-
-        private void ButtonDeleteSnapshot_Click(object sender, RoutedEventArgs e)
-        {
+            SelectedSS = (SSHelper)this.ListOfVMSnapshots.SelectedItem;
+            var taskDeleteSnapshot = DeleteChosenSnapshot();
+            await taskDeleteSnapshot;
         }
 
         private void EqualField_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -131,7 +108,7 @@ namespace AzVMMonitorV2
             EqualField.IsEnabled = false;
             ButtonCreateSnapshot.IsEnabled = false;
             //
-            var task2CreateSS = SnapShotHelper.CreateSnapshotForVMDisk(VMOsDiskID_, SnapShotNameField.Text, AzureCred_);
+            var task2CreateSS = SSHelper.CreateSnapshotForVMDisk(VMOsDiskID_, SnapShotNameField.Text, AzureCred_);
             await task2CreateSS;
             //
             SnapShotNameField.Clear();
@@ -142,6 +119,59 @@ namespace AzVMMonitorV2
             EqualField.IsEnabled = true;
             ButtonCreateSnapshot.IsEnabled = true;
             this.Title = "The snapshot: " + tempName + " was created";
+        }
+
+        private async Task DeleteChosenSnapshot()
+        {
+            this.Title = "Deleting the snapshot...";
+            ProgressDataLoadPanel2.Visibility = Visibility.Visible;
+            var task2DeleteSS = SSHelper.DeleteSnapshotForVMDisk(AzureTokenRESTAPI_, AzureSubscriptionID_, SelectedSS.SSGroupName, SelectedSS.SSName);
+            await task2DeleteSS;
+            var taskGetSSData = GetSSData();
+            await taskGetSSData;
+            ListOfVMSnapshots.Items.Refresh();
+            ProgressDataLoadPanel2.Visibility = Visibility.Hidden;
+            this.Title = "The snapshot: " + SelectedSS.SSName + " was deleted";
+        }
+
+        private async Task RefreshSSData()
+        {
+            ProgressDataLoadPanel2.Visibility = Visibility.Visible;
+            var taskGetSSData = GetSSData();
+            await taskGetSSData;
+            ListOfVMSnapshots.Items.Refresh();
+            ProgressDataLoadPanel2.Visibility = Visibility.Hidden;
+        }
+
+        private async Task GetSSData()
+        {
+            ItemsSS.Clear();
+            _ = Task.Delay(10000);
+            try
+            {
+                IDisk vmDisk = AzureCred_.Disks.GetById(VMOsDiskID_);
+                var snapshotsResourceGroup = AzureCred_.Snapshots.ListByResourceGroup(vmDisk.ResourceGroupName);
+                foreach (var Snapshot in snapshotsResourceGroup.ToList())
+                {
+                    //отбираем снэпшоты связанные с кокретным диском
+                    if (Snapshot.Incremental == true && Snapshot.Inner.CreationData.SourceResourceId == vmDisk.Id && Snapshot.Inner.CreationData.SourceUniqueId == vmDisk.Inner.UniqueId)
+                    {
+                        /*Console.WriteLine("snap name: " + Snapshot.Name.ToString());
+                        Console.WriteLine("snap created: " + Snapshot.Inner.TimeCreated.ToString());
+                        Console.WriteLine("snap size GB: " + Snapshot.Inner.DiskSizeGB.ToString());
+                        Console.WriteLine("disk id______: "+ Snapshot.Inner.CreationData.SourceResourceId.ToString());
+                        */
+                        ItemsSS.Add(new SSHelper(Snapshot));
+                    }
+                }
+                ListOfVMSnapshots.ItemsSource = ItemsSS;
+                ProgressDataLoadPanel2.Visibility = Visibility.Hidden;
+                _logger.Info("Retrieving Snapshots data was a success");
+            }
+            catch (Exception ex)
+            {
+                _logger.Error(ex, "Trouble with retrive data about Snapshots");
+            }
         }
     }
 }

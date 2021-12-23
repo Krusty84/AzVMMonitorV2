@@ -19,7 +19,7 @@
             x:Name="TabSnapShotData"
             Margin="4,4,4,-23"
             Style="{StaticResource MaterialDesignTabControl}">
-            <TabItem Header="New Snapshot" PreviewMouseLeftButtonUp="TabItemNewSnapshot_PreviewMouseLeftButtonUp">
+            <TabItem Header="New Snapshot">
                 <StackPanel Margin="0,0,0,-16" Orientation="Horizontal">
                     <Grid Width="785" Margin="0,0,0,10">
                         <Grid>
@@ -46,9 +46,9 @@
                                 VerticalAlignment="Top"
                                 Opacity="0.8">
                                 <ProgressBar
-                                    Width="270"
-                                    Height="238"
-                                    Margin="0,20,260,0"
+                                    Width="200"
+                                    Height="200"
+                                    Margin="0,50,294,0"
                                     HorizontalAlignment="Right"
                                     VerticalAlignment="Center"
                                     IsIndeterminate="True"
@@ -158,16 +158,18 @@
                     </Grid>
                 </StackPanel>
             </TabItem>
-            <TabItem Header="Existing Snapshot" PreviewMouseLeftButtonUp="TabItemExistSnapshot_PreviewMouseLeftButtonUp">
+            <TabItem
+                Header="Existing Snapshot"
+                MouseRightButtonUp="TabItem_MouseRightButtonUp"
+                PreviewMouseLeftButtonUp="TabItemExistSnapshot_PreviewMouseLeftButtonUp">
                 <Grid>
+
                     <StackPanel Margin="0,0,0,-11" Orientation="Horizontal" />
                     <DataGrid
                         x:Name="ListOfVMSnapshots"
                         Margin="10,5,10,40"
                         AutoGenerateColumns="False"
                         GridLinesVisibility="All"
-                        PreviewMouseLeftButtonDown="ListOfVMSnapshots_PreviewMouseLeftButtonDown"
-                        PreviewMouseLeftButtonUp="ListOfVMSnapshots_PreviewMouseLeftButtonUp"
                         SelectionMode="Single"
                         SelectionUnit="FullRow">
                         <DataGrid.Columns>
@@ -187,18 +189,41 @@
                                 IsReadOnly="True" />
                             <DataGridTextColumn
                                 Width="Auto"
-                                Binding="{Binding SSOsType}"
-                                Header="OS Type"
+                                Binding="{Binding SSSrcDiskID}"
+                                Header="Src VM Disk"
+
                                 IsReadOnly="True" />
                         </DataGrid.Columns>
                     </DataGrid>
+                    <StackPanel
+                        x:Name="ProgressDataLoadPanel2"
+                        Grid.RowSpan="5"
+                        Grid.ColumnSpan="3"
+                        Width="785"
+                        Height="264"
+                        Margin="0,0,-56,-9"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        Opacity="0.8">
+                        <ProgressBar
+                            Width="200"
+                            Height="200"
+                            Margin="0,50,294,0"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            IsIndeterminate="True"
+                            RenderTransformOrigin="0.475,0.473"
+                            Style="{StaticResource MaterialDesignCircularProgressBar}"
+                            Value="0" />
+                    </StackPanel>
                     <Button
                         x:Name="ButtonDeleteSnapshot"
                         Height="Auto"
-                        Margin="718,288,10,6"
+                        Margin="696,292,10,-8"
+                        Background="#FFF0150A"
+                        BorderBrush="#FFF0150A"
                         Click="ButtonDeleteSnapshot_Click"
                         Content="{materialDesign:PackIcon DeleteForever}"
-                        IsEnabled="False"
                         Style="{StaticResource MaterialDesignRaisedLightButton}"
                         ToolTip="Delete Snapshot" />
                 </Grid>

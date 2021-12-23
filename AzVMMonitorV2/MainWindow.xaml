@@ -16,7 +16,6 @@
     Topmost="True"
     mc:Ignorable="d">
     <Grid Width="935" HorizontalAlignment="Left">
-
         <DataGrid
             x:Name="ListOfVM"
             Margin="10,10,150,328"
