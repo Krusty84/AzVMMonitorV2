@@ -75,7 +75,8 @@ namespace AzVMMonitorV2
             {
                 await Task.Delay(5000);
                 IDisk vmDisk = Azure.Disks.GetById(VMOsDiskID);
-                Azure.Snapshots.Define(SnapShotName).WithRegion(vmDisk.RegionName).WithExistingResourceGroup(vmDisk.ResourceGroupName).WithDataFromDisk(vmDisk).WithIncremental(true).Create();
+                //оставноился тут проблема с SKU
+                Azure.Snapshots.Define(SnapShotName).WithRegion(vmDisk.RegionName).WithExistingResourceGroup(vmDisk.ResourceGroupName).WithDataFromDisk(vmDisk).WithSku(SnapshotSkuType.FromStorageAccountType(Azure.StorageAccounts.).WithIncremental(true).Create();
                 _logger.Info("CreateSnapshotForVMDisk - ok");
             }
             catch (Exception ex)
@@ -83,6 +84,7 @@ namespace AzVMMonitorV2
                 _logger.Error(ex, "Something wrong with CreateSnapshotForVMDisk");
             }
         }
+
 
         public static async Task DeleteSnapshotForVMDisk(string accesstoken, string subscriptionid, string groupname, string snapshotname)
         {
@@ -116,5 +118,6 @@ namespace AzVMMonitorV2
             // return $"Name: {SSName}, __State: {SSState}, __Key: {SSKey}";
             return SSName;
         }
+
     }
 }

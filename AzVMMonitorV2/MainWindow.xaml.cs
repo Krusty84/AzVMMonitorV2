@@ -17,6 +17,7 @@ namespace AzVMMonitorV2
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.IO;
@@ -25,6 +26,7 @@ namespace AzVMMonitorV2
     using System.Runtime.InteropServices;
     using System.Threading.Tasks;
     using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Data;
     using System.Windows.Input;
     using System.Windows.Interop;
@@ -141,15 +143,21 @@ namespace AzVMMonitorV2
         /// </summary>
         internal bool IsOkay = false;
 
+        internal bool IsOkay_ = false;
+
         /// <summary>
         /// Defines the ItemsVM.
         /// </summary>
         internal List<VMHelper> ItemsVM = new List<VMHelper>();
 
+        internal List<SSHelper> ItemsSS = new List<SSHelper>();
+
         /// <summary>
         /// Defines the SelectedVM.
         /// </summary>
         internal VMHelper SelectedVM;
+
+        internal SSHelper SelectedSS;
 
         /// <summary>
         /// Defines the TypeCurrency.
@@ -206,8 +214,7 @@ namespace AzVMMonitorV2
             }
             catch (FileNotFoundException ex)
             {
-                LabelWarningError.Visibility = Visibility.Visible;
-                LabelWarningError.Text = "The something wrong: Configuration.xml is missing";
+                this.Title = "AzVMMonitor: Configuration.xml is missing!";
                 //
                 _logger.Error(ex, "Configuration.xml is missing");
             }
@@ -259,15 +266,14 @@ namespace AzVMMonitorV2
             ButtonOpenAzurePortal.IsEnabled = false;
             ButtonProvideAccess.IsEnabled = false;
             ButtonMakeSnapshot.IsEnabled = false;
+            ButtonDeleteSnapshot.IsEnabled = false;
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
+            TabSnapshotData.IsEnabled = false;
             TabFinanceData.IsEnabled = false;
-            LabelWarningError.Visibility = Visibility.Hidden;
-
             //считываем паарметры из configuration.xml
             ReadXMLConfig();
-
-            //задаем название для закладки с финансовыми показателями
-            TabFinanceData.Header = "Fincance Data (in " + TypeCurrency + " for " + TypeTimeFrame + " period)";
+            //
+            LabelAboutFinData.Text = "Fincance Data provided in " + TypeCurrency + " for " + TypeTimeFrame + " period";
 
             //делаем иконку в system tray и декларируем реацию на двойной щелчок по ней
             notifyIcon = new System.Windows.Forms.NotifyIcon();
@@ -303,7 +309,7 @@ namespace AzVMMonitorV2
             //Грузим данные вывзывая функцию RefreshVMData в отдельном потоке
             var taskRefreshData = Task.Run(() =>
             {
-                RefreshVMData();
+                GetVMData();
             });
 
             taskRefreshData.ContinueWith((t) =>
@@ -389,7 +395,8 @@ namespace AzVMMonitorV2
             ButtonReloadData.IsEnabled = isLock;
             ButtonOpenAzurePortal.IsEnabled = isLock;
             ButtonProvideAccess.IsEnabled = isLock;
-            TabTechicalData.IsEnabled = isLock;
+            MainTab.IsEnabled = isLock;
+            TabSnapshotData.IsEnabled = isLock;
             LabelLastUpdate.IsEnabled = isLock;
 
             ListOfVM.IsEnabled = isLock;
@@ -470,7 +477,7 @@ namespace AzVMMonitorV2
         /// <summary>
         /// The RefreshVMData.
         /// </summary>
-        public void RefreshVMData()
+        public void GetVMData()
         {
             ItemsVM.Clear();
             totalWorkingVM = 0;
@@ -509,10 +516,44 @@ namespace AzVMMonitorV2
             }
         }
 
+        public void GetVMSSData()
+        {
+            Console.WriteLine("You called me");
+            ItemsSS.Clear();
+
+            try
+            {
+                IDisk vmDisk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
+                var snapshotsResourceGroup = AzureCred.Snapshots.ListByResourceGroup(vmDisk.ResourceGroupName);
+                foreach (var Snapshot in snapshotsResourceGroup.ToList())
+                {
+                    //отбираем снэпшоты связанные с кокретным диском
+                    if (Snapshot.Incremental == true && Snapshot.Inner.CreationData.SourceResourceId == vmDisk.Id
+                        && Snapshot.Inner.CreationData.SourceUniqueId == vmDisk.Inner.UniqueId)
+                    {
+                        /*Console.WriteLine("snap name: " + Snapshot.Name.ToString());
+                        Console.WriteLine("snap created: " + Snapshot.Inner.TimeCreated.ToString());
+                        Console.WriteLine("snap size GB: " + Snapshot.Inner.DiskSizeGB.ToString());
+                        Console.WriteLine("disk id______: "+ Snapshot.Inner.CreationData.SourceResourceId.ToString());
+                        */
+                        ItemsSS.Add(new SSHelper(Snapshot));
+                    }
+                }
+
+                IsOkay_ = true;
+                _logger.Info("Retrieving Snapshots data was a success");
+            }
+            catch (Exception ex)
+            {
+                IsOkay_ = false;
+                _logger.Error(ex, "Trouble with retrive data about Snapshots");
+            }
+        }
+
         /// <summary>
         /// The GetFinancialData.
         /// </summary>
-        private async void GetFinancialData()
+        private async void GetFinData()
         {
             LabelCOSTTotal.Text = "Getting data...";
             LabelCOSTPerVM.Text = "Getting data...";
@@ -655,7 +696,7 @@ namespace AzVMMonitorV2
             {
                 IVirtualMachine vm = SelectedVM.VMCurrent;
                 vm.Restart();
-                RefreshVMData();
+                GetVMData();
             });
 
             taskRestartVM.ContinueWith((tt) =>
@@ -705,7 +746,7 @@ namespace AzVMMonitorV2
             {
                 IVirtualMachine vm = SelectedVM.VMCurrent;
                 vm.Start();
-                RefreshVMData();
+                GetVMData();
             });
 
             taskStartVM.ContinueWith((tt) =>
@@ -756,7 +797,7 @@ namespace AzVMMonitorV2
                 IVirtualMachine vm = SelectedVM.VMCurrent;
 
                 vm.Deallocate();
-                RefreshVMData();
+                GetVMData();
             });
 
             taskStopVM.ContinueWith((tt) =>
@@ -800,13 +841,16 @@ namespace AzVMMonitorV2
         /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
         private void ButtonReloadData_Click(object sender, RoutedEventArgs e)
         {
+            ListOfVM.ItemsSource = null;
             UnlockLockUI(false);
             ReadXMLConfig();
-            TabFinanceData.Header = "Fincance Data (in " + TypeCurrency + " for " + TypeTimeFrame + " period)";
+
+            LabelAboutFinData.Text = "Fincance Data provided in " + TypeCurrency + " for " + TypeTimeFrame + " period";
             ProgressDataLoadPanel.Visibility = Visibility.Visible;
             var taskRefreshData = Task.Run(() =>
             {
-                RefreshVMData();
+                GetVMData();
+
             });
 
             taskRefreshData.ContinueWith((t) =>
@@ -815,15 +859,15 @@ namespace AzVMMonitorV2
                 {
                     if (IsOkay == true)
                     {
-                        ListOfVM.ItemsSource = ItemsVM;
+                        //ListOfVM.ItemsSource = ItemsVM;
 
                         ListCollectionView collectionView = new ListCollectionView(ItemsVM);
                         collectionView.GroupDescriptions.Add(new PropertyGroupDescription("VMState"));
                         collectionView.SortDescriptions.Clear();
                         collectionView.SortDescriptions.Add(new SortDescription("VMState", ListSortDirection.Descending));
                         ListOfVM.ItemsSource = collectionView;
-
                         ListOfVM.Items.Refresh();
+
                         ProgressDataLoadPanel.Visibility = Visibility.Hidden;
                         //выводим дату обновления данных из Azure и включаем кнопку запроса данных
                         LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -850,6 +894,7 @@ namespace AzVMMonitorV2
         private async void ListOfVM_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             UnlockLockUI(true);
+            ListOfVMSnapshots.ItemsSource = null;
             try
             {
                 vmworkingTime = null;
@@ -858,12 +903,13 @@ namespace AzVMMonitorV2
                 //
                 var converterBrush = new System.Windows.Media.BrushConverter();
                 //
-                SelectedVM = (VMHelper)this.ListOfVM.SelectedItem;
+                SelectedVM = (VMHelper)ListOfVM.SelectedItem;
 
                 if (SelectedVM != null)
                 {
-                    //определяем состояние выбранной VM, работает или нет
-                    if (SelectedVM.VMState == "running")
+
+                        //определяем состояние выбранной VM, работает или нет
+                        if (SelectedVM.VMState == "running")
                     {
                         var client = new TcpClient();
                         if (!client.ConnectAsync(SelectedVM.VMPublicIP, 3389).Wait(500))
@@ -902,34 +948,34 @@ namespace AzVMMonitorV2
                             TimeSpan valueOfWorkinTime = ((TimeSpan)(DateTime.Now - localVMStartTime));
                             //
                             //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMState
-                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.2)
+                            if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 0.2)
                             {
                                 LabelVMState.Background = Brushes.Aquamarine;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
                             }
                             else
-                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.5)
+                            if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 0.5)
                             {
                                 LabelVMState.Background = Brushes.GreenYellow;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else
-                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 1)
+                            if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 1)
                             {
                                 LabelVMState.Background = Brushes.DarkSeaGreen;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
-                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 7)
+                            else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 7)
                             {
                                 LabelVMState.Background = Brushes.Gold;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
-                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 14)
+                            else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 14)
                             {
                                 LabelVMState.Background = Brushes.Orange;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
-                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 28)
+                            else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 28)
                             {
                                 LabelVMState.Background = Brushes.OrangeRed;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
@@ -946,34 +992,34 @@ namespace AzVMMonitorV2
                             if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.2)
                             {
                                 LabelVMState.Background = Brushes.Aquamarine;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else
-                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.5)
+                            if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 0.5)
                             {
                                 LabelVMState.Background = Brushes.GreenYellow;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else
-                            if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 1)
+                            if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 1)
                             {
                                 LabelVMState.Background = Brushes.DarkSeaGreen;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
-                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 7)
+                            else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 7)
                             {
                                 LabelVMState.Background = Brushes.Gold;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
-                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 14)
+                            else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 14)
                             {
                                 LabelVMState.Background = Brushes.Orange;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
-                            else if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 28)
+                            else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 28)
                             {
                                 LabelVMState.Background = Brushes.OrangeRed;
-                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
+                                vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                         }
 
@@ -1012,11 +1058,9 @@ namespace AzVMMonitorV2
                     //LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
                     IDisk disk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
                     LabelVMWasCreated.Text = disk.Inner.TimeCreated.Value.ToString();
-
-                    Console.WriteLine("Disk ID: " + SelectedVM.VMOsDiskID);
                 }
 
-                if (TabTechicalData.IsFocused)
+                if (TabVMData.IsFocused)
                 {
                     TabFinanceData.IsEnabled = true;
                     LabelVMName.Text = SelectedVM.VMName;
@@ -1026,7 +1070,13 @@ namespace AzVMMonitorV2
                 }
                 else if (TabFinanceData.IsSelected)
                 {
-                    GetFinancialData();
+                    GetFinData();
+
+                } else if (TabSnapshotData.IsSelected)
+                {
+
+                    GetVMSSData();
+                    ListOfVMSnapshots.ItemsSource = ItemsSS;
                 }
 
                 _logger.Info("Retrieving data about chosen VM was a success");
@@ -1047,24 +1097,6 @@ namespace AzVMMonitorV2
         {
         }
 
-        /// <summary>
-        /// The TabItemFinData_PreviewMouseLeftButtonUpAsync.
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/>.</param>
-        /// <param name="e">The e<see cref="MouseButtonEventArgs"/>.</param>
-        private async void TabItemFinData_PreviewMouseLeftButtonUpAsync(object sender, MouseButtonEventArgs e)
-        {
-            GetFinancialData();
-        }
-
-        /// <summary>
-        /// The TabItemTechData_PreviewMouseLeftButtonUp.
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/>.</param>
-        /// <param name="e">The e<see cref="MouseButtonEventArgs"/>.</param>
-        private void TabItemTechData_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-        }
 
         /// <summary>
         /// The ButtonOpenAzurePortal_Click.
@@ -1089,11 +1121,66 @@ namespace AzVMMonitorV2
             setNGSWindow.ShowDialog();
         }
 
+        //взаимодействие с закладками у Tab-а
+        private void MainTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = sender as TabControl;
+            var selectedTab = item.SelectedItem as TabItem;
+
+            if (selectedTab.Name == "TabVMData")
+            {
+
+            }
+            else if (selectedTab.Name == "TabSnapshotData")
+            {
+
+                var taskRefreshData = Task.Run(() =>
+                {
+                    GetVMSSData();
+                });
+
+                taskRefreshData.ContinueWith((t) =>
+                {
+                    Dispatcher.Invoke(() =>
+                    {
+                        if (IsOkay_ == true)
+                        {
+
+                            ListOfVMSnapshots.ItemsSource = ItemsSS;
+
+                        }
+                        else
+                        {
+                            //реакция на случае, если, что-то пошло не так походу обращения к Azure
+                            ConnectionToAzureHasTrouble();
+                        }
+                    });
+                });
+
+            }
+            else if (selectedTab.Name == "TabFinanceData")
+            {
+                GetFinData();
+            }
+        }
+
         private void ButtonMakeSnapshot_Click(object sender, RoutedEventArgs e)
         {
-            SnapShotManagement snapshotMgt = new SnapShotManagement(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMOsDiskID, AzureCred);
-            snapshotMgt.ShowDialog();
+            CreateNewSnapshot newSnapshot = new CreateNewSnapshot(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMOsDiskID, AzureCred);
+            newSnapshot.ShowDialog();
         }
+
+
+        private async void ButtonDeleteSnapshot_Click(object sender, RoutedEventArgs e)
+        {
+            var taskDeleteSnapshot = SSHelper.DeleteSnapshotForVMDisk(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, SelectedSS.SSName);
+            await taskDeleteSnapshot;
+            //
+            ListOfVMSnapshots.ItemsSource = null;
+            GetVMSSData();
+        }
+
+
 
         /// <summary>
         /// The TextBlock_MouseDown.

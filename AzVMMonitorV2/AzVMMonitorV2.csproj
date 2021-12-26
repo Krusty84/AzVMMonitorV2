@@ -82,14 +82,14 @@
     <Reference Include="Hyak.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Hyak.Common.1.2.2\lib\net452\Hyak.Common.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignColors, Version=2.0.1.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignColors.2.0.1\lib\net452\MaterialDesignColors.dll</HintPath>
+    <Reference Include="MaterialDesignColors, Version=2.0.4.3, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.2.0.4\lib\net452\MaterialDesignColors.dll</HintPath>
     </Reference>
     <Reference Include="MaterialDesignExtensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c5ebccebe084d64f, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignExtensions.4.0.0-a02\lib\net452\MaterialDesignExtensions.dll</HintPath>
     </Reference>
-    <Reference Include="MaterialDesignThemes.Wpf, Version=4.1.0.2556, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
-      <HintPath>..\packages\MaterialDesignThemes.4.1.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.3.0.3, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.4.3.0\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Common.2.2.1\lib\net452\Microsoft.Azure.Common.dll</HintPath>
@@ -112,8 +112,8 @@
     <Reference Include="Microsoft.Azure.Management.Cdn.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.Cdn.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Cdn.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Management.Compute.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Management.Compute.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Compute.Fluent.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Management.Compute.Fluent, Version=1.0.0.70, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.Compute.Fluent.1.38.0\lib\net452\Microsoft.Azure.Management.Compute.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Management.ContainerInstance.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.ContainerInstance.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.ContainerInstance.Fluent.dll</HintPath>
@@ -136,8 +136,8 @@
     <Reference Include="Microsoft.Azure.Management.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Management.Graph.RBAC.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Management.Graph.RBAC.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Graph.RBAC.Fluent.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Management.Graph.RBAC.Fluent, Version=1.0.0.70, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.Graph.RBAC.Fluent.1.38.0\lib\net452\Microsoft.Azure.Management.Graph.RBAC.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Management.KeyVault.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.KeyVault.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.KeyVault.Fluent.dll</HintPath>
@@ -148,11 +148,11 @@
     <Reference Include="Microsoft.Azure.Management.Monitor.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.Monitor.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Monitor.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Management.Msi.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Management.Msi.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Msi.Fluent.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Management.Msi.Fluent, Version=1.0.0.70, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.Msi.Fluent.1.38.0\lib\net452\Microsoft.Azure.Management.Msi.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Management.Network.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Management.Network.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Network.Fluent.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Management.Network.Fluent, Version=1.0.0.70, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.Network.Fluent.1.38.0\lib\net452\Microsoft.Azure.Management.Network.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Management.PrivateDns.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.PrivateDns.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.PrivateDns.Fluent.dll</HintPath>
@@ -160,8 +160,8 @@
     <Reference Include="Microsoft.Azure.Management.Redis.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.Redis.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Redis.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Management.ResourceManager.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Management.ResourceManager.Fluent.1.37.1\lib\net461\Microsoft.Azure.Management.ResourceManager.Fluent.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Management.ResourceManager.Fluent, Version=1.0.0.70, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.ResourceManager.Fluent.1.38.0\lib\net461\Microsoft.Azure.Management.ResourceManager.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Management.Search.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.Search.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Search.Fluent.dll</HintPath>
@@ -172,8 +172,8 @@
     <Reference Include="Microsoft.Azure.Management.Sql.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.Sql.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Sql.Fluent.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Azure.Management.Storage.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Azure.Management.Storage.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.Storage.Fluent.dll</HintPath>
+    <Reference Include="Microsoft.Azure.Management.Storage.Fluent, Version=1.0.0.70, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Management.Storage.Fluent.1.38.0\lib\net452\Microsoft.Azure.Management.Storage.Fluent.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Azure.Management.TrafficManager.Fluent, Version=1.0.0.69, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Azure.Management.TrafficManager.Fluent.1.37.1\lib\net452\Microsoft.Azure.Management.TrafficManager.Fluent.dll</HintPath>
@@ -202,8 +202,8 @@
     <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.7.13\lib\net45\NLog.dll</HintPath>
@@ -285,10 +285,10 @@
       <DependentUpon>SetNetworkRuleWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SSHelper.cs" />
-    <Compile Include="SnapShotManagement.xaml.cs">
-      <DependentUpon>SnapShotManagement.xaml</DependentUpon>
+    <Compile Include="CreateSnapShot.xaml.cs">
+      <DependentUpon>CreateSnapShot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SSHelper.cs" />
     <Compile Include="SomeHelpers.cs" />
     <Compile Include="VMHelper.cs" />
     <Page Include="AboutWindow.xaml">
@@ -316,9 +316,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SnapShotManagement.xaml">
+    <Page Include="CreateSnapShot.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -382,101 +382,101 @@
   <ItemGroup>
     <PublishFile Include="AzVMMonitorV2.exe.config">
       <Visible>False</Visible>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="AzVMMonitorV2.exe.manifest">
       <Visible>False</Visible>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <FileType>ManifestEntryPoint</FileType>
     </PublishFile>
     <PublishFile Include="configuration.xml">
       <Visible>False</Visible>
+      <PublishState>Include</PublishState>
+      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>False</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="cs-CZ\MaterialDesignExtensions.resources">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="fr-FR\MaterialDesignExtensions.resources">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ja-JP\MaterialDesignExtensions.resources">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="NLog.config">
       <Visible>False</Visible>
+      <PublishState>Auto</PublishState>
+      <IncludeHash>False</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Auto</PublishState>
-      <IncludeHash>False</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
     <PublishFile Include="pt-BR\MaterialDesignExtensions.resources">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
     <PublishFile Include="ru-ru\MaterialDesignExtensions.resources">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
+  <Import Project="..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets'))" />
+    <Error Condition="!Exists('..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\MaterialDesignThemes.4.3.0\build\MaterialDesignThemes.targets'))" />
   </Target>
 </Project>
