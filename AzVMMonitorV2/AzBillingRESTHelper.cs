@@ -11,7 +11,6 @@ namespace AzVMMonitorCostsPerVM
     using System;
     using System.Globalization;
 
-    //Класс обёртка -https://quicktype.io/csharp
     /// <summary>
     /// Defines the <see cref="CostDataPerVm" />.
     /// </summary>
@@ -121,6 +120,7 @@ namespace AzVMMonitorCostsPerVM
         /// Defines the String.
         /// </summary>
         public string String;
+
 
         public static implicit operator Row(object[] AnythingArray) => new Row { AnythingArray = AnythingArray };
 
@@ -257,7 +257,6 @@ namespace AzVMMonitorCostsPerVMDisk
     using System;
     using System.Globalization;
 
-    //Класс обёртка -https://quicktype.io/csharp
     /// <summary>
     /// Defines the <see cref="CostDataPerVmDisk" />.
     /// </summary>
@@ -367,6 +366,7 @@ namespace AzVMMonitorCostsPerVMDisk
         /// Defines the StringArray.
         /// </summary>
         public string[] StringArray;
+
 
         public static implicit operator Row(double Double) => new Row { Double = Double };
 
@@ -503,7 +503,6 @@ namespace AzVMMonitorCostsPerVMNetwork
     using System;
     using System.Globalization;
 
-    //Класс обёртка -https://quicktype.io/csharp
     /// <summary>
     /// Defines the <see cref="CostDataPerVmNetwork" />.
     /// </summary>
@@ -613,6 +612,7 @@ namespace AzVMMonitorCostsPerVMNetwork
         /// Defines the String.
         /// </summary>
         public string String;
+
 
         public static implicit operator Row(object[] AnythingArray) => new Row { AnythingArray = AnythingArray };
 
@@ -774,7 +774,6 @@ namespace AzVMMonitorCostTotalData
         public static string RequestCostManagementTotal = "{\"type\":\"ActualCost\",\"dataSet\":{\"granularity\":\"None\",\"aggregation\":{\"totalCost\":{\"name\":\"Cost\",\"function\":\"Sum\"},\"totalCostUSD\":{\"name\":\"CostUSD\",\"function\":\"Sum\"}},\"grouping\":[{\"type\":\"Dimension\",\"name\":\"BillingPeriod\"}]}}";
     }
 
-    //Класс обёртка -https://quicktype.io/csharp
     /// <summary>
     /// Defines the <see cref="CostDataTotal" />.
     /// </summary>
@@ -879,6 +878,7 @@ namespace AzVMMonitorCostTotalData
         /// Defines the String.
         /// </summary>
         public string String;
+
 
         public static implicit operator Row(double Double) => new Row { Double = Double };
 
@@ -1002,6 +1002,9 @@ namespace AzVMMonitorCostTotalData
     internal static class AzBillingRESTHelper
     {
         //логгер NLog
+        /// <summary>
+        /// Defines the _logger.
+        /// </summary>
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
         /// <summary>
@@ -1035,7 +1038,6 @@ namespace AzVMMonitorCostTotalData
             public static string ResponseCostDataPerVMNetwork { get; set; }
         }
 
-        //Авторизация в Azure
         /// <summary>
         /// The GetAuthorizationToken.
         /// </summary>
@@ -1065,7 +1067,6 @@ namespace AzVMMonitorCostTotalData
             return null;
         }
 
-        //Запрос расходов (суммарно) в подписке Azure
         /// <summary>
         /// The GetTotalCost.
         /// </summary>
@@ -1099,12 +1100,6 @@ namespace AzVMMonitorCostTotalData
                 _logger.Error(ex, "Something wrong with GetTotalCost");
             }
         }
-
-        /* получение потраченных денег на конкретную VM и только на нее без трат на сетевой обмен и дисковое пространство
-           https://docs.microsoft.com/en-us/cli/azure/costmanagement?view=azure-cli-latest
-           The time frame for pulling data for the query.If custom, then a specific time period must be provided.
-           accepted values: BillingMonthToDate, Custom, MonthToDate, TheLastBillingMonth, TheLastMonth, WeekToDate
-        */
 
         /// <summary>
         /// The GetCostByVM.
@@ -1147,7 +1142,6 @@ namespace AzVMMonitorCostTotalData
             }
         }
 
-        //получение потраченных денег на диск выбранной VM
         /// <summary>
         /// The GetCostByVMDisk.
         /// </summary>
@@ -1190,7 +1184,6 @@ namespace AzVMMonitorCostTotalData
             }
         }
 
-        //получение потраченных денег на сетевую подсистему выбранной VM
         /// <summary>
         /// The GetCostByVMNetwork.
         /// </summary>

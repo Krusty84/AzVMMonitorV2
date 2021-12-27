@@ -38,7 +38,7 @@ namespace AzVMMonitorV2.Properties
 
         /// <summary>
         /// Gets the ResourceManager
-        /// Returns the cached ResourceManager instance used by this class..
+        /// Returns the cached ResourceManager instance used by this class...
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Resources.ResourceManager ResourceManager
@@ -57,7 +57,7 @@ namespace AzVMMonitorV2.Properties
         /// <summary>
         /// Gets or sets the Culture
         /// Overrides the current thread's CurrentUICulture property for all
-        ///   resource lookups using this strongly typed resource class..
+        ///   resource lookups using this strongly typed resource class...
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture
@@ -74,7 +74,7 @@ namespace AzVMMonitorV2.Properties
 
         /// <summary>
         /// Gets the icon_app
-        /// Looks up a localized resource of type System.Drawing.Icon similar to (Icon)..
+        /// Looks up a localized resource of type System.Drawing.Icon similar to (Icon)...
         /// </summary>
         internal static System.Drawing.Icon icon_app
         {

@@ -17,7 +17,6 @@ namespace AzVMMonitorV2
     using Microsoft.Azure.Management.ResourceManager.Fluent.Core;
     using System;
     using System.Collections.Generic;
-    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Diagnostics;
     using System.IO;
@@ -39,6 +38,9 @@ namespace AzVMMonitorV2
     public partial class MainWindow : Window
     {
         //логгер NLog
+        /// <summary>
+        /// Defines the _logger.
+        /// </summary>
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
         /// <summary>
@@ -134,7 +136,7 @@ namespace AzVMMonitorV2
         internal string ClientTenantId = "";
 
         /// <summary>
-        /// Defines the CostVM, CostDisks, CostNET.........
+        /// Defines the CostVM, CostDisks, CostNET..........
         /// </summary>
         internal double CostVM, CostDisks, CostNET;
 
@@ -143,6 +145,9 @@ namespace AzVMMonitorV2
         /// </summary>
         internal bool IsOkay = false;
 
+        /// <summary>
+        /// Defines the IsOkay_.
+        /// </summary>
         internal bool IsOkay_ = false;
 
         /// <summary>
@@ -150,6 +155,9 @@ namespace AzVMMonitorV2
         /// </summary>
         internal List<VMHelper> ItemsVM = new List<VMHelper>();
 
+        /// <summary>
+        /// Defines the ItemsSS.
+        /// </summary>
         internal List<SSHelper> ItemsSS = new List<SSHelper>();
 
         /// <summary>
@@ -157,6 +165,9 @@ namespace AzVMMonitorV2
         /// </summary>
         internal VMHelper SelectedVM;
 
+        /// <summary>
+        /// Defines the SelectedSS.
+        /// </summary>
         internal SSHelper SelectedSS;
 
         /// <summary>
@@ -419,13 +430,13 @@ namespace AzVMMonitorV2
         {
             LabelVMName.Background = Brushes.Red;
             LabelVMSize.Background = Brushes.Orange;
-            LabelVMState.Background = Brushes.Yellow;
+
             LabelVMPublicIP.Background = Brushes.Green;
 
             LabelVMName.Text = "No conenction to AZURE, Enter credential data!";
             LabelVMSize.Text = "No conenction to AZURE, Enter credential data!";
             LabelVMWasCreated.Text = "No conenction to AZURE, Enter credential data!";
-            LabelVMState.Text = "No conenction to AZURE, Enter credential data!";
+
             LabelVMPublicIP.Text = "No conenction to AZURE, Enter credential data!";
 
             ConfigurationWindow confWindow = new ConfigurationWindow();
@@ -433,12 +444,12 @@ namespace AzVMMonitorV2
 
             LabelVMName.Background = Brushes.LightGreen;
             LabelVMSize.Background = Brushes.LightGreen;
-            LabelVMState.Background = Brushes.LightGreen;
+
             LabelVMPublicIP.Background = Brushes.LightGreen;
 
             LabelVMName.Text = "Please restart the application";
             LabelVMSize.Text = "Please restart the application";
-            LabelVMState.Text = "Please restart the application";
+
             LabelVMPublicIP.Text = "Please restart the application";
         }
 
@@ -516,9 +527,11 @@ namespace AzVMMonitorV2
             }
         }
 
+        /// <summary>
+        /// The GetVMSSData.
+        /// </summary>
         public void GetVMSSData()
         {
-            Console.WriteLine("You called me");
             ItemsSS.Clear();
 
             try
@@ -540,12 +553,29 @@ namespace AzVMMonitorV2
                     }
                 }
 
-                IsOkay_ = true;
+                IsOkay = true;
                 _logger.Info("Retrieving Snapshots data was a success");
             }
             catch (Exception ex)
             {
-                IsOkay_ = false;
+                IsOkay = false;
+                _logger.Error(ex, "Trouble with retrive data about Snapshots");
+            }
+        }
+
+        /// <summary>
+        /// The UpdateVMDescriptionTag.
+        /// </summary>
+        public void UpdateVMDescriptionTag()
+        {
+            try
+            {
+                SelectedVM.VMCurrent.Update().WithTag(SelectedVM.VMName, LabelVMDescription.Text).Apply();
+                IsOkay = true;
+            }
+            catch (Exception ex)
+            {
+                IsOkay = false;
                 _logger.Error(ex, "Trouble with retrive data about Snapshots");
             }
         }
@@ -659,6 +689,49 @@ namespace AzVMMonitorV2
             LabelLastUpdate.Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             //
             UnlockLockUI(true);
+        }
+
+        //взаимодействие с закладками у Tab-а
+        /// <summary>
+        /// The MainTab_SelectionChanged.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="SelectionChangedEventArgs"/>.</param>
+        private void MainTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = sender as TabControl;
+            var selectedTab = item.SelectedItem as TabItem;
+
+            if (selectedTab.Name == "TabVMData")
+            {
+            }
+            else if (selectedTab.Name == "TabSnapshotData")
+            {
+                var taskRefreshData = Task.Run(() =>
+                {
+                    GetVMSSData();
+                });
+
+                taskRefreshData.ContinueWith((t) =>
+                {
+                    Dispatcher.Invoke(() =>
+                    {
+                        if (IsOkay == true)
+                        {
+                            ListOfVMSnapshots.ItemsSource = ItemsSS;
+                        }
+                        else
+                        {
+                            //реакция на случае, если, что-то пошло не так походу обращения к Azure
+                            ConnectionToAzureHasTrouble();
+                        }
+                    });
+                });
+            }
+            else if (selectedTab.Name == "TabFinanceData")
+            {
+                GetFinData();
+            }
         }
 
         /// <summary>
@@ -850,7 +923,6 @@ namespace AzVMMonitorV2
             var taskRefreshData = Task.Run(() =>
             {
                 GetVMData();
-
             });
 
             taskRefreshData.ContinueWith((t) =>
@@ -887,6 +959,54 @@ namespace AzVMMonitorV2
         }
 
         /// <summary>
+        /// The ButtonMakeSnapshot_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
+        private void ButtonMakeSnapshot_Click(object sender, RoutedEventArgs e)
+        {
+            //CreateNewSnapshot newSnapshot = new CreateNewSnapshot(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMOsDiskID, AzureCred);
+            //newSnapshot.ShowDialog();
+        }
+
+        /// <summary>
+        /// The ButtonDeleteSnapshot_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
+        private async void ButtonDeleteSnapshot_Click(object sender, RoutedEventArgs e)
+        {
+            var taskDeleteSnapshot = SSHelper.DeleteSnapshotForVMDisk(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, SelectedSS.SSName);
+            await taskDeleteSnapshot;
+            //
+            ListOfVMSnapshots.ItemsSource = null;
+            GetVMSSData();
+        }
+
+        /// <summary>
+        /// The ButtonOpenAzurePortal_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
+        private void ButtonOpenAzurePortal_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://portal.azure.com/#@/resource/subscriptions/" + AzureSubscriptionID + "/resourceGroups/" + SelectedVM.VMGroupName + "/providers/Microsoft.Compute/virtualMachines/" + SelectedVM.VMCurrent.Name + "/overview");
+        }
+
+        /// <summary>
+        /// The ButtonProvideAccess_Click.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
+        private void ButtonProvideAccess_Click(object sender, RoutedEventArgs e)
+        {
+            INetworkInterface nic = SelectedVM.VMCurrent.GetPrimaryNetworkInterface();
+            string Nsg = nic.GetNetworkSecurityGroup().Name.ToString();
+            SetNetworkRuleWindow setNGSWindow = new SetNetworkRuleWindow(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, Nsg, OpenPorts);
+            setNGSWindow.ShowDialog();
+        }
+
+        /// <summary>
         /// The ListOfVM_PreviewMouseLeftButtonUp.
         /// </summary>
         /// <param name="sender">The sender<see cref="object"/>.</param>
@@ -898,8 +1018,8 @@ namespace AzVMMonitorV2
             try
             {
                 vmworkingTime = null;
-                LabelVMStateToolTip.Content = "";
-                LabelVMState.Background = Brushes.White;
+                LabelVMNameToolTip.Content = "";
+                LabelVMName.Background = Brushes.White;
                 //
                 var converterBrush = new System.Windows.Media.BrushConverter();
                 //
@@ -907,9 +1027,11 @@ namespace AzVMMonitorV2
 
                 if (SelectedVM != null)
                 {
+                    //считываем тэг-описание выбранной VM
+                    LabelVMDescription.Text = SelectedVM.VMDescription;
 
-                        //определяем состояние выбранной VM, работает или нет
-                        if (SelectedVM.VMState == "running")
+                    //определяем состояние выбранной VM, работает или нет
+                    if (SelectedVM.VMState == "running")
                     {
                         var client = new TcpClient();
                         if (!client.ConnectAsync(SelectedVM.VMPublicIP, 3389).Wait(500))
@@ -947,37 +1069,37 @@ namespace AzVMMonitorV2
                             DateTime localVMStartTime = utcVMStartTime.ToLocalTime();
                             TimeSpan valueOfWorkinTime = ((TimeSpan)(DateTime.Now - localVMStartTime));
                             //
-                            //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMState
+                            //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMName
                             if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 0.2)
                             {
-                                LabelVMState.Background = Brushes.Aquamarine;
+                                LabelVMName.Background = Brushes.Aquamarine;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
                             }
                             else
                             if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 0.5)
                             {
-                                LabelVMState.Background = Brushes.GreenYellow;
+                                LabelVMName.Background = Brushes.GreenYellow;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else
                             if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 1)
                             {
-                                LabelVMState.Background = Brushes.DarkSeaGreen;
+                                LabelVMName.Background = Brushes.DarkSeaGreen;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 7)
                             {
-                                LabelVMState.Background = Brushes.Gold;
+                                LabelVMName.Background = Brushes.Gold;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 14)
                             {
-                                LabelVMState.Background = Brushes.Orange;
+                                LabelVMName.Background = Brushes.Orange;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 28)
                             {
-                                LabelVMState.Background = Brushes.OrangeRed;
+                                LabelVMName.Background = Brushes.OrangeRed;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString((TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays).ToString(), 4) + " days";
                             }
                         }
@@ -988,37 +1110,37 @@ namespace AzVMMonitorV2
                             DateTime localVMStartTime = utcVMStartTime.ToLocalTime();
                             TimeSpan valueOfWorkinTime = ((TimeSpan)(DateTime.Now - localVMStartTime));
                             //
-                            //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMState
+                            //В зависимости от вреемни работы меняем цветовой фон у поля LabelVMName
                             if ((TimeSpan.FromHours(valueOfWorkinTime.TotalHours)).TotalDays <= 0.2)
                             {
-                                LabelVMState.Background = Brushes.Aquamarine;
+                                LabelVMName.Background = Brushes.Aquamarine;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else
                             if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 0.5)
                             {
-                                LabelVMState.Background = Brushes.GreenYellow;
+                                LabelVMName.Background = Brushes.GreenYellow;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else
                             if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 1)
                             {
-                                LabelVMState.Background = Brushes.DarkSeaGreen;
+                                LabelVMName.Background = Brushes.DarkSeaGreen;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 7)
                             {
-                                LabelVMState.Background = Brushes.Gold;
+                                LabelVMName.Background = Brushes.Gold;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 14)
                             {
-                                LabelVMState.Background = Brushes.Orange;
+                                LabelVMName.Background = Brushes.Orange;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                             else if (TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays <= 28)
                             {
-                                LabelVMState.Background = Brushes.OrangeRed;
+                                LabelVMName.Background = Brushes.OrangeRed;
                                 vmworkingTime = "It Works around: " + SomeHelpers.TruncateString(TimeSpan.FromHours(valueOfWorkinTime.TotalHours).TotalDays.ToString(), 4) + " days";
                             }
                         }
@@ -1042,8 +1164,8 @@ namespace AzVMMonitorV2
                         ButtonMakeSnapshot.IsEnabled = true;
                         //
                         vmworkingTime = null;
-                        LabelVMStateToolTip.Content = "";
-                        LabelVMState.Background = Brushes.White;
+                        LabelVMNameToolTip.Content = "";
+                        LabelVMName.Background = Brushes.White;
                         LabelVMPublicIP.Background = Brushes.White;
                         LabelVMPublicIP.Text = "";
                         ButtonProvideAccess.BorderBrush = (Brush)converterBrush.ConvertFromString("#FF03A9F4");
@@ -1052,9 +1174,8 @@ namespace AzVMMonitorV2
 
                     //Заполяем инфомрационные поля о выбранной VM
                     TabFinanceData.IsEnabled = true;
-                    LabelVMName.Text = SelectedVM.VMName;
+                    LabelVMName.Text = SelectedVM.VMName + " (" + SelectedVM.VMState + ")";
                     LabelVMSize.Text = SelectedVM.VMSize;
-                    LabelVMState.Text = SelectedVM.VMState;
                     //LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
                     IDisk disk = AzureCred.Disks.GetById(SelectedVM.VMOsDiskID);
                     LabelVMWasCreated.Text = disk.Inner.TimeCreated.Value.ToString();
@@ -1063,18 +1184,16 @@ namespace AzVMMonitorV2
                 if (TabVMData.IsFocused)
                 {
                     TabFinanceData.IsEnabled = true;
-                    LabelVMName.Text = SelectedVM.VMName;
+                    LabelVMName.Text = SelectedVM.VMName + " (" + SelectedVM.VMState + ")";
                     LabelVMSize.Text = SelectedVM.VMSize;
-                    LabelVMState.Text = SelectedVM.VMState;
                     LabelVMPublicIP.Text = SelectedVM.VMPublicIP;
                 }
                 else if (TabFinanceData.IsSelected)
                 {
                     GetFinData();
-
-                } else if (TabSnapshotData.IsSelected)
+                }
+                else if (TabSnapshotData.IsSelected)
                 {
-
                     GetVMSSData();
                     ListOfVMSnapshots.ItemsSource = ItemsSS;
                 }
@@ -1097,90 +1216,42 @@ namespace AzVMMonitorV2
         {
         }
 
-
         /// <summary>
-        /// The ButtonOpenAzurePortal_Click.
+        /// The DescFieldEnabledComboBox_Checked.
         /// </summary>
         /// <param name="sender">The sender<see cref="object"/>.</param>
         /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
-        private void ButtonOpenAzurePortal_Click(object sender, RoutedEventArgs e)
+        private void DescFieldEnabledComboBox_Checked(object sender, RoutedEventArgs e)
         {
-            System.Diagnostics.Process.Start("https://portal.azure.com/#@/resource/subscriptions/" + AzureSubscriptionID + "/resourceGroups/" + SelectedVM.VMGroupName + "/providers/Microsoft.Compute/virtualMachines/" + SelectedVM.VMCurrent.Name + "/overview");
         }
 
         /// <summary>
-        /// The ButtonProvideAccess_Click.
+        /// The DescFieldEnabledComboBox_Unchecked.
         /// </summary>
         /// <param name="sender">The sender<see cref="object"/>.</param>
         /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
-        private void ButtonProvideAccess_Click(object sender, RoutedEventArgs e)
+        private void DescFieldEnabledComboBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            INetworkInterface nic = SelectedVM.VMCurrent.GetPrimaryNetworkInterface();
-            string Nsg = nic.GetNetworkSecurityGroup().Name.ToString();
-            SetNetworkRuleWindow setNGSWindow = new SetNetworkRuleWindow(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, Nsg, OpenPorts);
-            setNGSWindow.ShowDialog();
+            SelectedVM.VMCurrent.Update().WithTag(SelectedVM.VMName, LabelVMDescription.Text).ApplyAsync();
         }
 
-        //взаимодействие с закладками у Tab-а
-        private void MainTab_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// The LabelVMName_MouseEnter.
+        /// </summary>
+        /// <param name="sender">The sender<see cref="object"/>.</param>
+        /// <param name="e">The e<see cref="MouseEventArgs"/>.</param>
+        private void LabelVMName_MouseEnter(object sender, MouseEventArgs e)
         {
-            var item = sender as TabControl;
-            var selectedTab = item.SelectedItem as TabItem;
-
-            if (selectedTab.Name == "TabVMData")
+            if (vmworkingTime != null)
             {
-
+                LabelVMNameToolTip.Content = vmworkingTime;
+                LabelVMNameToolTip.Visibility = Visibility.Visible;
             }
-            else if (selectedTab.Name == "TabSnapshotData")
+            else
             {
-
-                var taskRefreshData = Task.Run(() =>
-                {
-                    GetVMSSData();
-                });
-
-                taskRefreshData.ContinueWith((t) =>
-                {
-                    Dispatcher.Invoke(() =>
-                    {
-                        if (IsOkay_ == true)
-                        {
-
-                            ListOfVMSnapshots.ItemsSource = ItemsSS;
-
-                        }
-                        else
-                        {
-                            //реакция на случае, если, что-то пошло не так походу обращения к Azure
-                            ConnectionToAzureHasTrouble();
-                        }
-                    });
-                });
-
-            }
-            else if (selectedTab.Name == "TabFinanceData")
-            {
-                GetFinData();
+                LabelVMNameToolTip.Visibility = Visibility.Hidden;
             }
         }
-
-        private void ButtonMakeSnapshot_Click(object sender, RoutedEventArgs e)
-        {
-            CreateNewSnapshot newSnapshot = new CreateNewSnapshot(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMOsDiskID, AzureCred);
-            newSnapshot.ShowDialog();
-        }
-
-
-        private async void ButtonDeleteSnapshot_Click(object sender, RoutedEventArgs e)
-        {
-            var taskDeleteSnapshot = SSHelper.DeleteSnapshotForVMDisk(AzureTokenRESTAPI, AzureSubscriptionID, SelectedVM.VMGroupName, SelectedSS.SSName);
-            await taskDeleteSnapshot;
-            //
-            ListOfVMSnapshots.ItemsSource = null;
-            GetVMSSData();
-        }
-
-
 
         /// <summary>
         /// The TextBlock_MouseDown.
@@ -1190,25 +1261,6 @@ namespace AzVMMonitorV2
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
         {
             System.Diagnostics.Process.Start("https://portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/costanalysis");
-        }
-
-        /// <summary>
-        /// The LabelVMState_MouseEnter.
-        /// </summary>
-        /// <param name="sender">The sender<see cref="object"/>.</param>
-        /// <param name="e">The e<see cref="MouseEventArgs"/>.</param>
-        /// Всплывающая подсказка про отработанные VM дни
-        private void LabelVMState_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (vmworkingTime != null)
-            {
-                LabelVMStateToolTip.Content = vmworkingTime;
-                LabelVMStateToolTip.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                LabelVMStateToolTip.Visibility = Visibility.Hidden;
-            }
         }
     }
 }

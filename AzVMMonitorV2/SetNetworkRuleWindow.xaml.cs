@@ -27,10 +27,6 @@ namespace AzVMMonitorV2
         [JsonProperty("ip")]
         public string Ip { get; set; }
 
-        /*[JsonProperty("country")]
-        public string Country { get; set; }
-        */
-
         /// <summary>
         /// Gets or sets the country.
         /// </summary>
@@ -44,15 +40,18 @@ namespace AzVMMonitorV2
     public partial class SetNetworkRuleWindow : Window
     {
         //логгер NLog
+        /// <summary>
+        /// Defines the _logger.
+        /// </summary>
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
         /// <summary>
-        /// Defines the AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload.
+        /// Defines the AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload..
         /// </summary>
         private string AzureTokenRESTAPI_, AzureSubscriptionID_, CurrentGroup_, strCurIP, Nsg_, PortsList_, securityRuleName, securityRulePayload;
 
         /// <summary>
-        /// Defines the securityRulePriority_, futureSecurityRulePriority.
+        /// Defines the securityRulePriority_, futureSecurityRulePriority..
         /// </summary>
         private int securityRulePriority_, futureSecurityRulePriority;
 
@@ -146,11 +145,11 @@ namespace AzVMMonitorV2
             //заполянем структуру будущего правила доступа, где IP - ткекущий IP компьютера
             List<string> PortRanges = PortsList_.Split(',').ToList();
             AzVMMonitorNetworkSecurity.NetworkSecurity nsrule = new AzVMMonitorNetworkSecurity.NetworkSecurity();
-            nsrule.properties.sourceAddressPrefix = strCurIP;
-            nsrule.properties.access = "Allow";
-            nsrule.properties.destinationPortRanges = PortRanges;
-            nsrule.properties.destinationAddressPrefix = "*";
-            nsrule.properties.direction = "Inbound";
+            nsrule.Properties.sourceAddressPrefix = strCurIP;
+            nsrule.Properties.access = "Allow";
+            nsrule.Properties.destinationPortRanges = PortRanges;
+            nsrule.Properties.destinationAddressPrefix = "*";
+            nsrule.Properties.direction = "Inbound";
             //
             ProgressDataLoadPanel.Visibility = Visibility.Visible;
             DataPanel.IsEnabled = false;
@@ -160,10 +159,10 @@ namespace AzVMMonitorV2
             securityRulePriority_ = await task2GetNetworkRuleVM;
             //прибавляем к нему 1 и это будет нашим правилом
             futureSecurityRulePriority = securityRulePriority_ + 1;
-            nsrule.properties.priority = futureSecurityRulePriority;
-            nsrule.properties.sourcePortRange = "*";
-            nsrule.properties.protocol = "TCP";
-            nsrule.properties.description = "It was created: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            nsrule.Properties.priority = futureSecurityRulePriority;
+            nsrule.Properties.sourcePortRange = "*";
+            nsrule.Properties.protocol = "TCP";
+            nsrule.Properties.description = "It was created: " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
             securityRulePayload = JsonConvert.SerializeObject(nsrule);
             //
             //Имя для создаваемого правила задается в виде параметра и выглядит как "Access_ИмяРабочейСтанцииГдеЗапущеноПриложение" securityRuleName

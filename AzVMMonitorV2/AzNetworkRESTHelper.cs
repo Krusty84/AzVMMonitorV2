@@ -8,7 +8,25 @@ namespace AzVMMonitorNetworkSecurity
 {
     using System.Collections.Generic;
 
-    //обёртка для будущего json с правилом доступа к VM
+    /// <summary>
+    /// Defines the <see cref="NetworkSecurity" />.
+    /// </summary>
+    public class NetworkSecurity
+    {
+        /// <summary>
+        /// Gets or sets the Properties.
+        /// </summary>
+        public Properties Properties { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="NetworkSecurity"/> class.
+        /// </summary>
+        public NetworkSecurity()
+        {
+            this.Properties = new Properties();
+        }
+    }
+
     /// <summary>
     /// Defines the <see cref="Properties" />.
     /// </summary>
@@ -54,27 +72,10 @@ namespace AzVMMonitorNetworkSecurity
         /// </summary>
         public string direction { get; set; }
 
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
         public string description { get; set; }
-    }
-
-    //обёртка для будущего json с правилом доступа к VM
-    /// <summary>
-    /// Defines the <see cref="NetworkSecurity" />.
-    /// </summary>
-    public class NetworkSecurity
-    {
-        /// <summary>
-        /// Gets or sets the properties.
-        /// </summary>
-        public Properties properties { get; set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="NetworkSecurity"/> class.
-        /// </summary>
-        public NetworkSecurity()
-        {
-            this.properties = new Properties();
-        }
     }
 }
 
@@ -82,46 +83,130 @@ namespace AzVMMonitorExistNetworkSecurity
 {
     using System.Collections.Generic;
 
-    public class Properties
+    /// <summary>
+    /// Defines the <see cref="ExistNetworkSecurity" />.
+    /// </summary>
+    public class ExistNetworkSecurity
     {
-        public string provisioningState { get; set; }
-        public string protocol { get; set; }
-        public string sourcePortRange { get; set; }
-        public string destinationPortRange { get; set; }
-        public string sourceAddressPrefix { get; set; }
-        public string destinationAddressPrefix { get; set; }
-        public string access { get; set; }
-        public int priority { get; set; }
-        public string direction { get; set; }
-        public List<object> sourcePortRanges { get; set; }
-        public List<string> destinationPortRanges { get; set; }
-        public List<string> sourceAddressPrefixes { get; set; }
-        public List<object> destinationAddressPrefixes { get; set; }
-        public string description { get; set; }
+        /// <summary>
+        /// Gets or sets the Value.
+        /// </summary>
+        public List<Value> Value { get; set; }
     }
 
+    /// <summary>
+    /// Defines the <see cref="Value" />.
+    /// </summary>
     public class Value
     {
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
         public string name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
         public string id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the etag.
+        /// </summary>
         public string etag { get; set; }
+
+        /// <summary>
+        /// Gets or sets the type.
+        /// </summary>
         public string type { get; set; }
+
+        /// <summary>
+        /// Gets or sets the properties.
+        /// </summary>
         public Properties properties { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Value"/> class.
+        /// </summary>
         public Value()
         {
             this.properties = new Properties();
         }
     }
 
-    public class ExistNetworkSecurity
+    /// <summary>
+    /// Defines the <see cref="Properties" />.
+    /// </summary>
+    public class Properties
     {
-        public List<Value> value { get; set; }
+        /// <summary>
+        /// Gets or sets the provisioningState.
+        /// </summary>
+        public string provisioningState { get; set; }
 
-        /*public ExistNetworkSecurity()
-        {
-            this.value = new Value();
-        }*/
+        /// <summary>
+        /// Gets or sets the protocol.
+        /// </summary>
+        public string protocol { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sourcePortRange.
+        /// </summary>
+        public string sourcePortRange { get; set; }
+
+        /// <summary>
+        /// Gets or sets the destinationPortRange.
+        /// </summary>
+        public string destinationPortRange { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sourceAddressPrefix.
+        /// </summary>
+        public string sourceAddressPrefix { get; set; }
+
+        /// <summary>
+        /// Gets or sets the destinationAddressPrefix.
+        /// </summary>
+        public string destinationAddressPrefix { get; set; }
+
+        /// <summary>
+        /// Gets or sets the access.
+        /// </summary>
+        public string access { get; set; }
+
+        /// <summary>
+        /// Gets or sets the priority.
+        /// </summary>
+        public int priority { get; set; }
+
+        /// <summary>
+        /// Gets or sets the direction.
+        /// </summary>
+        public string direction { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sourcePortRanges.
+        /// </summary>
+        public List<object> sourcePortRanges { get; set; }
+
+        /// <summary>
+        /// Gets or sets the destinationPortRanges.
+        /// </summary>
+        public List<string> destinationPortRanges { get; set; }
+
+        /// <summary>
+        /// Gets or sets the sourceAddressPrefixes.
+        /// </summary>
+        public List<string> sourceAddressPrefixes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the destinationAddressPrefixes.
+        /// </summary>
+        public List<object> destinationAddressPrefixes { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public string description { get; set; }
     }
 }
 
@@ -140,6 +225,9 @@ namespace AzVMMonitorV2
     internal static class AzNetworkRESTHelper
     {
         //логгер NLog
+        /// <summary>
+        /// Defines the _logger.
+        /// </summary>
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
         /// <summary>
@@ -153,7 +241,6 @@ namespace AzVMMonitorV2
             public static string Response { get; set; }
         }
 
-        //отправка запроса PUT на Azure для установления правила доступа к VM
         /// <summary>
         /// The SetAccessForWorkstation.
         /// </summary>
@@ -188,6 +275,14 @@ namespace AzVMMonitorV2
             }
         }
 
+        /// <summary>
+        /// The GetExistSecurityRule.
+        /// </summary>
+        /// <param name="accesstoken">The accesstoken<see cref="string"/>.</param>
+        /// <param name="subscriptionid">The subscriptionid<see cref="string"/>.</param>
+        /// <param name="groupname">The groupname<see cref="string"/>.</param>
+        /// <param name="nsg">The nsg<see cref="string"/>.</param>
+        /// <returns>The <see cref="Task{int}"/>.</returns>
         public static async Task<int> GetExistSecurityRule(string accesstoken, string subscriptionid, string groupname, string nsg)
         {
             var LatestAllowPriorityNumber = 0;
@@ -207,14 +302,14 @@ namespace AzVMMonitorV2
                 ExistNetworkSecurity ensr = JsonConvert.DeserializeObject<ExistNetworkSecurity>(content.ToString());
                 //Console.WriteLine("Security Rule Number:  " + ensr.value.Count.ToString());
 
-                if (ensr.value.Count == 0)
+                if (ensr.Value.Count == 0)
                 {
                     LatestAllowPriorityNumber = 100;
                 }
                 else
                 {
                     //Console.WriteLine("Latest Priority Number:  " + ensr.value[ensr.value.Count - 1].properties.priority.ToString());
-                    LatestAllowPriorityNumber = ensr.value[ensr.value.Count - 1].properties.priority;
+                    LatestAllowPriorityNumber = ensr.Value[ensr.Value.Count - 1].properties.priority;
                 }
                 _logger.Info("GetExistSecurityRule - ok");
             }

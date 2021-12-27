@@ -74,11 +74,21 @@ namespace AzVMMonitorV2
         /// </summary>
         public IVirtualMachine VMCurrent { get; set; }
 
+        /// <summary>
+        /// Gets or sets the VMNET.
+        /// </summary>
         public INetworkInterface VMNET { get; set; }
 
+        /// <summary>
+        /// Gets or sets the VMInterestUser.
+        /// </summary>
         public string VMInterestUser { get; set; }
 
-        //Класс обёртка для возвращения методов/парамётров из IVirtualMachine
+        /// <summary>
+        /// Gets or sets the VMDescription.
+        /// </summary>
+        public string VMDescription { get; set; }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="VMHelper"/> class.
         /// </summary>
@@ -109,11 +119,17 @@ namespace AzVMMonitorV2
                     VMInterestUser += tag.Key.Remove(0, 8).ToString() + "/";
                 }
             }
+            foreach (var tag in selectedvm.Tags)
+            {
+                if (tag.Key.StartsWith(VMName))
+                {
+                    VMDescription = tag.Value;
+                }
+            }
             //Вернем vm как IVirtualMachine в VMCurrent
             VMCurrent = selectedvm;
         }
 
-        //Переобпредяем метод ToString для возвращения VNName
         /// <summary>
         /// The ToString.
         /// </summary>

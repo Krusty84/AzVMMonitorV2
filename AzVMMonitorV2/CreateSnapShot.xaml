@@ -26,7 +26,6 @@
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="50" />
-
                 </Grid.RowDefinitions>
                 <StackPanel
                     x:Name="ProgressDataLoadPanel"
@@ -155,5 +154,4 @@
             </Grid>
         </Grid>
     </Grid>
-
 </Window>

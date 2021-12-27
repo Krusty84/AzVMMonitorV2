@@ -12,15 +12,20 @@ namespace AzVMMonitorV2
     using System.Net.Http;
     using System.Threading.Tasks;
 
-    //класс обёртка для предоставления информации о SnapShot-е
     /// <summary>
     /// Defines the <see cref="SSHelper" />.
     /// </summary>
     public class SSHelper
     {
         //логгер NLog
+        /// <summary>
+        /// Defines the _logger.
+        /// </summary>
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
+        /// <summary>
+        /// Defines the <see cref="AzureDetails" />.
+        /// </summary>
         public static class AzureDetails
         {
             /// <summary>
@@ -34,6 +39,9 @@ namespace AzVMMonitorV2
         /// </summary>
         public string SSName { get; set; }
 
+        /// <summary>
+        /// Gets or sets the SSGroupName.
+        /// </summary>
         public string SSGroupName { get; set; }
 
         /// <summary>
@@ -41,6 +49,9 @@ namespace AzVMMonitorV2
         /// </summary>
         public string SSTimeCreated { get; set; }
 
+        /// <summary>
+        /// Gets or sets the SSSrcDiskID.
+        /// </summary>
         public string SSSrcDiskID { get; set; }
 
         /// <summary>
@@ -61,7 +72,6 @@ namespace AzVMMonitorV2
             SSGroupName = existsnapshot.ResourceGroupName;
         }
 
-        //создаем Snapshot для основного диска выбранной VM
         /// <summary>
         /// The CreateSnapshotForVMDisk.
         /// </summary>
@@ -76,7 +86,7 @@ namespace AzVMMonitorV2
                 await Task.Delay(5000);
                 IDisk vmDisk = Azure.Disks.GetById(VMOsDiskID);
                 //оставноился тут проблема с SKU
-                Azure.Snapshots.Define(SnapShotName).WithRegion(vmDisk.RegionName).WithExistingResourceGroup(vmDisk.ResourceGroupName).WithDataFromDisk(vmDisk).WithSku(SnapshotSkuType.FromStorageAccountType(Azure.StorageAccounts.).WithIncremental(true).Create();
+                Azure.Snapshots.Define(SnapShotName).WithRegion(vmDisk.RegionName).WithExistingResourceGroup(vmDisk.ResourceGroupName).WithDataFromDisk(vmDisk).WithSku(SnapshotSkuType.StandardLRS).WithIncremental(true).Create();
                 _logger.Info("CreateSnapshotForVMDisk - ok");
             }
             catch (Exception ex)
@@ -85,7 +95,14 @@ namespace AzVMMonitorV2
             }
         }
 
-
+        /// <summary>
+        /// The DeleteSnapshotForVMDisk.
+        /// </summary>
+        /// <param name="accesstoken">The accesstoken<see cref="string"/>.</param>
+        /// <param name="subscriptionid">The subscriptionid<see cref="string"/>.</param>
+        /// <param name="groupname">The groupname<see cref="string"/>.</param>
+        /// <param name="snapshotname">The snapshotname<see cref="string"/>.</param>
+        /// <returns>The <see cref="Task"/>.</returns>
         public static async Task DeleteSnapshotForVMDisk(string accesstoken, string subscriptionid, string groupname, string snapshotname)
         {
             try
@@ -100,7 +117,6 @@ namespace AzVMMonitorV2
                 //ждём ответа.....
                 await Task.Delay(5000);
                 AzureDetails.Response = content.ToString();
-                Console.WriteLine("RESPPPPPP_ " + AzureDetails.Response.ToString());
                 _logger.Info("DeleteSnapshotForVMDisk - ok");
             }
             catch (HttpRequestException ex)
@@ -118,6 +134,5 @@ namespace AzVMMonitorV2
             // return $"Name: {SSName}, __State: {SSState}, __Key: {SSKey}";
             return SSName;
         }
-
     }
 }
