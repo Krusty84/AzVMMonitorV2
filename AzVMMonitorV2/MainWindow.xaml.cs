@@ -281,6 +281,8 @@ namespace AzVMMonitorV2
             ProgressDataLoadPanel.Visibility = Visibility.Hidden;
             TabSnapshotData.IsEnabled = false;
             TabFinanceData.IsEnabled = false;
+            DescFieldEnabledComboBox.Content = "Edit";
+            DescFieldEnabledComboBox.ToolTip = "Click to edit description";
             //считываем паарметры из configuration.xml
             ReadXMLConfig();
             //
@@ -1223,6 +1225,8 @@ namespace AzVMMonitorV2
         /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
         private void DescFieldEnabledComboBox_Checked(object sender, RoutedEventArgs e)
         {
+            DescFieldEnabledComboBox.Content = "Save";
+            DescFieldEnabledComboBox.ToolTip = "Click to save description";
         }
 
         /// <summary>
@@ -1232,6 +1236,8 @@ namespace AzVMMonitorV2
         /// <param name="e">The e<see cref="RoutedEventArgs"/>.</param>
         private void DescFieldEnabledComboBox_Unchecked(object sender, RoutedEventArgs e)
         {
+            DescFieldEnabledComboBox.Content = "Edit";
+            DescFieldEnabledComboBox.ToolTip = "Click to edit description";
             SelectedVM.VMCurrent.Update().WithTag(SelectedVM.VMName, LabelVMDescription.Text).ApplyAsync();
         }
 

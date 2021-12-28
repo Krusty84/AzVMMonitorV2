@@ -23,12 +23,12 @@
             Source="icon_app.ico" />
         <Label
             x:Name="label"
-            Width="125"
+            Width="131"
             Height="25"
             Margin="134,27,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Content="AzVMMonitor 1.1.0"
+            Content="AzVMMonitor 1.1.0.1"
             FontWeight="Bold" />
         <TextBlock Width="101" Margin="292,31,120,167">
             <Hyperlink Click="openLogFile_Click">Open log file</Hyperlink>
